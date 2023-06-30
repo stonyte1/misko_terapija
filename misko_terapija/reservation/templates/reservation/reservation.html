@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ month_name }} {{ year }}</h2>
+  
+<table class="calendar">
+  <thead>
+    <tr>
+      {% for weekday in weekdays %}
+        <th>{{ weekday }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for week in weeks %}
+      <tr>
+        {% for day, day_number in week %}
+          <td>
+            {% if day %}
+              <div class="day">
+                {% for reservation in reservations %}
+                  {% if day|date:'Y-m-d' >= reservation.date_from|date:'Y-m-d' and day|date:'Y-m-d' <= reservation.date_to|date:'Y-m-d' %}
+                    <span class="reservation">{{ day_number }}</span>
+                  {% else %}
+                    <a class="day-number" href="{% url 'reservation_form' %}?date={{ day }}" >{{ day_number }}</a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if prev_month %}
+  <a href="?year={{ prev_month.year }}&month={{ prev_month.month }}" class="prev">&lt; Prev</a>
+{% endif %}
+{% if next_month %}
+  <a href="?year={{ next_month.year }}&month={{ next_month.month }}" class="next">Next &gt;</a>
+{% endif %}
+{% endblock content %}

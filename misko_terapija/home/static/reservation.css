@@ -1,0 +1,75 @@
+h2 {
+    color: white;
+}
+
+table.calendar {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+}
+  
+table.calendar caption {
+font-weight: bold;
+padding: 10px;
+text-align: center;
+}
+
+table.calendar th {
+padding: 10px;
+text-align: center;
+font-weight: bold;
+}
+
+table.calendar td {
+padding: 10px;
+height: 100px;
+vertical-align: top;
+}
+
+table.calendar .day {
+position: relative;
+}
+
+table.calendar .day-number {
+display: block;
+font-weight: bold;
+margin-bottom: 5px;
+}
+
+
+table.calendar a {
+display: block;
+margin-bottom: 5px;
+text-decoration: none;
+color:white;
+}
+
+table.calendar a:hover {
+    color: darkgreen;
+}
+
+.prev,
+.next {
+display: block;
+margin: 10px;
+text-align: center;
+}
+
+.prev {
+float: left;
+color: white;
+}
+
+.next {
+float: right;
+color: white;
+}
+  
+.reservation {
+    color: chartreuse;
+}
+
+.background-block {
+    color: white;
+}
+

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="background-block">
+    <h1 class="title">Reservation</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="id_name">Name:</label>
+            {{ form2.name }}
+        </div>
+        <div>
+            <label for="id_surname">Surname:</label>
+            {{ form2.surname }}
+        </div>
+        <div>
+            <label for="id_email">Email:</label>
+            {{ form2.email }}
+        </div>
+        <div>
+            <label for="id_phone_number">Phone number:</label>
+            {{ form2.phone_number }}
+        </div>
+        <div>
+            <label for="id_date_from">Reserve from:</label>
+            {{ form1.date_from }}
+        </div>
+        <div>
+            <label for="id_date__to">Reserve to:</label>
+            {{ form1.date_to }}
+        </div>
+        <button type="submit">Reserve</button>
+    </form>
+<div>
+
+{% endblock content %}
