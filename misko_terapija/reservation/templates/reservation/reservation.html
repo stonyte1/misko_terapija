@@ -1,42 +1,81 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{ month_name }} {{ year }}</h2>
-  
-<table class="calendar">
-  <thead>
-    <tr>
-      {% for weekday in weekdays %}
-        <th>{{ weekday }}</th>
+<h1>Reservation Form</h1>
+<form method="POST" enctype="multipart/form-data" id="reservation-form">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="check-in">Check-in</label>
+    <input type="text" id="check-in" class="datepicker" placeholder="Select check-in date">
+    <div id="check-in-calendar" class="calendar-popup"></div>
+  </div>
+  <div class="form-group">
+    <label for="check-out">Check-out</label>
+    <input type="text" id="check-out" class="datepicker" placeholder="Select check-out date">
+    <div id="check-out-calendar" class="calendar-popup"></div>
+  </div>
+  <div class="form-group">
+    <label for="house">House</label>
+    <select id="house" name="house">
+      {% for house in houses %}
+      <option value="{{ house.pk }}">{{ house.name }}</option>
       {% endfor %}
-    </tr>
-  </thead>
-  <tbody>
-    {% for week in weeks %}
-      <tr>
-        {% for day, day_number in week %}
-          <td>
-            {% if day %}
-              <div class="day">
-                {% for reservation in reservations %}
-                  {% if day|date:'Y-m-d' >= reservation.date_from|date:'Y-m-d' and day|date:'Y-m-d' <= reservation.date_to|date:'Y-m-d' %}
-                    <span class="reservation">{{ day_number }}</span>
-                  {% else %}
-                    <a class="day-number" href="{% url 'reservation_form' %}?date={{ day }}" >{{ day_number }}</a>
-                  {% endif %}
-                {% endfor %}
-              </div>
-            {% endif %}
-          </td>
-        {% endfor %}
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    </select>
+  </div>
+  <button type="submit">Reserve</button>
+</form>
 
-{% if prev_month %}
-  <a href="?year={{ prev_month.year }}&month={{ prev_month.month }}" class="prev">&lt; Prev</a>
-{% endif %}
-{% if next_month %}
-  <a href="?year={{ next_month.year }}&month={{ next_month.month }}" class="next">Next &gt;</a>
-{% endif %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<script>
+  $(function() {
+    // Function to initialize datepicker for a given input element
+    function initializeDatepicker(inputElement) {
+      inputElement.datepicker({
+        showButtonPanel: true,
+        dateFormat: "yy-mm-dd",
+        minDate: 0, // Restrict past dates
+        beforeShowDay: highlightReservedDates,
+        onSelect: function(dateText) {
+          inputElement.val(dateText);
+          inputElement.datepicker("hide");
+        }
+      });
+    }
+
+    // Initialize datepickers for check-in and check-out inputs
+    initializeDatepicker($("#check-in"));
+    initializeDatepicker($("#check-out"));
+
+    // Get reserved dates from Django view
+    var reservedDates = {{ reserved_dates|safe }};
+
+    function highlightReservedDates(date) {
+      var formattedDate = $.datepicker.formatDate("yy-mm-dd", date);
+      if (reservedDates.indexOf(formattedDate) !== -1) {
+        return [false, "reserved-date"];
+      }
+      return [true, ""];
+    }
+
+    $("#reservation-form").on("submit", function(e) {
+      var checkInDate = $("#check-in").val();
+      var checkOutDate = $("#check-out").val();
+
+      if (checkInDate && checkOutDate) {
+        for (var i = 0; i < reservedDates.length; i++) {
+          var reservedDate = new Date(reservedDates[i]);
+          var startDate = new Date(checkInDate);
+          var endDate = new Date(checkOutDate);
+
+          if (reservedDate >= startDate && reservedDate <= endDate) {
+            e.preventDefault();
+            alert('The chosen interval includes reserved dates. Please select different dates.');
+            break;
+          }
+        }
+      }
+    });
+  });
+
+</script>
 {% endblock content %}

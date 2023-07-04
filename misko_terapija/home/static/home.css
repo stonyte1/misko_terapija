@@ -1,0 +1,104 @@
+.all-houses {
+display: flex;
+flex-wrap: wrap;
+}
+
+.house {
+width: 50%;
+box-sizing: border-box;
+padding: 10px;
+display: flex;
+flex-direction: column;
+}
+
+.house:nth-child(even) {
+text-align: right;
+}
+
+.house-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    background-color: grey;
+    border: 5px solid grey;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 70%;
+}
+
+.house img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 4px;
+}
+
+.house-title {
+text-align: left;
+font-size: x-large;
+margin-bottom: 5px;
+}
+
+.reserve-button {
+    color: white;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 17px;
+    border: 1px solid;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
+    width: 40%;
+    margin-left: auto;
+    text-align: center;
+}
+
+.reserve-button::before,
+.reserve-button::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color);
+    transition: 1s ease;
+}
+
+.reserve-button::before {
+    top: -1em;
+    left: -1em;
+}
+
+.reserve-button::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+.reserve-button:hover::before,
+.reserve-button:hover::after {
+    height: 410px;
+    width: 410px;
+}
+
+.reserve-button:hover {
+color: rgb(10, 25, 30);
+}
+
+.reserve-button:active {
+filter: brightness(.8);
+}
+  
+.image-link {
+    height: 100%;
+}
+

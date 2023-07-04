@@ -1,0 +1,164 @@
+.house-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    background-color: rgba(45, 42, 42, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    color: #ffffff;
+}
+
+.info {
+    width: 50%;
+    margin-left: 30px;
+}
+
+.house-reservation {
+    width: 30%;
+    align-self: flex-start;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: black;
+    display: inline;
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+}
+
+.house-detail-title {
+    display: flex;
+    align-items: center;
+}
+
+.properties {
+    text-align: left;
+}
+
+.more-info {
+    text-align: left;
+}
+
+.line {
+    background-color: black;
+    height: 1px;
+    margin-top: 20px;
+}
+
+.house-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: initial;
+    margin-left: 30px;
+}
+
+.reservation-form {
+    margin-top: 20px;
+    width: 50%;
+    margin-left: 30px;
+    text-align: initial;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.calendar-popup {
+    position: relative;
+}
+
+.calendar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    width: 250px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.calendar.show {
+    display: block;
+}
+
+.calendar .header {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th,
+.calendar td {
+    padding: 8px;
+    text-align: center;
+}
+
+.calendar td {
+    cursor: pointer;
+}
+
+.calendar td:hover {
+    background-color: #f2f2f2;
+}
+
+button[type="submit"] {
+    background-color: #ff5a5f;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #ff3b3f;
+}
+
+.reserved-date {
+    color: #999999;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+.ui-datepicker-calendar .ui-state-default:not(.reserved-date) {
+    color: #ffffff;
+    text-decoration: none;
+}

@@ -1,3 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
+<section class="all-houses">
+    {% for house in houses %}
+        <div class='house'>
+        <h3 class="house-title">{{ house.name }}</h3>
+        <div class="reserve-button">BOOK NOW</div>
+            <div class="house-image">
+                <a class="image-link" href="{% url 'house' house.pk %}">
+                <img src="{{ house.main_image.url }}">
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</section>
 {% endblock content %}

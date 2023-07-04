@@ -1,12 +1,20 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from home.models import House
 from phonenumber_field.modelfields import PhoneNumberField
+
 
 class Reservation(models.Model):
     date_from = models.DateField(_("from"), default=None)
     date_to = models.DateField(_("to"), default=None)
-    
+    house = models.ForeignKey(
+        House, 
+        verbose_name=_("houses"), 
+        on_delete=models.CASCADE,
+        related_name="reservations",
+        default=None
+        )
 
     class Meta:
         verbose_name = _("reservation")

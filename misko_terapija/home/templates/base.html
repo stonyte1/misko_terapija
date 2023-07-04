@@ -7,15 +7,21 @@
     <title>{% block title %}Miško terapija{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'reservation.css' %}">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="{% static 'house_reservation.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     {% block styles %}{% endblock %}
 </head>
 <body>
     <header>
         <nav>
+            <div class="container">
+                <a href="{% url 'reservation' %}" class="button-56">Book Now</a>
+            </div>
+            {% comment %} <a class="book-now" href="{% url 'reservation' %}">Book Now</a> {% endcomment %}
             <ul class="nav-links">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="#">About</a></li>
@@ -56,7 +62,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p> All rights reserved &copy; MiskoTerapija.lt 2023 </p>
+            <p> &copy; 2023 Misko Terapija - All rights reserved  </p>
         </div>
     </footer>    
 </body>

@@ -1,75 +1,102 @@
-h2 {
-    color: white;
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-table.calendar {
-    width: 100%;
-    border-collapse: collapse;
-    color: white;
+form {
+max-width: 500px;
 }
-  
-table.calendar caption {
+
+.form-group {
+margin-bottom: 20px;
+}
+
+label {
 font-weight: bold;
-padding: 10px;
-text-align: center;
+display: block;
+margin-bottom: 5px;
 }
 
-table.calendar th {
+input[type="text"] {
+display: block;
+width: 100%;
 padding: 10px;
-text-align: center;
-font-weight: bold;
+font-size: 16px;
+border-radius: 5px;
+border: 1px solid #ccc;
 }
 
-table.calendar td {
-padding: 10px;
-height: 100px;
-vertical-align: top;
-}
-
-table.calendar .day {
+.calendar-popup {
 position: relative;
 }
 
-table.calendar .day-number {
+.calendar {
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 1000;
+display: none;
+width: 250px;
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.calendar.show {
 display: block;
+}
+
+.calendar .header {
+background-color: #f2f2f2;
+padding: 10px;
+text-align: center;
 font-weight: bold;
-margin-bottom: 5px;
 }
 
-
-table.calendar a {
-display: block;
-margin-bottom: 5px;
-text-decoration: none;
-color:white;
+.calendar table {
+width: 100%;
+border-collapse: collapse;
 }
 
-table.calendar a:hover {
-    color: darkgreen;
-}
-
-.prev,
-.next {
-display: block;
-margin: 10px;
+.calendar th,
+.calendar td {
+padding: 8px;
 text-align: center;
 }
 
-.prev {
-float: left;
-color: white;
+.calendar td {
+cursor: pointer;
 }
 
-.next {
-float: right;
-color: white;
+.calendar td:hover {
+background-color: #f2f2f2;
+}
+
+button[type="submit"] {
+background-color: #ff5a5f;
+color: #fff;
+padding: 10px 20px;
+font-size: 16px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-bottom: 20px;
+}
+
+button[type="submit"]:hover {
+background-color: #ff3b3f;
+}
+
+.reserved-date {
+    color: #999999; 
+    text-decoration: line-through; 
+    cursor: not-allowed; 
+}
+
+.ui-datepicker-calendar .ui-state-default:not(.reserved-date) {
+    color: #ffffff;
+    text-decoration: none;
 }
   
-.reservation {
-    color: chartreuse;
-}
-
-.background-block {
-    color: white;
-}
-
+  

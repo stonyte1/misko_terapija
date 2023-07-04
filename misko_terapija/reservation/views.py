@@ -1,59 +1,67 @@
 from django.shortcuts import render, redirect
-from .models import Reservation
-from django.utils import timezone
-from datetime import date, timedelta
+from .models import Reservation, House
+from datetime import timedelta
 from .forms import ReservationForm, ClientForm
-from calendar import monthrange
 
 
-def reservation_calendar(request):
-    today = timezone.now().date()
-    year = int(request.GET.get('year', today.year))
-    month = int(request.GET.get('month', today.month))
-    month_name = date(year, month, 1).strftime('%B')
-    weeks = []
+def get_reserved_dates():
     reservations = Reservation.objects.all()
+    reserved_dates = []
+    for reservation in reservations:
+        current_date = reservation.date_from
+        while current_date <= reservation.date_to:
+            reserved_dates.append(current_date.strftime("%Y-%m-%d"))
+            current_date += timedelta(days=1)
+    return reserved_dates
 
-    prev_month = date(year, month, 1) - timedelta(days=1)
-    next_month = date(year, month, 1) + timedelta(days=32) 
-    next_month = date(next_month.year, next_month.month, 1) if next_month.month != 1 else None
 
-    for week_start in range(1, monthrange(year, month)[1] + 1, 7):
-        week_end = min(week_start + 6, monthrange(year, month)[1])
-        week = [(date(year, month, day), day) for day in range(week_start, week_end + 1)]
-        weeks.append(week)
+def reservation(request):
+    houses = House.objects.all()
+    reserved_dates = get_reserved_dates()
+
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+
+        if form.is_valid():
+            reservation = form.save()
+            return redirect('reservation')
+        else:
+            print(form.errors)
+    else:
+        form = ReservationForm()
 
     context = {
-        'month_name': month_name,
-        'year': year,
-        'weeks': weeks,
-        'reservations': reservations,
-        'prev_month': prev_month,
-        'next_month': next_month,
-        'weekdays': ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        'form': form,
+        'reserved_dates': reserved_dates,
+        'houses': houses,
     }
-
     return render(request, 'reservation/reservation.html', context)
 
-def reservation_form(request):
-    if request.method == 'POST':
-        form1 = ReservationForm(request.POST)
-        form2 = ClientForm(request.POST)
-        
-        if form1.is_valid() and form2.is_valid():
-            reservation = form1.save()
-            client = form2.save(commit=False)
-            client.reservation = reservation
-            client.save()
-            return redirect('reservation') 
-        else:
-            print(form1.errors, form2.errors)
-    else:
-        form1 = ReservationForm()
-        form2 = ClientForm()
 
-    context = {
-        'form1': form1,
-        'form2': form2,
-    }
-    return render(request, 'reservation/reservation_form.html', context)
+# def reservation_form(request):
+#     if request.method == 'POST':
+#         form1 = ReservationForm(request.POST)
+#         form2 = ClientForm(request.POST)
+
+#         if form1.is_valid() and form2.is_valid():
+#             reservation = form1.save(commit=False)
+#             reservation.house = form1.cleaned_data['house']
+#             reservation.save()
+
+#             client = form2.save(commit=False)
+#             client.reservation = reservation
+#             client.save()
+
+#             return redirect('reservation')
+#         else:
+#             print(form1.errors, form2.errors)
+#     else:
+#         form1 = ReservationForm()
+#         form2 = ClientForm()
+
+#     context = {
+#         'form1': form1,
+#         'form2': form2,
+#     }
+#     return render(request, 'reservation/reservation_form.html', context)
+
