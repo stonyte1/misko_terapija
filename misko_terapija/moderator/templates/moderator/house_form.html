@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="background-block">
+    <h1 class="form-title">Update house</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="id_name">Name:</label>
+            {{ form.name }}
+        </div>
+        <div>
+            <label for="id_main_image">Main image:</label>
+            {{ form.main_image }}
+        </div>
+        <div>
+            <label for="id_image">Image:</label>
+            {{ form.image }}
+        </div>
+        <div>
+            <label for="id_guests">Guests:</label>
+            {{ form.guests }}
+        </div>
+        <div>
+            <label for="id_beds">Beds:</label>
+            {{ form.beds }}
+        </div>
+        <div>
+            <label for="id_content">Content:</label>
+            {{ form.content }}
+        </div>
+        <button type="submit">Update</button>
+    </form>
+<div>
+{% endblock content %}
