@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block content %}
 <div class="house-box">
     <div class="info">
@@ -19,20 +18,20 @@
     </div>
     <div class="house-reservation">
         <div class="price">
-            Price
+            <p>From</p>
+            <h4>Price</h4>
+            <p>Per night</p>
         </div>
         <div class="reservation-form">
             <form method="POST" enctype="multipart/form-data" id="reservation-form">
                 {% csrf_token %}
                 <input type="hidden" name="pk" value="{{ house.pk }}">
                 <div class="form-group">
-                    <label for="check-in">Check-in</label>
-                    <input type="text" id="check-in" name="date_from" class="datepicker" placeholder="Select check-in date">
+                    <input type="text" id="check-in" name="date_from" class="datepicker" placeholder="Check in">
                     <div id="check-in-calendar" class="calendar-popup"></div>
                 </div>
                 <div class="form-group">
-                    <label for="check-out">Check-out</label>
-                    <input type="text" id="check-out" name="date_to" class="datepicker" placeholder="Select check-out date">
+                    <input type="text" id="check-out" name="date_to" class="datepicker" placeholder="Check out">
                     <div id="check-out-calendar" class="calendar-popup"></div>
                 </div>
                 <input type="hidden" name="house" value="{{ house.pk }}">

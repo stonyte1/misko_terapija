@@ -1,11 +1,18 @@
+h4 {
+    margin: 0;    
+}
+
+p {
+    margin: 0;
+    font-size: medium;
+}
 .house-box {
     display: flex;
-    justify-content: space-between;
     margin-top: 30px;
     background-color: rgba(45, 42, 42, 0.9);
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 90%;
+    width: 60%;
     color: #ffffff;
 }
 
@@ -15,7 +22,7 @@
 }
 
 .house-reservation {
-    width: 30%;
+    width: 39%;
     align-self: flex-start;
     margin-top: 20px;
     background-color: white;
@@ -24,6 +31,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: black;
     display: inline;
+    margin-top: 75px;
+    margin-left: 30px;
 }
 
 .main-image {
@@ -52,7 +61,7 @@
 
 .house-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-betfween;
     margin-top: 30px;
 }
 
@@ -62,6 +71,7 @@
     margin-bottom: 10px;
     text-align: initial;
     margin-left: 30px;
+    margin-top: 20px;
 }
 
 .reservation-form {
@@ -83,7 +93,7 @@ label {
 
 input[type="text"] {
     display: block;
-    width: 100%;
+    width: 230px;
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
