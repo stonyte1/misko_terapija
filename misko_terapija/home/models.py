@@ -3,6 +3,21 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 
+class Image(models.Model):
+
+    
+
+    class Meta:
+        verbose_name = _("image")
+        verbose_name_plural = _("images")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("image_detail", kwargs={"pk": self.pk})
+
+
 class House(models.Model):
     name = models.CharField(_("name"), max_length=250)
     main_image = models.ImageField(_("main_image"), upload_to='house/', blank=True, null=True)
@@ -20,3 +35,4 @@ class House(models.Model):
 
     def get_absolute_url(self):
         return reverse("house_detail", kwargs={"pk": self.pk})
+
