@@ -1,7 +1,7 @@
 from django import forms
-from home.views import House
+from home.models import House
 
-class HouseForm(forms.Form):
+class HouseForm(forms.ModelForm):
     class Meta:
         model = House
         fields = ('name', 'main_image', 'image', 'guests', 'beds', 'content')
