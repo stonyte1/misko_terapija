@@ -4,15 +4,14 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Image(models.Model):
-
+    photo = models.ImageField(_("photo"), upload_to='house/', blank=True, null=True)
     
-
     class Meta:
         verbose_name = _("image")
         verbose_name_plural = _("images")
 
     def __str__(self):
-        return self.name
+        return f'{self.photo}'
 
     def get_absolute_url(self):
         return reverse("image_detail", kwargs={"pk": self.pk})
@@ -21,10 +20,15 @@ class Image(models.Model):
 class House(models.Model):
     name = models.CharField(_("name"), max_length=250)
     main_image = models.ImageField(_("main_image"), upload_to='house/', blank=True, null=True)
-    image = models.ImageField(_("image"), upload_to='house/', blank=True, null=True)
     guests = models.IntegerField(_("guests"))
     beds = models.CharField(_("beds"), max_length=50)
     content = models.TextField(_("content"), blank=True, null=True)
+    images = models.ManyToManyField(
+        Image,
+        verbose_name=_("images"),
+        related_name='houses',
+        blank=True
+    )
 
     class Meta:
         verbose_name = _("house")

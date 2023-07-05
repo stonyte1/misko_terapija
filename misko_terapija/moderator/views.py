@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
-from home.models import House
+from home.models import House, Image
 from .forms import HouseForm
 
 class HouseUpdateView(generic.UpdateView):
@@ -12,8 +12,13 @@ class HouseUpdateView(generic.UpdateView):
 
     def form_valid(self, form):
         house = form.save(commit=False)
-        house.image = self.request.FILES.getlist('images')
         house.save()
+
+        images = self.request.FILES.getlist('images')
+        for image in images:
+            image_obj = Image.objects.create(photo=image)
+            house.images.add(image_obj)
+
         return super().form_valid(form)
 
     def get_form_kwargs(self):
@@ -25,3 +30,4 @@ class HouseUpdateView(generic.UpdateView):
         queryset = self.get_queryset()
         obj = get_object_or_404(queryset, pk=self.kwargs['pk'])
         return obj
+
