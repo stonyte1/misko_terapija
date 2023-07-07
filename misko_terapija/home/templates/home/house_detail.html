@@ -26,7 +26,7 @@
     <div class="house-reservation">
         <div class="price">
             <p>From</p>
-            <h4>Price</h4>
+            <h4>{{ house.price }}</h4>
             <p>Per night</p>
         </div>
         <div class="reservation-form">
@@ -42,7 +42,7 @@
                     <div id="check-out-calendar" class="calendar-popup"></div>
                 </div>
                 <input type="hidden" name="house" value="{{ house.pk }}">
-                <button type="submit">Reserve</button>
+                <button type="submit" id="reservation-button">Reserve Now</button>
             </form>
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
