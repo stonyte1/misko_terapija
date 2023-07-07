@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('reservation/', include('reservation.urls')),
     path('moderator/', include('moderator.urls')),
+    path('payment/', include('payment.urls')),
     path('admin/', admin.site.urls),
 ] + (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

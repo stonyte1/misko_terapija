@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.core.validators import EmailValidator
 from django.utils.translation import gettext_lazy as _
 from home.models import House
 from phonenumber_field.modelfields import PhoneNumberField
@@ -28,14 +29,16 @@ class Reservation(models.Model):
 
 class Client(models.Model):
     name = models.CharField(_("name"), max_length=250)
-    surname = models.CharField(_("surname"), max_length=250)
-    email = models.CharField(_("email"), max_length=250)
-    phone_number = PhoneNumberField()
+    # surname = models.CharField(_("surname"), max_length=250)
+    email = models.EmailField(_("email"), validators=[EmailValidator])
+    phone_number = PhoneNumberField(blank=True, null=True)
     reservation = models.ForeignKey(
         Reservation, 
         verbose_name=_("reservation"), 
         on_delete=models.CASCADE,
-        related_name='clients'
+        related_name='clients',
+        blank=True, 
+        null=True
         )
     
     class Meta:
@@ -47,3 +50,4 @@ class Client(models.Model):
 
     def get_absolute_url(self):
         return reverse("client_detail", kwargs={"pk": self.pk})
+

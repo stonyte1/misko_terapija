@@ -5,7 +5,7 @@ from .models import Reservation, Client
 class ClientForm(forms.ModelForm):
     class Meta:
         model = Client
-        fields = ('name', 'surname', 'email', 'phone_number')
+        fields = ('name', 'email', 'phone_number')
 
 
 class ReservationForm(forms.ModelForm):  

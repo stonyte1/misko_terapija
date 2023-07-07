@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from . import local_settings
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,6 +37,7 @@ INSTALLED_APPS = [
     'home',
     'reservation',
     'moderator',
+    'payment',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,3 +131,10 @@ MEDIA_ROOT = BASE_DIR.joinpath('media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STRIPE_PUBLIC_KEY_TEST = 'pk_test_51NR7OrAm2gvR3w6xPWwtJdwQ9ThJOswBre2u2xjZjjLi6iNQBvtnyQzpiKPTB7DOOXiTdz8pRSZVAr7EZcV5zA2w00hdJiKUVc'
+STRIPE_SECRET_KEY_TEST = local_settings.STRIPE_SECRET_KEY_TEST
+STRIPE_WEBHOOK_SECRET_TEST = os.getenv('STRIPE_WEBHOOK_SECRET_TEST')
+PRODUCT_PRICE = 'price_1NR98fAm2gvR3w6xzeTGklNn'
+
+REDIRECT_DOMAIN = 'http://127.0.0.1:8000'
