@@ -59,11 +59,6 @@ p {
     margin-top: 20px;
 }
 
-.house-box {
-    display: flex;
-    justify-content: space-betfween;
-    margin-top: 30px;
-}
 
 .price {
     font-size: 24px;
@@ -172,3 +167,18 @@ button[type="submit"]:hover {
     color: #ffffff;
     text-decoration: none;
 }
+
+/* .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+}
+  
+.gallery-item {
+    width: 100%;
+}
+  
+.gallery-item img {
+    width: 100%;
+    height: auto;
+} */
+  

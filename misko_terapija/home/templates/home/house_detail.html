@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="house-box">
-    <div class="info">
+    {% comment %} <div class="info">
         <h2 class="house-detail-title">{{ house.name }}</h2>
         <img class="main-image" src="{{ house.main_image.url }}">
         <div class="properties">
@@ -14,8 +14,15 @@
         <div class="more-info">
             <h3>More info:</h3>
             <p>{{ house.content }}</p>
-        </div>
-    </div>
+        </div> {% endcomment %}
+        <div class="gallery-container">
+            {% for image in house.images.all %}
+            <div class="gallery-item">
+                <img src="{{ image.photo.url }}">
+            </div>
+            {% endfor %}
+        </div> 
+    {% comment %} </div>
     <div class="house-reservation">
         <div class="price">
             <p>From</p>
@@ -96,5 +103,5 @@
             </script>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 {% endblock content %}

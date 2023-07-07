@@ -36,32 +36,3 @@ def reservation(request):
         'houses': houses,
     }
     return render(request, 'reservation/reservation.html', context)
-
-
-# def reservation_form(request):
-#     if request.method == 'POST':
-#         form1 = ReservationForm(request.POST)
-#         form2 = ClientForm(request.POST)
-
-#         if form1.is_valid() and form2.is_valid():
-#             reservation = form1.save(commit=False)
-#             reservation.house = form1.cleaned_data['house']
-#             reservation.save()
-
-#             client = form2.save(commit=False)
-#             client.reservation = reservation
-#             client.save()
-
-#             return redirect('reservation')
-#         else:
-#             print(form1.errors, form2.errors)
-#     else:
-#         form1 = ReservationForm()
-#         form2 = ClientForm()
-
-#     context = {
-#         'form1': form1,
-#         'form2': form2,
-#     }
-#     return render(request, 'reservation/reservation_form.html', context)
-

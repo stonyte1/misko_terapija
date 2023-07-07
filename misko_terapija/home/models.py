@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 class Image(models.Model):
     photo = models.ImageField(_("photo"), upload_to='house/', blank=True, null=True)
     
+
     class Meta:
         verbose_name = _("image")
         verbose_name_plural = _("images")
@@ -27,6 +28,7 @@ class House(models.Model):
         Image,
         verbose_name=_("images"),
         related_name='houses',
+        related_query_name='house',
         blank=True
     )
 
