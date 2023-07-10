@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render
 from django.conf import settings
 from .models import UserPayment
-from reservation.models import Client, Reservation
+from reservation.models import Client
 import stripe
 import time
 from django.http import HttpResponse

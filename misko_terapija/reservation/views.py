@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
 from .models import Reservation, House
 from datetime import timedelta
-from .forms import ReservationForm, ClientForm
+from .forms import ReservationForm
 
 
-def get_reserved_dates():
-    reservations = Reservation.objects.all()
+def get_reserved_dates(pk, one_house):
+    if one_house == True:
+        reservations = Reservation.objects.filter(house_id=pk)
+    elif one_house == False:
+        reservations = Reservation.objects.all()
     reserved_dates = []
     for reservation in reservations:
         current_date = reservation.date_from

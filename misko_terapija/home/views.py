@@ -9,7 +9,7 @@ from django.conf import settings
 
 def reservation_create(request, pk):
     house = get_object_or_404(House, pk=pk)
-    reserved_dates = get_reserved_dates()
+    reserved_dates = get_reserved_dates(pk, one_house=True)
 
     if request.method == 'POST':
         form = ReservationForm(request.POST)
