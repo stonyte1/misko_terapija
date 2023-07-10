@@ -102,3 +102,20 @@ filter: brightness(.8);
     height: 100%;
 }
 
+.fas-album {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    align-items: flex-end;
+    align-items: right;
+    font-weight: 400;
+    font-size: 25px;
+    color: white;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 500;
+    transition: font-size 0.3s;
+}

@@ -19,7 +19,9 @@
     <label for="house">House</label>
     {% for house in houses %}
       <div class="house">
+        <a href="{% url 'house' house.pk %}">
         <img src="{{ house.main_image.url }}">
+        </a>
       </div>
     {% endfor %}
   </div>
@@ -28,7 +30,9 @@
     <label for="house">House</label>
     {% for house in available_houses %}
       <div class="house">
+      <a href="{% url 'house' house.pk %}">
         <img src="{{ house.main_image.url }}">
+      </a>
       </div>
     {% endfor %}
   </div>

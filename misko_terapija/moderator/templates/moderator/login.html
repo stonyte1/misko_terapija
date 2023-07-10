@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="background-block">
+    {% if user.is_authenticated == False %}
+    <div class="login">
+        <h2 class="login-heading">Login</h2>
+        <form class="login-form" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="login-button" type="submit">Login</button>
+        </form>
+    </div>
+    {% else %}
+    <div class="logout">
+        
+            <h3>You are logged in as {{ user.username }}</h3>
+            <form class="logout-form" action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button class="logout-button" type="submit">Logout</button>
+            </form>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}
