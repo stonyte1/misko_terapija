@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.HouseListView.as_view(), name='home'),
-    path('<int:pk>/', views.reservation_create, name='house'),
 ]
 
 
