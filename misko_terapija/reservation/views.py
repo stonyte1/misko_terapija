@@ -1,16 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.db.models import Q
 from .models import Reservation, House
 from .forms import ReservationForm
-from datetime import timedelta
+from datetime import timedelta, datetime
 import stripe
 from django.conf import settings
+from collections import Counter
 
 
-def get_reserved_dates(pk, one_house):
-    if one_house == True:
-        reservations = Reservation.objects.filter(house_id=pk)
-    elif one_house == False:
-        reservations = Reservation.objects.all()
+def get_reserved_dates(pk):
+    reservations = Reservation.objects.filter(house_id=pk)
     reserved_dates = []
     for reservation in reservations:
         current_date = reservation.date_from
@@ -21,7 +20,7 @@ def get_reserved_dates(pk, one_house):
 
 def reservation_create(request, pk):
     house = get_object_or_404(House, pk=pk)
-    reserved_dates = get_reserved_dates(pk, one_house=True)
+    reserved_dates = get_reserved_dates(pk)
 
     if request.method == 'POST':
         form = ReservationForm(request.POST)
@@ -75,13 +74,43 @@ def reservation_create(request, pk):
     }
     return render(request, 'reservation/house_detail.html', context)
 
+def get_all_reserved_date(houses):
+    all_reserved_dates = []
+    for house in houses:
+        reserved_dates = get_reserved_dates(house.id)
+        all_reserved_dates.extend(reserved_dates)
+    all_house_reserved = [item for item, count in Counter(all_reserved_dates).items() if count > 1]
 
-def reservation(request):
+    return all_house_reserved
+
+
+def reservation_filter(request):
     houses = House.objects.all()
-    reserved_dates = get_reserved_dates(pk=None, one_house=False)
+    reserved_dates = get_all_reserved_date(houses)
+    available_houses = None
+    
+
+    if request.method == 'POST':
+        check_in_date = request.POST.get('check-in')
+        check_out_date = request.POST.get('check-out')
+        available_houses = []
+
+        if check_in_date and check_out_date:
+            for house in houses:
+                booked_dates = get_reserved_dates(house.id)
+                is_available = True
+                for date in booked_dates:
+                    if check_in_date <= date <= check_out_date:
+                        is_available = False
+                        break
+
+                if is_available:
+                    available_houses.append(house)
 
     context = {
         'reserved_dates': reserved_dates,
         'houses': houses,
+        'available_houses': available_houses,
     }
     return render(request, 'reservation/reservation.html', context)
+

@@ -5,23 +5,36 @@
   {% csrf_token %}
   <div class="form-group">
     <label for="check-in">Check-in</label>
-    <input type="text" id="check-in" class="datepicker" placeholder="Select check-in date">
+    <input type="text" id="check-in" class="datepicker" name="check-in" placeholder="Select check-in date">
     <div id="check-in-calendar" class="calendar-popup"></div>
   </div>
   <div class="form-group">
     <label for="check-out">Check-out</label>
-    <input type="text" id="check-out" class="datepicker" placeholder="Select check-out date">
+    <input type="text" id="check-out" class="datepicker" name="check-out" placeholder="Select check-out date">
     <div id="check-out-calendar" class="calendar-popup"></div>
   </div>
+  <button type="submit">Search House</button>
+  {% if available_houses == None %}
   <div class="form-group">
     <label for="house">House</label>
-    <select id="house" name="house">
-      {% for house in houses %}
-      <option value="{{ house.pk }}">{{ house.name }}</option>
-      {% endfor %}
-    </select>
+    {% for house in houses %}
+      <div class="house">
+        <img src="{{ house.main_image.url }}">
+      </div>
+    {% endfor %}
   </div>
-  <button type="submit">Reserve</button>
+  {% elif available_houses%}
+  <div class="form-group">
+    <label for="house">House</label>
+    {% for house in available_houses %}
+      <div class="house">
+        <img src="{{ house.main_image.url }}">
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  There are no houses available on these dates.
+{% endif %}
 </form>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -66,12 +79,6 @@
           var reservedDate = new Date(reservedDates[i]);
           var startDate = new Date(checkInDate);
           var endDate = new Date(checkOutDate);
-
-          if (reservedDate >= startDate && reservedDate <= endDate) {
-            e.preventDefault();
-            alert('The chosen interval includes reserved dates. Please select different dates.');
-            break;
-          }
         }
       }
     });
