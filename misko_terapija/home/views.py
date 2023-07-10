@@ -16,7 +16,6 @@ def reservation_create(request, pk):
         if form.is_valid():
             reservation = form.save(commit=False)
             reservation.house = house
-            reservation.save()
 
             # Get the house price
             house_price = house.price  # Assuming the price is stored in the 'price' field of the House model
@@ -46,6 +45,7 @@ def reservation_create(request, pk):
                         'reservation_id': reservation.id  # Pass the reservation ID as metadata
                     }
                 )
+                reservation.save()
                 return redirect(checkout_session.url, code=303)
             except stripe.error.StripeError as e:
                 # Handle any Stripe errors

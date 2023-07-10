@@ -8,25 +8,6 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 
-def product_page(request):
-    stripe.api_key = settings.STRIPE_SECRET_KEY_TEST
-    if request.method == 'POST':
-        checkout_session = stripe.checkout.Session.create(
-            payment_method_types = ['card'],
-            line_items = [
-                {
-                    'price': settings.PRODUCT_PRICE,
-                    'quantity': 1,
-                }
-            ],
-            mode = 'payment',
-            customer_creation = 'always',
-            success_url = settings.REDIRECT_DOMAIN + '/payment/payment_successful?session_id={CHECKOUT_SESSION_ID}',
-            cancel_url = settings.REDIRECT_DOMAIN + '/payment/payment_cancelled',
-        )
-        return redirect(checkout_session.url, code=303)
-    return render(request, 'payment/product_page.html')
-
 def payment_successful(request):
     stripe_api_key = settings.STRIPE_SECRET_KEY_TEST
     checkout_session_id = request.GET.get('session_id', None)
@@ -38,10 +19,8 @@ def payment_successful(request):
 
     # Update the client's information with the data from the payment
     client.name = customer.name
-    # client.surname = customer.surname
     client.email = customer.email
     client.phone_number = customer.phone
-    # client.reservation = get_object_or_404(Reservation, id=session.metadata['reservation_id'])
     client.save()
 
     return render(request, 'payment/payment_successful.html', {'customer': customer})
