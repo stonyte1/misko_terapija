@@ -6,6 +6,7 @@ from django.views import generic
 from home.models import House, Image
 from .forms import HouseForm, LoginForm
 
+
 class HouseUpdateView(generic.UpdateView, LoginRequiredMixin):
     model = House
     template_name = 'moderator/house_form.html'

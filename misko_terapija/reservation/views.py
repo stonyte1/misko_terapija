@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from .models import Reservation, House
 from .forms import ReservationForm
-from datetime import timedelta, datetime
+from datetime import timedelta, date
 import stripe
 from django.conf import settings
 from collections import Counter
@@ -27,9 +27,7 @@ def reservation_create(request, pk):
         if form.is_valid():
             reservation = form.save(commit=False)
             reservation.house = house
-
-            # Get the house price
-            house_price = house.price  # Assuming the price is stored in the 'price' field of the House model
+            quantity = (reservation.date_to - reservation.date_from).days
 
             # Create the payment session and redirect to the payment page
             stripe.api_key = settings.STRIPE_SECRET_KEY_TEST
@@ -45,18 +43,19 @@ def reservation_create(request, pk):
                                     'name': house.name,  # Set the product name to the house name
                                 },
                             },
-                            'quantity': 1,
+                            'quantity': quantity,
                         }
                     ],
                     mode='payment',
                     customer_creation='always',
-                    success_url=settings.REDIRECT_DOMAIN + f'/payment/product_page?session_id={{CHECKOUT_SESSION_ID}}',
+                    success_url=settings.REDIRECT_DOMAIN + f'/payment/payment_successful?session_id={{CHECKOUT_SESSION_ID}}',
                     cancel_url=settings.REDIRECT_DOMAIN + '/payment/payment_cancelled',
                     metadata={
-                        'reservation_id': reservation.id  # Pass the reservation ID as metadata
+                        'house_id': house.id,
+                        'date_from': reservation.date_from,
+                        'date_to': reservation.date_to
                     }
                 )
-                reservation.save()
                 return redirect(checkout_session.url, code=303)
             except stripe.error.StripeError as e:
                 # Handle any Stripe errors
@@ -64,8 +63,10 @@ def reservation_create(request, pk):
                 return redirect('payment_error')  # Replace 'payment_error' with the appropriate error handling view or URL
         else:
             print(form.errors)
+
     else:
         form = ReservationForm(initial={'house': house})
+
 
     context = {
         'form': form,
@@ -83,13 +84,11 @@ def get_all_reserved_date(houses):
 
     return all_house_reserved
 
-
 def reservation_filter(request):
     houses = House.objects.all()
     reserved_dates = get_all_reserved_date(houses)
     available_houses = None
     
-
     if request.method == 'POST':
         check_in_date = request.POST.get('check-in')
         check_out_date = request.POST.get('check-out')
@@ -113,4 +112,3 @@ def reservation_filter(request):
         'available_houses': available_houses,
     }
     return render(request, 'reservation/reservation.html', context)
-
