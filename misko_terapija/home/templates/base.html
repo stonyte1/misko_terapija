@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{% static 'reservation.css' %}">
     <link rel="stylesheet" href="{% static 'home.css' %}">
     <link rel="stylesheet" href="{% static 'house_reservation.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 </head>
@@ -19,9 +18,6 @@
             <div class="logo">
                 <img src="static/home/image/forest.png">
             </div>
-            {% comment %} <div class="container">
-                <a href="{% url 'reservation_filter' %}" class="button-56">Book Now</a>
-            </div> {% endcomment %}
             <ul class="nav-links">
                 <li><a href="#">Galerija</a></li>
                 <li><a href="{% url 'reservation_filter' %}">Apie Namelius</a></li>
@@ -33,12 +29,6 @@
                 </div>
                 <div class="number">+37066763845</div>
             </div>
-
-            {% comment %} <div class="social-media-icons">
-                <a href="https://www.facebook.com/miskoterapija.lt" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="mailto: misko.terapijai@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
-                <a href="https://www.instagram.com/misko__terapija/" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>             {% endcomment %}
         </nav>
     </header>
     <main>
@@ -53,31 +43,42 @@
             </div>
             <div class="info">
                 <div class="location">
-                    
+                    <img src="static/home/image/pin_drop.png">
+                    <div class="adress">
+                        <p>Miško terapija</p>
+                        <p>Žukonys</p>
+                        <p>Varėna, 65248,</p>
+                        <p>Lietuva</p>
+                    </div>
+                </div>
+                <div class="social">
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/miskoterapija.lt">
+                        <img src="static/home/image/facebook.png">
+                        </a>
+                        <p>Facebook</p>
+                    </div>
+                    <div class="social-media">
+                        <a href="https://www.instagram.com/misko__terapija/">
+                        <img src="static/home/image/instagram.png">
+                        </a>
+                        <p>Instagram</p>
+                    </div>
+                    <div class="social-media">
+                        <img src="static/home/image/call.png">
+                        <p>+37066763845</p>
+                    </div>
+                    <div class="social-media">
+                        <a href="mailto: misko.terapijai@gmail.com">
+                        <img src="static/home/image/mail.png">
+                        </a>
+                        <p>misko.terapijai@gmail.com</p>
+                    </div>
                 </div>
             </div>
-
-            {% comment %} <div class="footer-column">
-                <h3>Find Us</h3>
-                <div id="map" class="map-container">
-                    <iframe
-                        src="https://goo.gl/maps/hKvNTVcg1Ni4T4Ho8"
-                        allowfullscreen=""
-                        loading="lazy"
-                    ></iframe>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h3>Contact Information</h3>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Address: Žukonys, Varėna, Lithuania, 65248</li>
-                    <li><i class="fas fa-envelope"></i> Email: misko.terapijai@gmail.com</li>
-                    <li><i class="fas fa-phone"></i> Phone: +123 456 789</li>
-                </ul>
-            </div> {% endcomment %}
         </div>
-        <div class="footer-bottom">
-            <p> &copy; 2023 Misko Terapija - All rights reserved  </p>
+        <div class="rights">
+        <p> &copy; 2023 Miško terapija. Visos teisės saugomos. </p>
         </div>
     </footer>    
 </body>
