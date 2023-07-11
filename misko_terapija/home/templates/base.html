@@ -16,21 +16,29 @@
 <body>
     <header>
         <nav>
-            <div class="container">
-                <a href="{% url 'reservation_filter' %}" class="button-56">Book Now</a>
+            <div class="logo">
+                <img src="static/home/image/forest.png">
             </div>
-            {% comment %} <a class="book-now" href="{% url 'reservation' %}">Book Now</a> {% endcomment %}
+            {% comment %} <div class="container">
+                <a href="{% url 'reservation_filter' %}" class="button-56">Book Now</a>
+            </div> {% endcomment %}
             <ul class="nav-links">
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="{% url 'reservation_filter' %}">Reservation</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Galerija</a></li>
+                <li><a href="{% url 'reservation_filter' %}">Apie Namelius</a></li>
+                <li><a href="#">Kontaktai</a></li>
             </ul>
-            <div class="social-media-icons">
+            <div class="nav-contacts">
+                <div class="reserve-button">
+                <a href="{% url 'reservation_filter' %}">Rezervuoti</a>
+                </div>
+                <div class="number">+37066763845</div>
+            </div>
+
+            {% comment %} <div class="social-media-icons">
                 <a href="https://www.facebook.com/miskoterapija.lt" target="_blank"><i class="fab fa-facebook"></i></a>
                 <a href="mailto: misko.terapijai@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
                 <a href="https://www.instagram.com/misko__terapija/" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>            
+            </div>             {% endcomment %}
         </nav>
     </header>
     <main>
