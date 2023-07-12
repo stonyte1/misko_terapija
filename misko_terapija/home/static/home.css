@@ -216,7 +216,7 @@
     line-height: 150%;
 }
 
-.location {
+.directions {
     display: flex;
     width: 1440px;
     padding: 64px;
@@ -225,7 +225,7 @@
     gap: 24px;
 }
 
-.location h4 {
+.directions h4 {
     color: #FFF;
     font-family: 'PTSans-Regular';
     font-size: 32px;
@@ -234,16 +234,16 @@
     line-height: normal;
 }
 
-.location img {
+/* .directions img {
     width: 1312px;
     height: 500px;
 }
 
-.location a {
+.directions a {
     text-decoration: none;
-}
+} */
 
-.location p {
+.directions p {
     display: flex;
     width: 642px;
     flex-direction: column;
@@ -254,3 +254,9 @@
     font-weight: 400;
     line-height: 150%;
 }
+
+#map {
+    width: 1312px;
+    height: 500px;
+}
+  

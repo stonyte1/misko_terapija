@@ -51,26 +51,10 @@
         </div> 
     </div>
 </div>
-<div class="location">
+<div class="directions">
     <h4>Kaip atvykti?</h4>
-    <a href="https://www.google.com/maps/place/Mi%C5%A1ko+terapija/@54.1569951,24.7463531,17z/data=!3m1!4b1!4m6!3m5!1s0x46de13bcdb6d3cb5:0x2c932439bb0a001d!8m2!3d54.1569951!4d24.748928!16s%2Fg%2F11tbvybslr?entry=ttu">
-        <img src="static/home/image/map.png">
-    </a>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2336.303057654136!2d24.746353076767413!3d54.15699507253552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46de13bcdb6d3cb5%3A0x2c932439bb0a001d!2sMi%C5%A1ko%20terapija!5e0!3m2!1slt!2slt!4v1689167098352!5m2!1slt!2slt" width="1312" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <p>Pasivaikščiojimas miške gali būti galinga priemonė atsipalaiduoti ir atgauti vidinę pusiausvyrą. Jei ieškote vietos, kur galėtumėte susijungti su gamta ir pasimėgauti tyliu ramumu, tai puikus pasirinkimas būtų miško terapijos kabina, esanti netoli Varėnos.
         Ši kabina yra pilna žaliųjų miško tonų ir aplink ją sklinda tyrumo ir ramybės atmosfera. Ji pasižymi šiuolaikišku ir ekologišku dizainu, derinant gamtos elementus su patogumu. Kabina aprūpinta visais reikalingais patogumais, kad jūsų viešnagė būtų patogi ir maloni. Čia rasite jaukią miegamąją, pilnai įrengtą virtuvę ir patogią vonią, kurioje galėsite atsipalaiduoti po ilgo pasivaikščiojimo miške.</p>
 </div>
-
-{% comment %} <section class="all-houses">
-    {% for house in houses %}
-        <div class='house'>
-        <h3 class="house-title">{{ house.name }}</h3>
-        <div class="reserve-button">BOOK NOW</div>
-            <div class="house-image">
-                <a class="image-link" href="{% url 'house' house.pk %}">
-                <img src="{{ house.main_image.url }}">
-                </a>
-            </div>
-        </div>
-    {% endfor %}
-</section> {% endcomment %}
 {% endblock content %}
