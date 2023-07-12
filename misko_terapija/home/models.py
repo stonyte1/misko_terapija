@@ -43,3 +43,19 @@ class House(models.Model):
     def get_absolute_url(self):
         return reverse("house_detail", kwargs={"pk": self.pk})
 
+
+class Review(models.Model):
+    title = models.CharField(_("title"), max_length=250)
+    content = models.TextField(_("content"))
+    client = models.CharField(_("client"), max_length=250)
+    reviewed_at = models.DateField(_("reviewed_at"), auto_now_add=True)
+
+    class Meta:
+        verbose_name = _("review")
+        verbose_name_plural = _("reviews")
+
+    def __str__(self):
+        return f'{self.title} - {self.client}'
+
+    def get_absolute_url(self):
+        return reverse("Review_detail", kwargs={"pk": self.pk})

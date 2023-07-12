@@ -24,6 +24,21 @@
     </div>
 </div>
 <div class="reviews">
+    <div class="reviews-text">
+        <p>Pažiūrėkite, kodėl jums patiks mūsų erdvė</p>
+    </div>
+    <div class="customer-reviews">
+        <div class="review-group">
+            <div class="review">
+                <div class="review-logo">
+                    <img src="static/home/image/music_note.png">
+                </div>
+                {% for review in reviews %}
+                    <h4>{{ review.title }}</h4>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>
 {% comment %} <section class="all-houses">
     {% for house in houses %}
