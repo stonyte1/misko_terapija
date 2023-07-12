@@ -19,29 +19,33 @@
     src: url('/static/fonts/PTSans-Regular.ttf') format('ttf');
 }
 
-html,
+html {
+    width: 1440px;
+}
+
 body {
     font-family: 'PTSans-Regular';
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     background: #112F21;
-    margin: 0;
+    margin: 0 auto;
+    width: 1440px;
 }
 
 header {
-    position: fixed;
     background-color: #112F21;
-    padding: 0;
- 
+    width: 1440px;
+    position: fixed;
+
 }
 
 nav {
     display: flex;
-    width: 1440px;
     padding: 16px 64px;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -129,6 +133,12 @@ nav {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+main {
+    padding: 0;
+    margin: 0;
+    width: 1440px;
 }
 
 footer {

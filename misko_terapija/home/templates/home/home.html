@@ -1,6 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="all-houses">
+<div class="home">
+    <div class="home-title">
+        <h2>Miško terapija</h2>
+        <p>Lėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvimu.</p>
+    </div>
+    <div class="houses">
+        {% for house in houses %}
+        <div class="house">
+            <a href="{% url 'house' house.pk %}">
+            <img src="{{ house.main_image.url }}">
+            </a>
+            <div class="house-name">
+                <h4>{{ house.name }}</h4>
+                <div class="house-reservation-button">
+                <a href="{% url 'house' house.pk %}">
+                    <p>Rezervuoti</p>
+                </a>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="reviews">
+</div>
+{% comment %} <section class="all-houses">
     {% for house in houses %}
         <div class='house'>
         <h3 class="house-title">{{ house.name }}</h3>
@@ -12,5 +37,5 @@
             </div>
         </div>
     {% endfor %}
-</section>
+</section> {% endcomment %}
 {% endblock content %}

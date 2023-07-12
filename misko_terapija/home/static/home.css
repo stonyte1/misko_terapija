@@ -1,3 +1,103 @@
+.home {
+    display: flex;
+    padding: 64px;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    background: #EAE1CD;
+}
+
+.home-title {
+    display: flex;
+    padding: 0px 64px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.home-title h2 {
+    color: #865735;
+    font-family: Ubuntu;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    font-family: 'PTSans-Regular';
+}
+
+.home-title p {
+    color: #865735;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    font-family: 'PTSans-Bold';
+}
+
+.houses {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    align-self: stretch;
+}
+
+.house {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.house a { 
+    text-decoration: none;
+}
+
+.house img {
+    width: 641px;
+    height: 440px;
+}
+
+.house-name {
+    display: flex;
+    width: 641px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.house-name h4 {
+    color: #000;
+    font-family: 'PTSans-Regular';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.house-reservation-button {
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #962A1A;
+}
+
+.house-reservation-button a {
+    text-decoration: none;
+}
+
+.house-reservation-button a p {
+    color: #FFF;
+    font-family: 'PTSans-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+
 /* .all-houses {
 display: flex;
 flex-wrap: wrap;
