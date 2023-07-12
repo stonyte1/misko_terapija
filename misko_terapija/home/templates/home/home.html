@@ -29,17 +29,30 @@
     </div>
     <div class="customer-reviews">
         <div class="review-group">
-            <div class="review">
-                <div class="review-logo">
-                    <img src="static/home/image/music_note.png">
-                </div>
-                {% for review in reviews %}
-                    <h4>{{ review.title }}</h4>
-                {% endfor %}
-            </div>
-        </div>
+            {% for review in reviews %}
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="review-left">
+                        <div class="review-left-logo">
+                            <img src="static/home/image/music_note.png">
+                        </div>
+                        <h4>{{ review.title }}</h4>
+                        <p>{{ review.content }}</p>
+                    </div>
+                {% else %}
+                    <div class="review-right">
+                        <div class="review-right-logo">
+                            <img src="static/home/image/music_note.png">
+                        </div>
+                        <h4>{{ review.title }}</h4>
+                        <p>{{ review.content }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div> 
     </div>
 </div>
+
+
 {% comment %} <section class="all-houses">
     {% for house in houses %}
         <div class='house'>
