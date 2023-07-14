@@ -54,9 +54,10 @@ nav {
     gap: 8px;
 }
 
-.logo .img {
+.logo a {
     width: 48px;
     height: 48px;
+    text-decoration: none;
 }
 
 .nav-links {
@@ -162,6 +163,7 @@ footer {
     display: flex;
     align-items: flex-start;
     gap: 128px;
+    margin-right: 150px;
 }
 
 .location {
@@ -175,6 +177,12 @@ footer {
     height: 24px;
 }
 
+.location a {
+    width: 24px;
+    height: 24px;
+    text-decoration: none;
+}
+
 .adress {
     display: flex;
     flex-direction: column;
@@ -184,11 +192,12 @@ footer {
 
 .adress p {
     color: #FFF;
-    font-family: PT Sans;
+    font-family: 'PTSans-Regular';
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin: 0;
 }
 
 .social {
@@ -210,6 +219,8 @@ footer {
 }
 
 .social-media a {
+    width: 24px;
+    height: 24px;
     text-decoration: none;
 }
 
@@ -220,6 +231,7 @@ footer {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin: 0;
 }
 
 .rights {

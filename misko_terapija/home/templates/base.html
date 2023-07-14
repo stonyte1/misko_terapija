@@ -16,7 +16,9 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="static/home/image/forest.png">
+                <a href="{% url 'home' %}">
+                <img src="{% static 'home/image/forest.png' %}">
+                </a>
             </div>
             <ul class="nav-links">
                 <li><a href="#">Galerija</a></li>
@@ -39,12 +41,14 @@
     <footer>
         <div class="footer-content">
             <div class="logo">
-                <img src="static/home/image/forest_footer.png">
+                <a href="{% url 'home' %}">
+                <img src="{% static 'home/image/forest_footer.png' %}">
+                </a>
             </div>
             <div class="info">
                 <div class="location">
                     <a href="https://goo.gl/maps/hKvNTVcg1Ni4T4Ho8">
-                    <img src="static/home/image/pin_drop.png">
+                    <img src="{% static 'home/image/pin_drop.png' %}">
                     </a>
                     <div class="adress">
                         <p>Miško terapija</p>
@@ -56,23 +60,23 @@
                 <div class="social">
                     <div class="social-media">
                         <a href="https://www.facebook.com/miskoterapija.lt">
-                        <img src="static/home/image/facebook.png">
+                        <img src="{% static 'home/image/facebook.png' %}">
                         </a>
                         <p>Facebook</p>
                     </div>
                     <div class="social-media">
                         <a href="https://www.instagram.com/misko__terapija/">
-                        <img src="static/home/image/instagram.png">
+                        <img src="{% static 'home/image/instagram.png' %}">
                         </a>
                         <p>Instagram</p>
                     </div>
                     <div class="social-media">
-                        <img src="static/home/image/call.png">
+                        <img src="{% static 'home/image/call.png' %}">
                         <p>+37066763845</p>
                     </div>
                     <div class="social-media">
                         <a href="mailto: misko.terapijai@gmail.com">
-                        <img src="static/home/image/mail.png">
+                        <img src="{% static 'home/image/mail.png' %}">
                         </a>
                         <p>misko.terapijai@gmail.com</p>
                     </div>

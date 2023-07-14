@@ -1,4 +1,181 @@
-h4 {
+.house-page {
+    display: flex;
+    width: 1440px;
+    padding: 40px 64px 64px 64px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    background: #EAE1CD;
+} 
+
+.home-arrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.home-arrow a{
+    text-decoration: none;
+}
+
+.home-arrow img {
+    width: 32px;
+    height: 32px;
+}
+
+.home-arrow p {
+    color: #0C2218;
+    font-family: 'PTSans-Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.house-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    align-self: stretch;
+}
+
+.house-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.house-main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+}
+
+.house-main-info h3 {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    color: #0C2218;
+    font-family: 'PTSans-Regular';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.house-main-info p {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    color: #0C2218;
+    font-family: 'PTSans-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.reservation-form {
+    display: flex;
+    width: 417px;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    border: 2px solid #1E5E5F;
+    background: #FFF;
+}
+
+.reservation-form h3 {
+    color: #000;
+    font-family: 'PTSans-Regular';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.reservation-form p {
+    color: #000;
+    font-family: 'PTSans-Regular';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+form {
+    width: 417px;
+}
+
+.form-group {
+    display: flex;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    border: 1px solid var(--gray-300, #C8C8C8);
+    background: var(--text-white, #FFF);
+}
+
+.form-group img {
+    width: 24px;
+    height: 24px;
+}
+
+.form-group input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 0;
+    color: var(--text-dark, #252525);
+    font-family: 'PTSans-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    border: none;
+}
+
+#payment-button {
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #962A1A;
+    margin: 0;
+    font-size: none;
+    border-radius: 0%;
+    cursor: none;
+}
+
+#payment-button p {
+    color: #FFF;
+    font-family: 'PTSans-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+button[type="submit"] {
+    background-color: #ff5a5f;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+    /* h4 {
     margin: 0;    
 }
 
@@ -181,4 +358,4 @@ button[type="submit"]:hover {
     width: 100%;
     height: auto;
 } */
-  
+   */
