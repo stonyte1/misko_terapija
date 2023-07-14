@@ -12,9 +12,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-top: 70px;
 }
 
-.home-arrow a{
+.home-arrow a {
     text-decoration: none;
 }
 
@@ -37,6 +38,7 @@
     align-items: flex-start;
     gap: 30px;
     align-self: stretch;
+    width: 1320px;
 }
 
 .house-info {
@@ -149,9 +151,8 @@ form {
     gap: 10px;
     background: #962A1A;
     margin: 0;
-    font-size: none;
-    border-radius: 0%;
-    cursor: none;
+    border-radius: 0;
+    height: 50px;
 }
 
 #payment-button p {
@@ -164,198 +165,31 @@ form {
 
 }
 
-button[type="submit"] {
-    background-color: #ff5a5f;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-    /* h4 {
-    margin: 0;    
-}
-
-p {
-    margin: 0;
-    font-size: medium;
-}
-.house-box {
+.house-cover {
     display: flex;
-    margin-top: 30px;
-    background-color: rgba(45, 42, 42, 0.9);
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 60%;
-    color: #ffffff;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1 0 0;
+    margin-top: 50px;
 }
 
-.info {
-    width: 50%;
-    margin-left: 30px;
+.house-cover img {
+    height: 583px;
+    align-self: stretch;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(<path-to-image>), lightgray -548.848px -496.279px / 163.451% 240% no-repeat;
+    height: 650px;
+    width: 820px;
 }
 
-.house-reservation {
-    width: 39%;
-    align-self: flex-start;
-    margin-top: 20px;
-    background-color: white;
-    border-radius: 5px;
-    border: solid black;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: black;
-    display: inline;
-    margin-top: 75px;
-    margin-left: 30px;
-}
-
-.main-image {
-    width: 100%;
-    height: auto;
-}
-
-.house-detail-title {
+.house-gallery {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 16px;
 }
 
-.properties {
-    text-align: left;
+.house-gallery img {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(<path-to-image>), lightgray -50.76px -68.1px / 163.451% 240% no-repeat;
 }
-
-.more-info {
-    text-align: left;
-}
-
-.line {
-    background-color: black;
-    height: 1px;
-    margin-top: 20px;
-}
-
-
-.price {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: initial;
-    margin-left: 30px;
-    margin-top: 20px;
-}
-
-.reservation-form {
-    margin-top: 20px;
-    width: 50%;
-    margin-left: 30px;
-    text-align: initial;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"] {
-    display: block;
-    width: 230px;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.calendar-popup {
-    position: relative;
-}
-
-.calendar {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: none;
-    width: 250px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.calendar.show {
-    display: block;
-}
-
-.calendar .header {
-    background-color: #f2f2f2;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.calendar table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.calendar th,
-.calendar td {
-    padding: 8px;
-    text-align: center;
-}
-
-.calendar td {
-    cursor: pointer;
-}
-
-.calendar td:hover {
-    background-color: #f2f2f2;
-}
-
-button[type="submit"] {
-    background-color: #ff5a5f;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-button[type="submit"]:hover {
-    background-color: #ff3b3f;
-}
-
-.reserved-date {
-    color: #999999;
-    text-decoration: line-through;
-    cursor: not-allowed;
-}
-
-.ui-datepicker-calendar .ui-state-default:not(.reserved-date) {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-/* .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-}
-  
-.gallery-item {
-    width: 100%;
-}
-  
-.gallery-item img {
-    width: 100%;
-    height: auto;
-} */
-   */

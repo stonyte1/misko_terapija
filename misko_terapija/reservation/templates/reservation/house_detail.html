@@ -33,9 +33,11 @@
                         <div id="check-out-calendar" class="calendar-popup"></div>
                     </div>
                     <input type="hidden" name="house" value="{{ house.pk }}">
-                    <button type="submit" id="payment-button">
+                    <div class="payment-button">
+                    <button type="submit" id="payment-button" class="payment-button">
                         <p>Rezervuoti</p>
                     </button>
+                </div>
                 </form> 
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
@@ -98,115 +100,12 @@
                 </script>
             </div>
         </div>
-    </div>
-</div>
-    {% comment %} <div class="house-box">
-    {% if user.is_staff %}
-        <a href="{% url 'house_form' house.pk %}"><i class="fas-album">&#xf044;</i></a>
-    {% endif %}
-        <div class="info">
-            <h2 class="house-detail-title">{{ house.name }}</h2>
-            <img class="main-image" src="{{ house.main_image.url }}">
-            <div class="properties">
-                <h3>Properties:</h3>
-                <div class="properties-details">
-                    <span>Accommodates: {{ house.guests }} Beds: {{ house.beds }}</span>
-                </div>
+        <div class="house-cover">
+            <img src="{{ house.main_image.url }}">
+            <div class="house-gallery">
+                <img src="{{ house.main_image.url }}">
             </div>
-            <div class="line"></div>
-            <div class="more-info">
-                <h3>More info:</h3>
-                <p>{{ house.content }}</p>
-            </div> 
-            {% comment %} <div class="gallery-container">
-                {% for image in house.images.all %}
-                <div class="gallery-item">
-                    <img src="{{ image.photo.url }}">
-                </div>
-                {% endfor %}
-            </div>  {% endcomment %}
-        {% comment %} </div>
-        <div class="house-reservation">
-            <div class="price">
-                <p>From</p>
-                <h4>{{ house.price }}</h4>
-                <p>Per night</p>
-            </div>
-            <div class="reservation-form">
-                <form method="POST" enctype="multipart/form-data" id="reservation-form">
-                    {% csrf_token %}
-                    <input type="hidden" name="pk" value="{{ house.pk }}">
-                    <div class="form-group">
-                        <input type="text" id="check-in" name="date_from" class="datepicker" placeholder="Check in">
-                        <div id="check-in-calendar" class="calendar-popup"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="check-out" name="date_to" class="datepicker" placeholder="Check out">
-                        <div id="check-out-calendar" class="calendar-popup"></div>
-                    </div>
-                    <input type="hidden" name="house" value="{{ house.pk }}">
-                    <button type="submit" id="reservation-button">Reserve Now</button>
-                </form> {% endcomment %} 
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-                <script>
-                    function goBack() {
-                        history.go(-1); // Go back one page
-                    }
-                    $(function() {
-                        // Function to initialize datepicker for a given input element
-                        function initializeDatepicker(inputElement) {
-                            inputElement.datepicker({
-                                showButtonPanel: true,
-                                dateFormat: "yy-mm-dd",
-                                minDate: 0, // Restrict past dates
-                                beforeShowDay: highlightReservedDates,
-                                onSelect: function(dateText) {
-                                    inputElement.val(dateText);
-                                    inputElement.datepicker("hide");
-                                }
-                            });
-                        }
-
-                        // Initialize datepickers for check-in and check-out inputs
-                        var checkInInput = $("#check-in");
-                        var checkOutInput = $("#check-out");
-
-                        initializeDatepicker(checkInInput);
-                        initializeDatepicker(checkOutInput);
-
-                        // Get reserved dates from Django view
-                        var reservedDates = {{ reserved_dates|safe }};
-
-                        function highlightReservedDates(date) {
-                            var formattedDate = $.datepicker.formatDate("yy-mm-dd", date);
-                            if (reservedDates.indexOf(formattedDate) !== -1) {
-                                return [false, "reserved-date"];
-                            }
-                            return [true, ""];
-                        }
-
-                        $("#reservation-form").on("submit", function(e) {
-                            var checkInDate = checkInInput.val();
-                            var checkOutDate = checkOutInput.val();
-
-                            if (checkInDate && checkOutDate) {
-                                for (var i = 0; i < reservedDates.length; i++) {
-                                    var reservedDate = new Date(reservedDates[i]);
-                                    var startDate = new Date(checkInDate);
-                                    var endDate = new Date(checkOutDate);
-
-                                    if (reservedDate >= startDate && reservedDate <= endDate) {
-                                        e.preventDefault();
-                                        alert('The chosen interval includes reserved dates. Please select different dates.');
-                                        break;
-                                    }
-                                }
-                            }
-                        });
-                    });
-                </script>
-            </div>
+        </div>
     </div>
 </div>
 {% endblock content %}
