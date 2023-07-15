@@ -19,7 +19,6 @@
     src: url('/static/fonts/PTSans-Regular.ttf') format('ttf');
 }
 
-
 body {
     transform: scale(0.92);
     transform-origin: top left;
