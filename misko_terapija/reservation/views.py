@@ -60,7 +60,7 @@ def reservation_create(request, pk):
             except stripe.error.StripeError as e:
                 # Handle any Stripe errors
                 print(e)
-                return redirect('payment_error')  # Replace 'payment_error' with the appropriate error handling view or URL
+                return redirect('payment_cancelled')  # Replace 'payment_error' with the appropriate error handling view or URL
         else:
             print(form.errors)
 
