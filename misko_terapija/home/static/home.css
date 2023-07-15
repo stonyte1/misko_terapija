@@ -1,5 +1,6 @@
 .home {
     display: flex;
+    width: 1440px;
     padding: 64px;
     flex-direction: column;
     align-items: center;
@@ -17,7 +18,6 @@
 
 .home-title h2 {
     color: #865735;
-    font-family: Ubuntu;
     font-size: 80px;
     font-style: normal;
     font-weight: 500;
@@ -27,7 +27,6 @@
 
 .home-title p {
     color: #865735;
-    font-family: Ubuntu;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -40,6 +39,8 @@
     align-items: flex-start;
     gap: 30px;
     align-self: stretch;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .house {
@@ -47,6 +48,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+    width: 641px;
 }
 
 .house a { 
@@ -104,6 +106,7 @@
     align-items: flex-start;
     gap: 64px;
     background: #112F21;
+    margin-left: 60px;
 }
 
 .reviews-text {
@@ -217,38 +220,4 @@
     line-height: 150%;
 }
 
-.directions {
-    display: flex;
-    width: 1440px;
-    padding: 64px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-}
-
-.directions h4 {
-    color: #FFF;
-    font-family: 'PTSans-Regular';
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
-.directions p {
-    display: flex;
-    width: 642px;
-    flex-direction: column;
-    color: #FFF;
-    font-family: 'PTSans-Regular';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-}
-
-#map {
-    width: 1312px;
-    height: 500px;
-}
   

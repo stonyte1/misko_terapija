@@ -4,7 +4,7 @@
 <div class="house-page">
     <div class="home-arrow">
         <a href="#" onclick="goBack()">
-            <img src="{% static 'home/image/arrow_left_alt.png' %}">
+            <img src="{% static 'reservation/image/arrow_left_alt.png' %}">
         </a>
         <a href="#" onclick="goBack()">
             <p>Grįžti atgal</p>
@@ -104,6 +104,51 @@
             <img src="{{ house.main_image.url }}">
             <div class="house-gallery">
                 <img src="{{ house.main_image.url }}">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="house-information">
+    <div class="information">
+        <div class="about">
+            <h3>Aprašymas</h3>
+            <p>{{ house.content }}</p>
+        </div>
+        <div class="comfort">
+            <h3>Patogumai</h3>
+            <div class="about-comfort">
+                <div class="first-comfort-items">
+                    <div class="comfort-item">
+                        <img src="{% static 'reservation/image/park.png' %}">
+                        <h4>Vaizdas į mišką</h4>
+                    </div>
+                    <div class="comfort-item">
+                        <img src="{% static 'reservation/image/kitchen.png' %}">
+                        <h4>Virtuvėlė</h4>
+                    </div>
+                    <div class="comfort-item">
+                        <img src="{% static 'reservation/image/bath_outdoor.png' %}">
+                        <h4>Sūkurinė vonia</h4>
+                    </div>
+                    <div class="comfort-item">
+                        <img src="{% static 'reservation/image/sound_detection_dog_barking.png' %}">
+                        <h4>Galima apsistoti su augintiniais</h4>
+                    </div>
+                </div>
+                <div class="second-comfort-items">
+                    <div class="comfort-item">
+                        <img src="{% static 'reservation/image/nest_remote_comfort_sensor.png' %}">
+                        <h4>Wi-Fi</h4>
+                    </div>
+                    <div class="comfort-item">
+                        <img src="{% static 'reservation/image/directions_car.png' %}">
+                        <h4>Nemokama vieta automobiliui</h4>
+                    </div>
+                    <div class="comfort-item">
+                        <img src="{% static 'reservation/image/volume_off.png' %}">
+                        <h4>Rami aplinka</h4>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

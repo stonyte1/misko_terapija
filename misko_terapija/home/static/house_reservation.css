@@ -39,6 +39,7 @@
     gap: 30px;
     align-self: stretch;
     width: 1320px;
+    margin-left: 60px;
 }
 
 .house-info {
@@ -66,6 +67,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin: 0;
 }
 
 .house-main-info p {
@@ -98,6 +100,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin: 0;
 }
 
 .reservation-form p {
@@ -171,15 +174,12 @@ form {
     align-items: flex-start;
     gap: 24px;
     flex: 1 0 0;
-    margin-top: 50px;
 }
 
 .house-cover img {
     height: 583px;
     align-self: stretch;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(<path-to-image>), lightgray -548.848px -496.279px / 163.451% 240% no-repeat;
-    height: 650px;
-    width: 820px;
 }
 
 .house-gallery {
@@ -192,4 +192,113 @@ form {
     width: 80px;
     height: 80px;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(<path-to-image>), lightgray -50.76px -68.1px / 163.451% 240% no-repeat;
+}
+
+.house-information {
+    display: flex;
+    width: 1440px;
+    padding: 64px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 64px;
+    background: #112F21;
+}
+
+.information {
+    display: flex;
+    align-items: flex-start;
+    gap: 64px;
+    align-self: stretch;
+    margin-left: 60px;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.about h3 {
+    align-self: stretch;
+    color: #FFF;
+    font-family: 'PTSans-Regular';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.about p {
+    align-self: stretch;
+    color: #FFF;
+    font-family: 'PTSans-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
+.comfort {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.comfort h3 {
+    color: #FFF;
+    font-family: 'PTSans-Regular';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.about-comfort {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+}
+
+.first-comfort-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0 0;
+}
+
+.comfort-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.comfort-item img {
+    width: 32px;
+    height: 32px;
+}
+
+.comfort-item h4 {
+    color: #FFF;
+    font-family: 'PTSans-Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0px;
+}
+
+.second-comfort-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0 0;
 }

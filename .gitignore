@@ -28,6 +28,7 @@ MANIFEST
 */media/**
 */house/**
 */home/static/home/image/**
+*/home/static/reservation/image/**
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
