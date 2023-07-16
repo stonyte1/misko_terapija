@@ -10,6 +10,11 @@
             <p>Grįžti atgal</p>
         </a>
     </div>
+    <div class="edit-house">
+    {% if user.is_staff %}
+        <a href="{% url 'house_form' house.pk %}">Redaguoti namuką<i class="fas-house">&#xf044;</i></a>
+    {% endif %}
+    </div>
     <div class="house-detail">
         <div class="house-info">
             <div class="house-main-info">
