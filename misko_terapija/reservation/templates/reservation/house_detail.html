@@ -41,62 +41,87 @@
                 </form> 
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
                 <script>
                     function goBack() {
                         history.go(-1); // Go back one page
                     }
-                    $(function() {
+
+                    $(document).ready(function() {
+                        $(".form-group").on("click", function() {
+                          $(this).toggleClass("selected");
+                        });
+                    });
+
+                    $(document).ready(function() {
                         // Function to initialize datepicker for a given input element
                         function initializeDatepicker(inputElement) {
-                            inputElement.datepicker({
-                                showButtonPanel: true,
-                                dateFormat: "yy-mm-dd",
-                                minDate: 0, // Restrict past dates
-                                beforeShowDay: highlightReservedDates,
-                                onSelect: function(dateText) {
-                                    inputElement.val(dateText);
-                                    inputElement.datepicker("hide");
-                                }
-                            });
+                          inputElement.datepicker({
+                            showButtonPanel: false,
+                            dateFormat: "yy-mm-dd",
+                            minDate: 0,
+                            beforeShowDay: highlightReservedDates,
+                            onSvelect: function(dateText) {
+                              inputElement.val(dateText);
+                              inputElement.datepicker("hide");
+                            },
+                            dayNamesMin: ["S.", "P.", "A.", "T.", "K.", "P.", "Š."],
+                            monthNames: [
+                              "Sausis", "Vasaris", "Kovas", "Balandis", "Gegužė", "Birželis",
+                              "Liepa", "Rugpjūtis", "Rugsėjis", "Spalis", "Lapkritis", "Gruodis"
+                            ],
+                            monthNamesShort: [
+                              "Sau", "Vas", "Kov", "Bal", "Geg", "Bir",
+                              "Lie", "Rgp", "Rgs", "Spa", "Lap", "Grd"
+                            ]
+                          });
                         }
 
+                        $("#datepicker").on("datepickeropen", function() {
+                            $(".ui-datepicker-header").remove();
+                        });
+                        
+                        // Get reserved dates from Django view
+                        var reservedDates = {{ reserved_dates|safe }};
+                        
                         // Initialize datepickers for check-in and check-out inputs
                         var checkInInput = $("#check-in");
                         var checkOutInput = $("#check-out");
-
+                        
                         initializeDatepicker(checkInInput);
                         initializeDatepicker(checkOutInput);
-
-                        // Get reserved dates from Django view
-                        var reservedDates = {{ reserved_dates|safe }};
+                        
+                        $("#datepicker").on("datepickeropen", function() {
+                            $(".ui-datepicker-header").remove();
+                        });
 
                         function highlightReservedDates(date) {
-                            var formattedDate = $.datepicker.formatDate("yy-mm-dd", date);
-                            if (reservedDates.indexOf(formattedDate) !== -1) {
-                                return [false, "reserved-date"];
-                            }
-                            return [true, ""];
+                          var formattedDate = $.datepicker.formatDate("yy-mm-dd", date);
+                          if (reservedDates.indexOf(formattedDate) !== -1) {
+                            return [false, "reserved-date"];
+                          }
+                          return [true, ""];
                         }
-
+                        
                         $("#reservation-form").on("submit", function(e) {
-                            var checkInDate = checkInInput.val();
-                            var checkOutDate = checkOutInput.val();
-
-                            if (checkInDate && checkOutDate) {
-                                for (var i = 0; i < reservedDates.length; i++) {
-                                    var reservedDate = new Date(reservedDates[i]);
-                                    var startDate = new Date(checkInDate);
-                                    var endDate = new Date(checkOutDate);
-
-                                    if (reservedDate >= startDate && reservedDate <= endDate) {
-                                        e.preventDefault();
-                                        alert('The chosen interval includes reserved dates. Please select different dates.');
-                                        break;
-                                    }
-                                }
+                          var checkInDate = checkInInput.val();
+                          var checkOutDate = checkOutInput.val();
+                        
+                          if (checkInDate && checkOutDate) {
+                            for (var i = 0; i < reservedDates.length; i++) {
+                              var reservedDate = new Date(reservedDates[i]);
+                              var startDate = new Date(checkInDate);
+                              var endDate = new Date(checkOutDate);
+                        
+                              if (reservedDate >= startDate && reservedDate <= endDate) {
+                                e.preventDefault();
+                                alert('The chosen interval includes reserved dates. Please select different dates.');
+                                break;
+                              }
                             }
+                          }
                         });
-                    });
+                    });        
                 </script>
             </div>
         </div>
