@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'reservation',
     'moderator',
     'payment',
+    'contacts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

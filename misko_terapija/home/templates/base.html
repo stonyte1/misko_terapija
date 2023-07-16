@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'house_reservation.css' %}">
     <link rel="stylesheet" href="{% static 'payment.css' %}">
     <link rel="stylesheet" href="{% static 'login.css' %}">
+    <link rel="stylesheet" href="{% static 'contacts.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -25,7 +26,7 @@
             <ul class="nav-links">
                 <li><a href="#">Galerija</a></li>
                 <li><a href="{% url 'reservation_filter' %}">Apie Namelius</a></li>
-                <li><a href="#">Kontaktai</a></li>
+                <li><a href="{% url 'contacts' %}">Kontaktai</a></li>
             </ul>
             <div class="nav-contacts">
                 <div class="reserve-button">
