@@ -18,9 +18,12 @@ class HouseUpdateView(generic.UpdateView, LoginRequiredMixin):
         house.save()
 
         images = self.request.FILES.getlist('images')
+        uploaded_images = []
         for image in images:
             image_obj = Image.objects.create(photo=image)
-            house.images.add(image_obj)
+            uploaded_images.append(image_obj)
+
+            house.images.set(uploaded_images)
 
         return super().form_valid(form)
 

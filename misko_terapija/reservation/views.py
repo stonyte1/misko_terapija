@@ -21,6 +21,7 @@ def get_reserved_dates(pk):
 def reservation_create(request, pk):
     house = get_object_or_404(House, pk=pk)
     reserved_dates = get_reserved_dates(pk)
+    images = house.images.all()
 
     if request.method == 'POST':
         form = ReservationForm(request.POST)
@@ -72,6 +73,7 @@ def reservation_create(request, pk):
         'form': form,
         'reserved_dates': reserved_dates,
         'house': house,
+        'images': images
     }
     return render(request, 'reservation/house_detail.html', context)
 
