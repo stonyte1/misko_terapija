@@ -7,6 +7,7 @@ import time
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Client
+import random
 
 def payment_successful(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY_TEST
@@ -17,15 +18,21 @@ def payment_successful(request):
     date_to = session.metadata.get('date_to')
     reservation = Reservation(date_from=date_from, date_to=date_to, house_id=house_id)
     reservation.save()
-
+    
     customer = stripe.Customer.retrieve(session.customer)
-    client_id = request.user.id  # Assuming user_id is the primary key of your User model
+
+    if settings.DEBUG:
+        client_id = random.randint(0, 999999999) # Replace with a unique client ID for testing
+    else:
+        client_id = request.user.id
+
     client, created = Client.objects.get_or_create(id=client_id)
 
     # Update the client's information with the data from the payment
     client.name = customer.name
     client.email = customer.email
     client.phone_number = customer.phone
+    client.reservation = reservation
     client.save()
 
     return render(request, 'payment/payment_successful.html', {'reservation': reservation, 'client': client})

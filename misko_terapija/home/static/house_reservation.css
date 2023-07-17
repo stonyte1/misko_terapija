@@ -505,3 +505,10 @@ a.ui-state-default:hover {
     font-family: 'PTSans-Bold';
     margin-left: 60px;
 }
+
+.edit-reservation a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-family: 'PTSans-Bold';
+}

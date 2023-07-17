@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from home.models import House, Image
 from gallery.models import Gallery
-from reservation.models import Reservation
+from reservation.models import Reservation, Client
 from .forms import HouseForm, LoginForm
 
 
@@ -60,15 +60,17 @@ class ReservationDeleteView(LoginRequiredMixin, generic.View):
     template_name = 'moderator/reservation_delete.html'
 
     def get(self, request):
-        reservations = Reservation.objects.all()
-        return render(request, self.template_name, {'reservations': reservations})
+        clients = Client.objects.all()
+        return render(request, self.template_name, {'clients': clients})
 
     def post(self, request):
-        reservations_id = request.POST.getlist('reservation_ids')
+        clients_id = request.POST.getlist('client_ids')
 
-        for reservation_id in reservations_id:
-            reservation = Reservation.objects.get(id=reservation_id)
-            reservation.delete()
+        for client_id in clients_id:
+            client = Client.objects.get(id=client_id)
+            reservations = client.reservation
+            reservations.delete()
+            client.delete()
 
             
         return redirect('gallery') 

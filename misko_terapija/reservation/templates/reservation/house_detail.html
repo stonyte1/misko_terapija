@@ -22,6 +22,11 @@
                 <p>{{ house.guests }} svečiai • {{ house.beds }} </p>
             </div>
             <div class="reservation-form">
+                <div class="edit-reservation">
+                    {% if user.is_staff %}
+                        <a href="{% url 'reservation_delete' %}">Ištrinti rezervaciją<i class="fas-house">&#xf044;</i></a>
+                    {% endif %}
+                </div>
                 <form method="POST" enctype="multipart/form-data" id="reservation-form" >
                     <h3>Rezervacija</h3>
                     <h4>Kaina nakčiai</h4>

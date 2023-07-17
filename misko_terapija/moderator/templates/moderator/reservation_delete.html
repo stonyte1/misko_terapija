@@ -8,10 +8,10 @@
             <form method="POST">
                 {% csrf_token %}
                 <div class="gallery-item">
-                {% for reservation in reservations %}
+                {% for client in clients %}
                     <div class="reservation-date">
-                        {{ reservation.date_from }} - {{ reservation.date_to }} 
-                        <input type="checkbox" name="reservation_ids" value="{{ reservation.id }}">
+                        {{ client.name }} - {{ client.reservation }} 
+                        <input type="checkbox" name="client_ids" value="{{ client.id }}">
                     </div>
                 {% endfor %}
                 </div>
