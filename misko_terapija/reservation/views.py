@@ -82,6 +82,7 @@ def get_all_reserved_date(houses):
         reserved_dates = get_reserved_dates(house.id)
         all_reserved_dates.extend(reserved_dates)
     all_house_reserved = [item for item, count in Counter(all_reserved_dates).items() if count > 1]
+    print(f"Available Houses: {all_house_reserved}")
 
     return all_house_reserved
 

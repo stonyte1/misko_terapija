@@ -1,28 +1,140 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div class="home">
-    
-    {% comment %} <div class="home-title">
+    <div class="home-title">
         <h2>Miško terapija</h2>
         <p>Lėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvimu.</p>
-    </div>
-    <div class="houses">
-        {% for house in houses %}
-        <div class="house">
-            <a href="{% url 'house' house.pk %}">
-            <img src="{{ house.main_image.url }}">
+        <div class="house-reservation-button">
+            <a href="#">
+                <p>Rezervuoti namelį</p>
             </a>
-            <div class="house-name">
-                <h4>{{ house.name }}</h4>
-                <div class="house-reservation-button">
+        </div>
+    </div>
+</div>
+<div class="search-house">
+    <h3>Pasirinkite namelį</h3>
+    <form method="POST" enctype="multipart/form-data" id="reservation-form">
+        {% csrf_token %}
+        <div class="form-group-filter">
+            <img src="{% static 'home/image/calendar_month.png' %}">
+            <input type="text" id="check-in" name="check-in" class="datepicker" placeholder="Atvykimas">
+            <div id="check-in-calendar" class="calendar-popup"></div>
+        </div>
+        <div class="form-group-filter">
+            <img src="{% static 'home/image/calendar_month.png' %}">
+            <input type="text" id="check-out" name="check-out" class="datepicker" placeholder="Išvykimas">
+            <div id="check-out-calendar" class="calendar-popup"></div>
+        </div>
+        <button type="submit"  id="search-button" class="payment-button">
+            <p>Ieškoti</p>
+        </button>
+    </form>
+</div>
+<div class="houses">
+    {% if available_houses == None %}
+        {% for house in houses %}
+            {% if forloop.counter == 1 %}
+            <div class="house-left">
                 <a href="{% url 'house' house.pk %}">
-                    <p>Rezervuoti</p>
+                <img src="{{ house.main_image.url }}">
+                </a>
+                <div class="house-left-info">
+                    <div class="house-text">
+                        <h3> {{ house.name }}</h3>
+                        <p>Lėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvLėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvimui.</p>
+                        <div class='house-icons'>
+                            <img src="{% static 'home/image/park.png' %}">
+                            <img src="{% static 'home/image/kitchen.png' %}">
+                            <img src="{% static 'home/image/bath_outdoor.png' %}">
+                            <img src="{% static 'home/image/sound_detection_dog_barking.png' %}">
+                            <img src="{% static 'home/image/nest_remote_comfort_sensor.png' %}">
+                            <img src="{% static 'home/image/directions_car.png' %}">
+                            <img src="{% static 'home/image/volume_off.png' %}">
+                        </div>
+                    </div>
+                    <div class="house-price">
+                        <p>Paros kaina:</p>
+                        <h3>{{ house.price }} &euro;</h3>
+                    </div>
+                    <button type="submit" id="reservation-button" class="reservation-button">
+                        <a href="{% url 'house' house.pk %}">
+                        <p>Rezervuoti</p>
+                        </a>
+                    </button>
+                </div>
+            </div>
+            {% else %}
+            <div class="house-right">
+                <div class="house-right-info">
+                        <div class="house-text">
+                            <h3> {{ house.name }}</h3>
+                            <p>Lėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvLėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvimui.</p>
+                            <div class='house-icons'>
+                                <img src="{% static 'home/image/park.png' %}">
+                                <img src="{% static 'home/image/kitchen.png' %}">
+                                <img src="{% static 'home/image/bath_outdoor.png' %}">
+                                <img src="{% static 'home/image/sound_detection_dog_barking.png' %}">
+                                <img src="{% static 'home/image/nest_remote_comfort_sensor.png' %}">
+                                <img src="{% static 'home/image/directions_car.png' %}">
+                                <img src="{% static 'home/image/volume_off.png' %}">
+                            </div>
+                        </div>
+                        <div class="house-price">
+                            <p>Paros kaina:</p>
+                            <h3>{{ house.price }} &euro;</h3>
+                        </div>
+                        <button type="submit" id="reservation-button" class="reservation-button">
+                            <a href="{% url 'house' house.pk %}">
+                            <p>Rezervuoti</p>
+                            </a>
+                        </button>
+                    </div>
+                <a href="{% url 'house' house.pk %}">
+                    <img src="{{ house.main_image.url }}">
                 </a>
             </div>
-            </div>
-        </div>
+            {% endif %}
         {% endfor %}
-    </div> {% endcomment %}
+    {% elif available_houses %}
+        {% for house in available_houses %}
+            <div class="house-left">
+                <a href="{% url 'house' house.pk %}">
+                <img src="{{ house.main_image.url }}">
+                </a>
+                <div class="house-left-info">
+                    <div class="house-text">
+                        <h3> {{ house.name }}</h3>
+                        <p>Lėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvLėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvimui.</p>
+                        <div class='house-icons'>
+                            <img src="{% static 'home/image/park.png' %}">
+                            <img src="{% static 'home/image/kitchen.png' %}">
+                            <img src="{% static 'home/image/bath_outdoor.png' %}">
+                            <img src="{% static 'home/image/sound_detection_dog_barking.png' %}">
+                            <img src="{% static 'home/image/nest_remote_comfort_sensor.png' %}">
+                            <img src="{% static 'home/image/directions_car.png' %}">
+                            <img src="{% static 'home/image/volume_off.png' %}">
+                        </div>
+                    </div>
+                    <div class="house-price">
+                        <p>Paros kaina:</p>
+                        <h3>{{ house.price }} &euro;</h3>
+                    </div>
+                    <button type="submit" id="reservation-button" class="reservation-button">
+                        <a href="{% url 'house' house.pk %}">
+                        <p>Rezervuoti</p>
+                        </a>
+                    </button>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="no-houses">
+            <img src="{% static 'home/image/sentiment_dissatisfied.png' %}">
+            <h4>Atsiprašome, pasirinktu laiku laisvų namelių nėra.</h4>
+            <p>Pasirinkite kitą datą ir praleiskite naktį gamtos apsuptyje.</p>
+        </div>
+    {% endif %}
 </div>
 <div class="reviews">
     <div class="reviews-text">
@@ -34,7 +146,7 @@
                 {% if forloop.counter|divisibleby:2 %}
                     <div class="review-left">
                         <div class="review-left-logo">
-                            <img src="static/home/image/music_note.png">
+                            <img src="{% static 'home/image/music_note.png' %}">
                         </div>
                         <h4>{{ review.title }}</h4>
                         <p>{{ review.content }}</p>
@@ -42,7 +154,7 @@
                 {% else %}
                     <div class="review-right">
                         <div class="review-right-logo">
-                            <img src="static/home/image/music_note.png">
+                            <img src="{% static 'home/image/music_note.png' %}">
                         </div>
                         <h4>{{ review.title }}</h4>
                         <p>{{ review.content }}</p>
@@ -52,4 +164,51 @@
         </div> 
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<script>
+$(function() {
+    // Function to initialize datepicker for a given input element
+    function initializeDatepicker(inputElement) {
+    inputElement.datepicker({
+        showButtonPanel: false,
+        dateFormat: "yy-mm-dd",
+        minDate: 0, // Restrict past dates
+        beforeShowDay: highlightReservedDates,
+        onSelect: function(dateText) {
+        inputElement.val(dateText);
+        inputElement.datepicker("hide");
+        }
+    });
+    }
+
+    // Initialize datepickers for check-in and check-out inputs
+    initializeDatepicker($("#check-in"));
+    initializeDatepicker($("#check-out"));
+
+    // Get reserved dates from Django view
+    var reservedDates = {{ reserved_dates|safe }};
+
+    function highlightReservedDates(date) {
+    var formattedDate = $.datepicker.formatDate("yy-mm-dd", date);
+    if (reservedDates.indexOf(formattedDate) !== -1) {
+        return [false, "reserved-date"];
+    }
+    return [true, ""];
+    }
+
+    $("#reservation-form").on("submit", function(e) {
+    var checkInDate = $("#check-in").val();
+    var checkOutDate = $("#check-out").val();
+
+    if (checkInDate && checkOutDate) {
+        for (var i = 0; i < reservedDates.length; i++) {
+        var reservedDate = new Date(reservedDates[i]);
+        var startDate = new Date(checkInDate);
+        var endDate = new Date(checkOutDate);
+        }
+    }
+    });
+});
+</script>
 {% endblock content %}
