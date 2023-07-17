@@ -5,7 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
 from home.models import House, Image
-from .forms import HouseForm, LoginForm
+from gallery.models import Gallery
+from .forms import HouseForm, LoginForm, GalleryForm
 
 
 class HouseUpdateView(generic.UpdateView, LoginRequiredMixin):
@@ -35,6 +36,25 @@ class HouseUpdateView(generic.UpdateView, LoginRequiredMixin):
         obj = get_object_or_404(queryset, pk=self.kwargs['pk'])
         return obj
     
+class GalleryUpdateView(LoginRequiredMixin, generic.View):
+    template_name = 'moderator/gallery_form.html'
+
+    def get(self, request):
+        images = Gallery.objects.all()
+        return render(request, self.template_name, {'images': images})
+
+    def post(self, request):
+        images = request.FILES.getlist('images')
+        image_ids = request.POST.getlist('image_ids')
+
+        for image_id in image_ids:
+            gallery = Gallery.objects.get(id=image_id)
+            gallery.delete()
+
+        for image in images:
+            gallery = Gallery.objects.create(photo=image)
+            
+        return redirect('gallery') 
 
 def login_view(request):
     if request.method == 'POST':

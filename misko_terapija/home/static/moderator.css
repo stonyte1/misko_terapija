@@ -128,3 +128,44 @@
     font-weight: 400;
     line-height: normal;
 }
+
+
+.background-block h2 {
+    color: #865735;
+    font-family: 'PTSans-Bold';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.delete-gallery {
+    display: flex;
+    padding: 0px 64px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.gallery {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-left: 50px;
+}
+
+.gallery-item {
+    margin-bottom: 10px;
+    gap: 20px;
+}
+
+.gallery img {
+    width: 160px;
+    height: 160px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(<path-to-image>), lightgray -50.76px -68.1px / 163.451% 240% no-repeat;
+}
+
+.gallery form {
+    width: 400px;
+}
+

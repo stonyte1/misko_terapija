@@ -1,5 +1,6 @@
 from django import forms
 from home.models import House
+from gallery.models import Gallery
 
 
 class HouseForm(forms.ModelForm):
@@ -10,3 +11,8 @@ class HouseForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField(label='Username')
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
+
+class GalleryForm(forms.ModelForm):
+    class Meta:
+        model = Gallery
+        fields = ('photo', )

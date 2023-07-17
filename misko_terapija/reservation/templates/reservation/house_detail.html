@@ -133,7 +133,7 @@
             </div>
         </div>
         <div class="house-cover">
-            <img id="cover-image" src="{{ house.main_image.url }}" alt="Cover Image">
+            <img id="cover-image" src="{{ house.main_image.url }}">
             <div class="house-gallery">
                 <img src="{{ house.main_image.url }}" onclick="updateCoverImage('{{ house.main_image.url }}')">
                 {% for image in images %}
