@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="background-block">
+    <div class="delete-gallery">
+        <h2>Delete reservation</h2>
+        <div class="reservation">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="gallery-item">
+                {% for reservation in reservations %}
+                    <div class="reservation-date">
+                        {{ reservation.date_from }} - {{ reservation.date_to }} 
+                        <input type="checkbox" name="reservation_ids" value="{{ reservation.id }}">
+                    </div>
+                {% endfor %}
+                </div>
+                <button class="login-button" type="submit">Delete Selected</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

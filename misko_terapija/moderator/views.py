@@ -1,4 +1,3 @@
-from typing import Any, Dict
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -6,7 +5,8 @@ from django.urls import reverse_lazy
 from django.views import generic
 from home.models import House, Image
 from gallery.models import Gallery
-from .forms import HouseForm, LoginForm, GalleryForm
+from reservation.models import Reservation
+from .forms import HouseForm, LoginForm
 
 
 class HouseUpdateView(generic.UpdateView, LoginRequiredMixin):
@@ -53,6 +53,23 @@ class GalleryUpdateView(LoginRequiredMixin, generic.View):
 
         for image in images:
             gallery = Gallery.objects.create(photo=image)
+            
+        return redirect('gallery')
+    
+class ReservationDeleteView(LoginRequiredMixin, generic.View):
+    template_name = 'moderator/reservation_delete.html'
+
+    def get(self, request):
+        reservations = Reservation.objects.all()
+        return render(request, self.template_name, {'reservations': reservations})
+
+    def post(self, request):
+        reservations_id = request.POST.getlist('reservation_ids')
+
+        for reservation_id in reservations_id:
+            reservation = Reservation.objects.get(id=reservation_id)
+            reservation.delete()
+
             
         return redirect('gallery') 
 

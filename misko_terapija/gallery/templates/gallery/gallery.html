@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
+    {% if user.is_staff %}
+        <a href="{% url 'gallery_update' %}">Redaguoti galerija<i class="fas-house">&#xf044;</i></a>
+    {% endif %}
 	<div class="carousel">
         {% for i in gallery %}
         {% if forloop.counter == 1 %}

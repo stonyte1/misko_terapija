@@ -122,7 +122,7 @@
 }
 
 .carousel__prev > label, .carousel__next > label {
-    border: 1px solid #fff;
+    border: 1px solid #1E5E5F;
     border-radius: 50%;
     cursor: pointer;
     display: block;
@@ -150,7 +150,7 @@
 }
 
 .carousel__prev > label:before, .carousel__next > label:before {
-    background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%), linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+    background: linear-gradient(to top, #1E5E5F 0%, #1E5E5F 10%, rgba(51, 51, 51, 0) 10%), linear-gradient(to left, #1E5E5F 0%,#1E5E5F 10%, rgba(51, 51, 51, 0) 10%);
     width: 60%;
     height: 60%;
     top: 20%;
@@ -194,4 +194,12 @@
     margin: 0 0.125%;
     width: 20px;
     height: 20px;
+}
+
+.container a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-family: 'PTSans-Bold';
+    margin-left: 60px;
 }

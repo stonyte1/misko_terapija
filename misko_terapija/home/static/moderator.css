@@ -169,3 +169,26 @@
     width: 400px;
 }
 
+.reservation {
+    display: flex;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    border: 1px solid #1E5E5F;
+    background: var(--text-white, #FFF);
+}
+
+.reservation-date {
+    display: flex;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    border: 1px solid #1E5E5F;
+    background: var(--text-white, #FFF);
+    margin-bottom: 16px;
+    
+}
