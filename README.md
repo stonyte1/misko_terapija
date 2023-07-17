@@ -25,37 +25,37 @@ Misko Terpija is a web application built with Django that allows users to reserv
 3. Create a virtual environment:
 
     ```shell
-        python -m venv venv
+    python -m venv venv
     ```
 
 4. Activate the virtual environment:
     For macOS/Linux:
 
     ```shell
-        source venv/bin/activate
+    source venv/bin/activate
     ```
     For Windows:
 
     ```
-        venv\Scripts\activate
+    venv\Scripts\activate
     ```
 
 5. Install the dependencies:
 
     ```shell
-        python manage.py migrate
+    python manage.py migrate
     ```
 
 6. Create a superuser:
 
     ```shell
-        python manage.py createsuperuser
+    python manage.py createsuperuser
     ```
 
 7. Start the development server:
 
     ```shell
-        python manage.py runserver
+    python manage.py runserver
     ```
 
 8. Access the admin dashboard in your browser at http://localhost:8000/admin. Use the superuser credentials created in the previous step to log in.
