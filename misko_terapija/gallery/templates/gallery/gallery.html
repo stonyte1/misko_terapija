@@ -4,7 +4,7 @@
 	<div class="carousel">
         {% for i in gallery %}
         {% if forloop.counter == 1 %}
-         <input type="radio" id="image-{{ forloop.counter }}" name="carousel[]" checked>
+            <input type="radio" id="image-{{ forloop.counter }}" name="carousel[]" checked>
         {% else %}
 		    <input type="radio" id="image-{{ forloop.counter }}" name="carousel[]">
         {% endif %}
@@ -14,21 +14,21 @@
 			<li class="carousel__item"><img src="{{ image.photo.url }}" alt=""></li>
             {% endfor %}
 		</ul>
-     <div class="carousel__prev">
+    <div class="carousel__prev">
         {% for i in gallery %}
      	<label for="image-{{ forloop.counter }}"></label>
         {% endfor %}
-     </div>
-     <div class="carousel__next">
+    </div>
+    <div class="carousel__next">
         {% for i in gallery %}
         <label for="image-{{ forloop.counter }}"></label>
         {% endfor %}
-     </div>
-     <div class="carousel__nav">
+    </div>
+    <div class="carousel__nav">
         {% for i in gallery %}
         <label for="image-{{ forloop.counter }}"></label>
         {% endfor %}
-     </div>
+    </div>
    </div>
 </div>
 {% endblock content %}

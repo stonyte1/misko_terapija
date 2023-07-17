@@ -133,13 +133,22 @@
             </div>
         </div>
         <div class="house-cover">
-            <img src="{{ house.main_image.url }}">
+            <img id="cover-image" src="{{ house.main_image.url }}" alt="Cover Image">
             <div class="house-gallery">
-                {% for image in images  %}
-                    <img src="{{ image.photo.url }}">
+                <img src="{{ house.main_image.url }}" onclick="updateCoverImage('{{ house.main_image.url }}')">
+                {% for image in images %}
+                    <img src="{{ image.photo.url }}" onclick="updateCoverImage('{{ image.photo.url }}')">
                 {% endfor %}
             </div>
         </div>
+        
+        <script>
+            function updateCoverImage(imageUrl) {
+                var coverImage = document.getElementById('cover-image');
+                coverImage.src = imageUrl;
+            }
+        </script>
+        
     </div>
 </div>
 <div class="house-information">
