@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 class Gallery(models.Model):
     photo = models.ImageField(_("photo"), upload_to='gallery/', blank=True, null=True)
-    
+
     class Meta:
         verbose_name = _("gallery")
         verbose_name_plural = _("gallerys")
@@ -15,4 +15,3 @@ class Gallery(models.Model):
 
     def get_absolute_url(self):
         return reverse("gallery_detail", kwargs={"pk": self.pk})
-

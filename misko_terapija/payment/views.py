@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Client
 import random
 
+
 def payment_successful(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY_TEST
     session_id = request.GET.get('session_id')
@@ -18,7 +19,7 @@ def payment_successful(request):
     date_to = session.metadata.get('date_to')
     reservation = Reservation(date_from=date_from, date_to=date_to, house_id=house_id)
     reservation.save()
-    
+
     customer = stripe.Customer.retrieve(session.customer)
 
     if settings.DEBUG:
@@ -37,8 +38,10 @@ def payment_successful(request):
 
     return render(request, 'payment/payment_successful.html', {'reservation': reservation, 'client': client})
 
+
 def payment_cancelled(request):
     return render(request, 'payment/payment_cancelled.html')
+
 
 @csrf_exempt
 def stripe_webhook(request):

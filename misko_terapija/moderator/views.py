@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from home.models import House, Image
 from gallery.models import Gallery
-from reservation.models import Reservation, Client
+from reservation.models import Client
 from .forms import HouseForm, LoginForm
 
 
@@ -35,7 +35,8 @@ class HouseUpdateView(generic.UpdateView, LoginRequiredMixin):
         queryset = self.get_queryset()
         obj = get_object_or_404(queryset, pk=self.kwargs['pk'])
         return obj
-    
+
+
 class GalleryUpdateView(LoginRequiredMixin, generic.View):
     template_name = 'moderator/gallery_form.html'
 
@@ -53,9 +54,10 @@ class GalleryUpdateView(LoginRequiredMixin, generic.View):
 
         for image in images:
             gallery = Gallery.objects.create(photo=image)
-            
+
         return redirect('gallery')
-    
+
+
 class ReservationDeleteView(LoginRequiredMixin, generic.View):
     template_name = 'moderator/reservation_delete.html'
 
@@ -72,8 +74,8 @@ class ReservationDeleteView(LoginRequiredMixin, generic.View):
             reservations.delete()
             client.delete()
 
-            
-        return redirect('gallery') 
+            return redirect('gallery') 
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -91,6 +93,7 @@ def login_view(request):
         form = LoginForm()
 
     return render(request, 'moderator/login.html', {'form': form})
+
 
 def logout_view(request):
     logout(request)

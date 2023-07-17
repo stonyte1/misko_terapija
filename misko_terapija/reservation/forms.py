@@ -8,7 +8,7 @@ class ClientForm(forms.ModelForm):
         fields = ('name', 'email', 'phone_number')
 
 
-class ReservationForm(forms.ModelForm):  
+class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
         fields = ('date_from', 'date_to', 'house')

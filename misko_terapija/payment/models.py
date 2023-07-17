@@ -9,12 +9,13 @@ class UserPayment(models.Model):
         Client,
         on_delete=models.CASCADE
         )
-    #Makes sure if payment went througt customer 
+    # Makes sure if payment went througt customer
     payment_bool = models.BooleanField(default=False)
     stripe_checkout_id = models.CharField(max_length=500)
 
-#Created payment recordevery time new user is created
+
+# Created payment recordevery time new user is created
 @receiver(post_save, sender=Client)
 def create_client_payment(sender, instance, created, **kwargs):
-    if created: 
+    if created:
         UserPayment.objects.create(client=instance)

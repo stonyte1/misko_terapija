@@ -10,8 +10,8 @@ class Reservation(models.Model):
     date_from = models.DateField(_("from"), default=None)
     date_to = models.DateField(_("to"), default=None)
     house = models.ForeignKey(
-        House, 
-        verbose_name=_("houses"), 
+        House,
+        verbose_name=_("houses"),
         on_delete=models.CASCADE,
         related_name="reservations",
         default=None
@@ -27,17 +27,18 @@ class Reservation(models.Model):
     def get_absolute_url(self):
         return reverse("reservation_detail", kwargs={"pk": self.pk})
 
+
 class Client(models.Model):
     name = models.CharField(_("name"), max_length=250)
     # surname = models.CharField(_("surname"), max_length=250)
     email = models.EmailField(_("email"), validators=[EmailValidator])
     phone_number = PhoneNumberField(blank=True, null=True)
     reservation = models.ForeignKey(
-        Reservation, 
-        verbose_name=_("reservation"), 
+        Reservation,
+        verbose_name=_("reservation"),
         on_delete=models.CASCADE,
         related_name='clients',
-        blank=True, 
+        blank=True,
         null=True
         )
     
@@ -50,4 +51,3 @@ class Client(models.Model):
 
     def get_absolute_url(self):
         return reverse("client_detail", kwargs={"pk": self.pk})
-

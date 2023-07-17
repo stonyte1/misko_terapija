@@ -1,18 +1,8 @@
 from django.shortcuts import render
 from .models import House, Review
-from reservation.models import Reservation
-from datetime import timedelta
+from reservation.views import get_reserved_dates
 from collections import Counter
 
-def get_reserved_dates(pk):
-    reservations = Reservation.objects.filter(house_id=pk)
-    reserved_dates = []
-    for reservation in reservations:
-        current_date = reservation.date_from
-        while current_date <= reservation.date_to:
-            reserved_dates.append(current_date.strftime("%Y-%m-%d"))
-            current_date += timedelta(days=1)
-    return reserved_dates
 
 def get_all_reserved_date(houses):
     all_reserved_dates = []
@@ -21,6 +11,7 @@ def get_all_reserved_date(houses):
         all_reserved_dates.extend(reserved_dates)
     all_house_reserved = [item for item, count in Counter(all_reserved_dates).items() if count > 1]
     return all_house_reserved
+
 
 def reservation_search(request):
     houses = House.objects.all()
@@ -54,4 +45,3 @@ def reservation_search(request):
         'available_houses': available_houses,
     }
     return render(request, "home/home.html", context)
-

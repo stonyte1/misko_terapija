@@ -1,11 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.db.models import Q
 from .models import Reservation, House
 from .forms import ReservationForm
-from datetime import timedelta, date
+from datetime import timedelta
 import stripe
 from django.conf import settings
-from collections import Counter
 
 
 def get_reserved_dates(pk):
@@ -17,6 +15,7 @@ def get_reserved_dates(pk):
             reserved_dates.append(current_date.strftime("%Y-%m-%d"))
             current_date += timedelta(days=1)
     return reserved_dates
+
 
 def reservation_create(request, pk):
     house = get_object_or_404(House, pk=pk)
@@ -75,42 +74,3 @@ def reservation_create(request, pk):
         'images': images
     }
     return render(request, 'reservation/house_detail.html', context)
-
-def get_all_reserved_date(houses):
-    all_reserved_dates = []
-    for house in houses:
-        reserved_dates = get_reserved_dates(house.id)
-        all_reserved_dates.extend(reserved_dates)
-    all_house_reserved = [item for item, count in Counter(all_reserved_dates).items() if count > 1]
-    print(f"Available Houses: {all_house_reserved}")
-
-    return all_house_reserved
-
-def reservation_filter(request):
-    houses = House.objects.all()
-    reserved_dates = get_all_reserved_date(houses)
-    available_houses = None
-    
-    if request.method == 'POST':
-        check_in_date = request.POST.get('check-in')
-        check_out_date = request.POST.get('check-out')
-        available_houses = []
-
-        if check_in_date and check_out_date:
-            for house in houses:
-                booked_dates = get_reserved_dates(house.id)
-                is_available = True
-                for date in booked_dates:
-                    if check_in_date <= date <= check_out_date:
-                        is_available = False
-                        break
-
-                if is_available:
-                    available_houses.append(house)
-
-    context = {
-        'reserved_dates': reserved_dates,
-        'houses': houses,
-        'available_houses': available_houses,
-    }
-    return render(request, 'reservation/reservation.html', context)
