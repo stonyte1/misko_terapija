@@ -68,7 +68,6 @@ def reservation_create(request, pk):
     else:
         form = ReservationForm(initial={'house': house})
 
-
     context = {
         'form': form,
         'reserved_dates': reserved_dates,

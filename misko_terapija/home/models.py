@@ -5,8 +5,15 @@ from django.utils.translation import gettext_lazy as _
 
 class Image(models.Model):
     photo = models.ImageField(_("photo"), upload_to='house/', blank=True, null=True)
+    house = models.ForeignKey(
+        "House", 
+        verbose_name=_("house"), 
+        on_delete=models.CASCADE,
+        related_name='images',
+        null=True,
+        blank=True,
+        )
     
-
     class Meta:
         verbose_name = _("image")
         verbose_name_plural = _("images")
@@ -25,13 +32,13 @@ class House(models.Model):
     guests = models.IntegerField(_("guests"))
     beds = models.CharField(_("beds"), max_length=50)
     content = models.TextField(_("content"), blank=True, null=True)
-    images = models.ManyToManyField(
-        Image,
-        verbose_name=_("images"),
-        related_name='houses',
-        related_query_name='house',
-        blank=True
-    )
+    # images = models.ManyToManyField(
+    #     Image,
+    #     verbose_name=_("images"),
+    #     related_name='houses',
+    #     related_query_name='house',
+    #     blank=True
+    # )
 
     class Meta:
         verbose_name = _("house")

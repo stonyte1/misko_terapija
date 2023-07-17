@@ -101,6 +101,15 @@
     line-height: normal;
     margin: 0;
 }
+.reservation-form h4 {
+    color: #000;
+    font-family: 'PTSans-Regular';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+}
 
 .reservation-form p {
     color: #000;

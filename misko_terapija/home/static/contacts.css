@@ -40,13 +40,13 @@
 }
 
 .contacts-info img {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
 }
 
 .contacts-info a {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
     text-decoration: none;
     margin-right: 32px;
 }
@@ -54,7 +54,7 @@
 .contacts-info p {
     color:black;
     font-family: 'PTSans-Regular';
-    font-size: 30px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

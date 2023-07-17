@@ -1,3 +1,4 @@
+from typing import Any, Dict
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -15,15 +16,12 @@ class HouseUpdateView(generic.UpdateView, LoginRequiredMixin):
 
     def form_valid(self, form):
         house = form.save(commit=False)
-        house.save()
 
         images = self.request.FILES.getlist('images')
-        uploaded_images = []
         for image in images:
-            image_obj = Image.objects.create(photo=image)
-            uploaded_images.append(image_obj)
+            image_obj = Image.objects.create(photo=image, house=house)
 
-            house.images.set(uploaded_images)
+        house.save()
 
         return super().form_valid(form)
 
@@ -36,6 +34,7 @@ class HouseUpdateView(generic.UpdateView, LoginRequiredMixin):
         queryset = self.get_queryset()
         obj = get_object_or_404(queryset, pk=self.kwargs['pk'])
         return obj
+    
 
 def login_view(request):
     if request.method == 'POST':
