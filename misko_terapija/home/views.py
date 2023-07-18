@@ -23,8 +23,6 @@ def reservation_search(request):
         check_in_date = request.POST.get('check-in')
         check_out_date = request.POST.get('check-out')
         available_houses = []
-        print(check_in_date)
-        print(check_out_date)
 
         if check_in_date and check_out_date:
             for house in houses:

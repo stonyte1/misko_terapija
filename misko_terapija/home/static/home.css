@@ -1,12 +1,12 @@
 .home {
     display: flex;
     width: 1440px;
-    height: 700px;
+    height: 550px;
     padding: 64px;
     align-items: center;
     gap: 64px;
     flex-shrink: 0;
-    background: linear-gradient(0deg, rgba(17, 47, 33, 0.54) 0%, rgba(17, 47, 33, 0.54) 100%), url('home/image/housenr.2.jpg'), lightgray 50% / cover no-repeat;
+    background: linear-gradient(0deg, rgba(17, 47, 33, 0.54) 0%, rgba(17, 47, 33, 0.54) 100%), url('home/image/hero-image.png'), lightgray 50% / cover no-repeat;
 }
 
 .home-title {

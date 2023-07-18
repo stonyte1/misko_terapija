@@ -74,7 +74,7 @@ class ReservationDeleteView(LoginRequiredMixin, generic.View):
             reservations.delete()
             client.delete()
 
-            return redirect('gallery') 
+            return redirect('home') 
 
 
 def login_view(request):
@@ -97,4 +97,4 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('home')
