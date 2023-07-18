@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.conf import settings
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 from .models import UserPayment
 from reservation.models import Client, Reservation
 import stripe
@@ -35,6 +37,16 @@ def payment_successful(request):
     client.phone_number = customer.phone
     client.reservation = reservation
     client.save()
+
+    email_body = render_to_string('payment/payment_successful_email.html', {'reservation': reservation, 'client': client})
+    email_message = EmailMultiAlternatives(
+        'Apmokėjimas pavyko',
+        email_body,
+        'admin@misko_terapija.com',  # Sender's email address
+        [client.email],  # Recipient's email address
+    )
+    email_message.content_subtype = 'html'  # Set the content type as HTML
+    email_message.send()
 
     return render(request, 'payment/payment_successful.html', {'reservation': reservation, 'client': client})
 
