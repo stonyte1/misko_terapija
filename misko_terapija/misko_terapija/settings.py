@@ -147,7 +147,5 @@ EMAIL_PORT = 587  # or the appropriate port for your SMTP server
 EMAIL_HOST_USER = local_settings.EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = local_settings.EMAIL_HOST_PASSWORD
 EMAIL_USE_TLS = True  # Use TLS encryption for security
-DEFAULT_FROM_EMAIL = 'admin@misko_terapija.com'  # Sender's email address
-
 
 REDIRECT_DOMAIN = 'http://127.0.0.1:8000'

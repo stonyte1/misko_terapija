@@ -10,6 +10,66 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Client
 import random
+import requests
+from datetime import datetime
+
+
+def send_email_client(client, reservation):
+    email_body = render_to_string('payment/email_client.html', {'reservation': reservation, 'client': client})
+    email_message = EmailMultiAlternatives(
+        'Apmokėjimas pavyko',
+        email_body,
+        'admin@misko_terapija.com',  # Sender's email address
+        ['stonyteevelina@gmail.com'],  # Client email address
+    )
+    email_message.content_subtype = 'html'  # Set the content type as HTML
+    email_message.send()
+
+
+def send_email_moderator(client, reservation):
+    email_body = render_to_string('payment/email_moderator.html', {'reservation': reservation, 'client': client})
+    email_message = EmailMultiAlternatives(
+        'Nauja rezervacija',
+        email_body,
+        'admin@misko_terapija.com',  # Sender's email address
+        [client.email],  # Moderator email address
+    )
+    email_message.content_subtype = 'html'  # Set the content type as HTML
+    email_message.send()
+
+
+def add_calendar(house, date_from, date_to, email):
+    url = "https://v1.nocodeapi.com/mermaido_leg/calendar/VVuVsNbfRLlnYKgd/event"
+
+    date_from_dt = datetime.strptime(date_from, "%Y-%m-%d")
+    date_to_dt = datetime.strptime(date_to, "%Y-%m-%d")
+
+    date_from = date_from_dt.strftime("%Y-%m-%dT%H:%M:%S")
+    date_to = date_to_dt.strftime("%Y-%m-%dT%H:%M:%S")
+
+    calendar_data = {
+        "summary": "Miško terapija",
+        "location": "Žukonys, Varena, Lithuania, 65248",
+        "description": f"{house} namuko rezevacija.",
+        "start": {
+            "dateTime": date_from,
+            "timeZone": "Europe/Vilnius"
+        },
+        "end": {
+            "dateTime": date_to,
+            "timeZone": "Europe/Vilnius"
+        },
+        "recurrence": ["RRULE:FREQ=DAILY;COUNT=2"],
+        "sendNotifications": True,
+        "attendees": [
+            {"email": "admin@misko_terapija.com"},
+            {"email": email},#organizer
+        ]
+    }
+
+    response = requests.post(url=url, json=calendar_data)
+    result = response.json()
+    print(result)
 
 
 def payment_successful(request):
@@ -38,15 +98,9 @@ def payment_successful(request):
     client.reservation = reservation
     client.save()
 
-    email_body = render_to_string('payment/payment_successful_email.html', {'reservation': reservation, 'client': client})
-    email_message = EmailMultiAlternatives(
-        'Apmokėjimas pavyko',
-        email_body,
-        'admin@misko_terapija.com',  # Sender's email address
-        [client.email],  # Recipient's email address
-    )
-    email_message.content_subtype = 'html'  # Set the content type as HTML
-    email_message.send()
+    send_email_client(client, reservation)
+    send_email_moderator(client, reservation)
+    add_calendar(reservation.house, date_from, date_to, client.email)
 
     return render(request, 'payment/payment_successful.html', {'reservation': reservation, 'client': client})
 
