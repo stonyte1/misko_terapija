@@ -43,7 +43,6 @@ def add_calendar(house, date_from, date_to, email):
 
     date_from_dt = datetime.strptime(date_from, "%Y-%m-%d")
     date_to_dt = datetime.strptime(date_to, "%Y-%m-%d")
-
     date_from = date_from_dt.strftime("%Y-%m-%dT%H:%M:%S")
     date_to = date_to_dt.strftime("%Y-%m-%dT%H:%M:%S")
 
@@ -62,14 +61,12 @@ def add_calendar(house, date_from, date_to, email):
         "recurrence": ["RRULE:FREQ=DAILY;COUNT=2"],
         "sendNotifications": True,
         "attendees": [
-            {"email": "admin@misko_terapija.com"},
-            {"email": email},#organizer
+            {"email": email}, # Reciever
+            {"email": "admin@misko_terapija.com"}, #Sender
         ]
     }
 
-    response = requests.post(url=url, json=calendar_data)
-    result = response.json()
-    print(result)
+    requests.post(url=url, json=calendar_data)
 
 
 def payment_successful(request):
@@ -116,6 +113,7 @@ def stripe_webhook(request):
     payload = request.body
     signature_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
+
     try:
         event = stripe.Webhook.construct_event(
             payload, signature_header, settings.STRIPE_WEBHOOK_SECRET_TEST
@@ -124,6 +122,7 @@ def stripe_webhook(request):
         return HttpResponse(status=400)
     except stripe.error.SignatureVerificationError as err:
         return HttpResponse(status=400)
+    
     if event['type'] == 'checkout.session.completed':
         session = event['data']
         session_id = session.get('id', None)
@@ -132,4 +131,5 @@ def stripe_webhook(request):
         line_items = stripe.checkout.Session.list_line_items(session_id, limit=1)
         client_payment.payment_bool = True
         client_payment.save()
+        
     return HttpResponse(status=200)

@@ -6,13 +6,13 @@
         <h2>Miško terapija</h2>
         <p>Lėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvimu.</p>
         <div class="house-reservation-button">
-            <a href="/#houses-reservation">
+            <a href="/#search-house">
                 <p>Rezervuoti namelį</p>
             </a>
         </div>
     </div>
 </div>
-<div class="search-house">
+<div class="search-house" id="search-house">
     <h3>Pasirinkite namelį</h3>
     <form method="POST" enctype="multipart/form-data" id="reservation-form">
         {% csrf_token %}
@@ -167,20 +167,29 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
 <script>
-$(function() {
-    // Function to initialize datepicker for a given input element
-    function initializeDatepicker(inputElement) {
-    inputElement.datepicker({
-        showButtonPanel: false,
-        dateFormat: "yy-mm-dd",
-        minDate: 0, // Restrict past dates
-        beforeShowDay: highlightReservedDates,
-        onSelect: function(dateText) {
-        inputElement.val(dateText);
-        inputElement.datepicker("hide");
+    $(document).ready(function() {
+        // Function to initialize datepicker for a given input element
+        function initializeDatepicker(inputElement) {
+          inputElement.datepicker({
+            showButtonPanel: false,
+            dateFormat: "yy-mm-dd",
+            minDate: 0,
+            beforeShowDay: highlightReservedDates,
+            onSvelect: function(dateText) {
+              inputElement.val(dateText);
+              inputElement.datepicker("hide");
+            },
+            dayNamesMin: ["S.", "P.", "A.", "T.", "K.", "P.", "Š."],
+            monthNames: [
+              "Sausis", "Vasaris", "Kovas", "Balandis", "Gegužė", "Birželis",
+              "Liepa", "Rugpjūtis", "Rugsėjis", "Spalis", "Lapkritis", "Gruodis"
+            ],
+            monthNamesShort: [
+              "Sau", "Vas", "Kov", "Bal", "Geg", "Bir",
+              "Lie", "Rgp", "Rgs", "Spa", "Lap", "Grd"
+            ]
+          });
         }
-    });
-    }
 
     // Initialize datepickers for check-in and check-out inputs
     initializeDatepicker($("#check-in"));

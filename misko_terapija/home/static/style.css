@@ -19,6 +19,10 @@
     src: url('/static/fonts/PTSans-Regular.ttf') format('ttf');
 }
 
+html {
+    scroll-behavior: smooth;
+}
+  
 body {
     transform: scale(0.92);
     transform-origin: top left;

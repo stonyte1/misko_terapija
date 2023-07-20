@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import House, Review
 from reservation.views import get_reserved_dates
 from collections import Counter

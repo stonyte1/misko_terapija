@@ -344,29 +344,43 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    align-self: stretch;
+    font-family: 'PTSans-Bold';
 }
-
+  
 .ui-datepicker-prev {
-    width: 24px;
-    height: 24px;
+    order: 1;
+    background-image: url('reservation/image/chevron-left.png');
 }
-
+  
 .ui-datepicker-next {
-    width: 24px;
-    height: 24px;
+    order: 3;
+    background-image: url('reservation/image/chevron-right.png');
 }
-
+  
 .ui-datepicker-title {
-    flex: 1 0 0;
-    color: #000;
+    order: 2;
+    flex: 1;
     text-align: center;
+    color: #000;
     font-family: 'PTSans-Regular';
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
+  
+.ui-datepicker-prev, .ui-datepicker-next {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    line-height: 600%;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+  
 
 .ui-datepicker-calendar {
     display: flex;
@@ -512,3 +526,7 @@ a.ui-state-default:hover {
     font-size: 25px;
     font-family: 'PTSans-Bold';
 }
+
+
+
+
