@@ -36,12 +36,12 @@
                     <input type="hidden" name="pk" value="{{ house.pk }}">
                     <div class="form-group">
                         <img src="{% static 'home/image/calendar_month.png' %}">
-                        <input type="text" id="check-in" name="date_from" class="datepicker" placeholder="Atvykimas">
+                        <input type="text" id="check-in" name="date_from" class="datepicker" value="{{ check_in_date|default_if_none:'Atvykimas' }}">
                         <div id="check-in-calendar" class="calendar-popup"></div>
                     </div>
                     <div class="form-group">
                         <img src="{% static 'home/image/calendar_month.png' %}">
-                        <input type="text" id="check-out" name="date_to" class="datepicker" placeholder="Išvykimas">
+                        <input type="text" id="check-out" name="date_to" class="datepicker"  value="{{ check_out_date|default_if_none:'Išvykimas' }}">
                         <div id="check-out-calendar" class="calendar-popup"></div>
                     </div>
                     <input type="hidden" name="house" value="{{ house.pk }}">

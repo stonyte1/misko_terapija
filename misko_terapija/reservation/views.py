@@ -22,6 +22,9 @@ def reservation_create(request, pk):
     reserved_dates = get_reserved_dates(pk)
     images = house.images.all()
 
+    check_in_date = request.GET.get('check-in')
+    check_out_date = request.GET.get('check-out')
+    
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
@@ -66,11 +69,17 @@ def reservation_create(request, pk):
 
     else:
         form = ReservationForm(initial={'house': house})
+        if check_in_date == "None":
+            check_in_date = None
+        if check_out_date == "None":
+            check_out_date = None
 
     context = {
         'form': form,
         'reserved_dates': reserved_dates,
         'house': house,
-        'images': images
+        'images': images,
+        'check_in_date': check_in_date,
+        'check_out_date': check_out_date,
     }
     return render(request, 'reservation/house_detail.html', context)

@@ -4,34 +4,53 @@
     {% if user.is_staff %}
         <a href="{% url 'gallery_update' %}">Redaguoti galerija<i class="fas-house">&#xf044;</i></a>
     {% endif %}
-	<div class="carousel">
-        {% for i in gallery %}
-        {% if forloop.counter == 1 %}
-            <input type="radio" id="image-{{ forloop.counter }}" name="carousel[]" checked>
-        {% else %}
-		    <input type="radio" id="image-{{ forloop.counter }}" name="carousel[]">
-        {% endif %}
-        {% endfor %}
-		<ul class="carousel__items">
+    <div class="carousel">
+        {% comment %} {% for i in gallery %}
+            <input type="radio" id="image-{{ forloop.counter }}" name="carousel[]" {% if forloop.counter == 1 %}checked{% endif %}>
+        {% endfor %} {% endcomment %}
+        <ul class="carousel__items">
             {% for image in gallery %}
-			<li class="carousel__item"><img src="{{ image.photo.url }}" alt=""></li>
+                <li class="carousel__item"><img src="{{ image.photo.url }}" alt=""></li>
             {% endfor %}
-		</ul>
-    <div class="carousel__prev">
-        {% for i in gallery %}
-     	<label for="image-{{ forloop.counter }}"></label>
-        {% endfor %}
+        </ul>
+        {% comment %} <div class="carousel__prev">
+            {% for i in gallery %}
+                <label for="image-{{ forloop.counter }}"></label>
+            {% endfor %}
+        </div>
+        <div class="carousel__next">
+            {% for i in gallery %}
+                <label for="image-{{ forloop.counter }}"></label>
+            {% endfor %}
+        </div>
+        <div class="carousel__nav">
+            {% for i in gallery %}
+                <label for="image-{{ forloop.counter }}"></label>
+            {% endfor %} {% endcomment %}
+        </div>
     </div>
-    <div class="carousel__next">
-        {% for i in gallery %}
-        <label for="image-{{ forloop.counter }}"></label>
-        {% endfor %}
-    </div>
-    <div class="carousel__nav">
-        {% for i in gallery %}
-        <label for="image-{{ forloop.counter }}"></label>
-        {% endfor %}
-    </div>
-   </div>
 </div>
+<script>
+    // JavaScript to enable slideshow functionality
+    const slides = document.querySelectorAll('.carousel__item');
+    let currentSlide = 0;
+  
+    function showSlide(slideIndex) {
+      slides.forEach((slide) => (slide.style.opacity = 0));
+      slides[slideIndex].style.opacity = 1;
+    }
+  
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+  
+    function previousSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  
+    // Automatically change slide every 5 seconds (5000 milliseconds)
+    setInterval(nextSlide, 5000);
+</script>
 {% endblock content %}
