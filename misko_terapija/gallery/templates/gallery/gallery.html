@@ -5,28 +5,11 @@
         <a href="{% url 'gallery_update' %}">Redaguoti galerija<i class="fas-house">&#xf044;</i></a>
     {% endif %}
     <div class="carousel">
-        {% comment %} {% for i in gallery %}
-            <input type="radio" id="image-{{ forloop.counter }}" name="carousel[]" {% if forloop.counter == 1 %}checked{% endif %}>
-        {% endfor %} {% endcomment %}
         <ul class="carousel__items">
             {% for image in gallery %}
                 <li class="carousel__item"><img src="{{ image.photo.url }}" alt=""></li>
             {% endfor %}
         </ul>
-        {% comment %} <div class="carousel__prev">
-            {% for i in gallery %}
-                <label for="image-{{ forloop.counter }}"></label>
-            {% endfor %}
-        </div>
-        <div class="carousel__next">
-            {% for i in gallery %}
-                <label for="image-{{ forloop.counter }}"></label>
-            {% endfor %}
-        </div>
-        <div class="carousel__nav">
-            {% for i in gallery %}
-                <label for="image-{{ forloop.counter }}"></label>
-            {% endfor %} {% endcomment %}
         </div>
     </div>
 </div>

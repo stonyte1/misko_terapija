@@ -36,7 +36,7 @@
                     <input type="hidden" name="pk" value="{{ house.pk }}">
                     <div class="form-group">
                         <img src="{% static 'home/image/calendar_month.png' %}">
-                        <input type="text" id="check-in" name="date_from" class="datepicker" value="{{ check_in_date|default_if_none:'Atvykimas' }}">
+                        <input type="text" id="check-in" name="date_from" class="datepicker"  value="{{ check_in_date|default_if_none:'Atvykimas' }}">
                         <div id="check-in-calendar" class="calendar-popup"></div>
                     </div>
                     <div class="form-group">
@@ -47,7 +47,7 @@
                     <input type="hidden" name="house" value="{{ house.pk }}">
                     <div class="payment-button">
                     <button type="submit" id="payment-button" class="payment-button">
-                        <p>Rezervuoti</p>
+                        <p>Mokėti</p>
                     </button>
                 </div>
                 </form> 
