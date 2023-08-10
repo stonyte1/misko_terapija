@@ -235,9 +235,6 @@
   display: flex;
   align-items: flex-start;
   gap: 64px;
-
-  margin-left: 60px;
-  margin-right: 60px;
 }
 
 .about {
@@ -249,7 +246,7 @@
 }
 
 .about h3 {
-  color: #fff;
+  color: #eae1cd;
   font-family: "PTSans-Regular";
   font-size: 32px;
   font-style: normal;
@@ -258,7 +255,7 @@
 }
 
 .about p {
-  color: #fff;
+  color: #eae1cd;
   font-family: "PTSans-Regular";
   font-size: 16px;
   font-style: normal;
@@ -275,7 +272,7 @@
 }
 
 .comfort h3 {
-  color: #fff;
+  color: #eae1cd;
   font-family: "PTSans-Regular";
   font-size: 32px;
   font-style: normal;
@@ -309,7 +306,7 @@
 }
 
 .comfort-item h4 {
-  color: #fff;
+  color: #eae1cd;
   font-family: "PTSans-Regular";
   font-size: 18px;
   font-style: normal;
@@ -323,7 +320,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
-  flex: 1 0 0;
 }
 
 .ui-datepicker {
@@ -411,7 +407,6 @@ th {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex: 1 0 0;
 }
 
 span {
@@ -438,7 +433,6 @@ td {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex: 1 0 0;
 }
 
 .ui-state-default {
@@ -481,7 +475,6 @@ a.ui-state-default:hover {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex: 1 0 0;
 }
 
 .fas-house {

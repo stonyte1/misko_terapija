@@ -63,7 +63,7 @@
                     </div>
                     <div class="house-price">
                         <p>Paros kaina:</p>
-                        <h3>{{ house.price }} &euro;</h3>
+                        <h3>{{ house.price|add:0 }} &euro;</h3>
                     </div>
                     <button type="submit" id="reservation-button" class="reservation-button">
                         <a href="{% url 'house' house.pk %}?check-in={{ check_in_date }}&check-out={{ check_out_date }}">

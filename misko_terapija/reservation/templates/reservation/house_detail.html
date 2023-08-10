@@ -30,7 +30,7 @@
                 <form method="POST" enctype="multipart/form-data" id="reservation-form" >
                     <h3>Rezervacija</h3>
                     <h4>Kaina nakčiai</h4>
-                    <h4>{{ house.price }} &euro;</h4>
+                    <h4>{{ house.price|add:0 }} &euro;</h4>
                     <p>Įveskite datas, kad sužinotumėte kainą</p>
                     {% csrf_token %}
                     <input type="hidden" name="pk" value="{{ house.pk }}">
