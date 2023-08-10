@@ -1,6 +1,6 @@
-# Misko Terpija
+# Misko Terapija
 
-Misko Terpija is a web application built with Django that allows users to reserve their stay and make payments. It includes a moderator system for managing all models, a gallery feature for showcasing photos, and a reservation filtering feature.
+Misko Terapija is a web application built with Django that allows users to reserve their stay and make payments. It includes a moderator system for managing all models, a gallery feature for showcasing photos, and a reservation filtering feature.
 
 ## Features
 
