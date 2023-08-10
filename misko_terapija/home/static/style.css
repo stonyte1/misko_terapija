@@ -1,283 +1,280 @@
 /* Global Styles */
 @font-face {
-    font-family: 'PTSans-Bold';
-    src: url('/static/fonts/PTSans-Bold.ttf') format('ttf');
+  font-family: "PTSans-Bold";
+  src: url("/static/fonts/PTSans-Bold.ttf") format("ttf");
 }
 
 @font-face {
-    font-family: 'PTSans-BoldItalic';
-    src: url('/static/fonts/PTSans-BoldItalic.ttf') format('ttf');
+  font-family: "PTSans-BoldItalic";
+  src: url("/static/fonts/PTSans-BoldItalic.ttf") format("ttf");
 }
 
 @font-face {
-    font-family: 'PTSans-Italic';
-    src: url('/static/fonts/PTSans-Italic.ttf') format('ttf');
+  font-family: "PTSans-Italic";
+  src: url("/static/fonts/PTSans-Italic.ttf") format("ttf");
 }
 
 @font-face {
-    font-family: 'PTSans-Regular';
-    src: url('/static/fonts/PTSans-Regular.ttf') format('ttf');
+  font-family: "PTSans-Regular";
+  src: url("/static/fonts/PTSans-Regular.ttf") format("ttf");
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-  
-body {
-    transform: scale(0.92);
-    transform-origin: top left;
-    font-family: 'PTSans-Regular';
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background: #112F21;
-    margin: 0 auto;
-    width: 1440px;
-    height: 0px;
-}
-header {
-    background-color: #112F21;
-    position: sticky;
 
+body {
+  font-family: "PTSans-Regular";
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #112f21;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #112f21;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  width: 100%;
 }
 
 nav {
-    display: flex;
-    padding: 16px 64px;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    width: 1440px;
+  display: flex;
+  padding: 16px 64px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .logo a {
-    width: 48px;
-    height: 48px;
-    text-decoration: none;
+  width: 48px;
+  height: 48px;
+  text-decoration: none;
 }
 
 .nav-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    margin-left: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 }
 
 .nav-links li {
-    list-style: none;
-    position: relative;
+  list-style: none;
+  position: relative;
 }
 
 .nav-links li a {
-    color: #FFF;
-    font-family: PT Sans;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration: none;
+  color: #fff;
+  font-family: PT Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
 }
 
 .nav-links li a::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: white;
-    transform: scaleX(0); 
-    transition: transform 0.3s ease;
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 .nav-links li a:hover::after {
-    transform: scaleX(1); 
+  transform: scaleX(1);
 }
 
 .nav-contacts {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
 }
 
 .reserve-button {
-    display: flex;
-    width: 138px;
-    padding: 16px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background: #FFFEFD;
-    text-decoration: none;
+  display: flex;
+  width: 138px;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #fffefd;
+  text-decoration: none;
 }
 
 .reserve-button a {
-    color: #1C1B1F;
-    text-align: center;
-    font-family: PT Sans;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration: none;
+  color: #1c1b1f;
+  text-align: center;
+  font-family: PT Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
 }
 
 .number {
-    color: #FFF;
-    font-family: PT Sans;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #fff;
+  font-family: PT Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 main {
-    padding: 0;
-    margin: 0;
-    width: 1440px;
+  padding: 0;
+  margin: 0;
 }
+
 .directions {
-    display: flex;
-    width: 1440px;
-    padding: 64px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
+  display: flex;
+  padding: 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .directions h4 {
-    color: #EAE1CD;;
-    font-family: 'PTSans-Regular';
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin: 0;
+  color: #eae1cd;
+  font-family: "PTSans-Regular";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
 }
 
 .directions p {
-    display: flex;
-    width: 642px;
-    flex-direction: column;
-    color: #EAE1CD;;
-    font-family: 'PTSans-Regular';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  color: #eae1cd;
+  font-family: "PTSans-Regular";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  margin: 0;
 }
 
 .directions iframe {
-    width: 100%;
-    height: 500px;
+  width: 100%;
+  height: 500px;
 }
 
 footer {
-    display: flex;
-    width: 1440px;
-    padding: 32px 64px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    background: #0A1C13;
+  display: flex;
+  padding: 32px 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  background: #0a1c13;
+  width: 100%;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
 }
 
 .info {
-    display: flex;
-    align-items: flex-start;
-    gap: 128px;
+  display: flex;
+  align-items: flex-start;
+  gap: 128px;
 }
 
 .location {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .location img {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .location a {
-    width: 24px;
-    height: 24px;
-    text-decoration: none;
+  width: 24px;
+  height: 24px;
+  text-decoration: none;
 }
 
 .adress {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .adress p {
-    color: #FFF;
-    font-family: 'PTSans-Regular';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin: 0;
+  color: #fff;
+  font-family: "PTSans-Regular";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
 }
 
 .social {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .social-media {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .social-media img {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .social-media a {
-    width: 24px;
-    height: 24px;
-    text-decoration: none;
+  width: 24px;
+  height: 24px;
+  text-decoration: none;
 }
 
 .social-media p {
-    color: #FFF;
-    font-family: 'PTSans-Regular';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin: 0;
+  color: #fff;
+  font-family: "PTSans-Regular";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
 }
 
 .rights {
-    color: #FFF;
-    font-family: PT Sans;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #fff;
+  font-family: PT Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-

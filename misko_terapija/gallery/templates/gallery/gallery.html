@@ -7,7 +7,7 @@
     <div class="carousel">
         <ul class="carousel__items">
             {% for image in gallery %}
-                <li class="carousel__item"><img src="{{ image.photo.url }}" alt=""></li>
+                <li class="carousel__item" style="opacity: 0;"><img src="{{ image.photo.url }}" alt=""></li>
             {% endfor %}
         </ul>
         </div>
@@ -17,6 +17,8 @@
     // JavaScript to enable slideshow functionality
     const slides = document.querySelectorAll('.carousel__item');
     let currentSlide = 0;
+
+    slides[0].style.opacity = 1;
   
     function showSlide(slideIndex) {
       slides.forEach((slide) => (slide.style.opacity = 0));
@@ -25,11 +27,6 @@
   
     function nextSlide() {
       currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
-  
-    function previousSlide() {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
       showSlide(currentSlide);
     }
   

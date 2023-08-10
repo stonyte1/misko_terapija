@@ -1,531 +1,523 @@
 .house-page {
-    display: flex;
-    width: 1440px;
-    padding: 40px 64px 64px 64px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
-    background: #EAE1CD;
-} 
+  display: flex;
+  padding: 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  background: #eae1cd;
+}
 
 .home-arrow {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .home-arrow a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .home-arrow img {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
 .home-arrow p {
-    color: #0C2218;
-    font-family: 'PTSans-Regular';
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #0c2218;
+  font-family: "PTSans-Regular";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .house-detail {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-    align-self: stretch;
-    width: 1320px;
-    margin-left: 60px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .house-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
 }
 
 .house-main-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .house-main-info h3 {
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-    color: #0C2218;
-    font-family: 'PTSans-Regular';
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  color: #0c2218;
+  font-family: "PTSans-Regular";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
 }
 
 .house-main-info p {
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-    color: #0C2218;
-    font-family: 'PTSans-Regular';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  display: flex;
+  flex-direction: column;
+
+  color: #0c2218;
+  font-family: "PTSans-Regular";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .reservation-form {
-    display: flex;
-    width: 417px;
-    padding: 24px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    border: 2px solid #1E5E5F;
-    background: #FFF;
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  border: 2px solid #1e5e5f;
+  background: #fff;
 }
 
 .reservation-form h3 {
-    color: #000;
-    font-family: 'PTSans-Regular';
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin: 0;
+  color: #000;
+  font-family: "PTSans-Regular";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
 }
 .reservation-form h4 {
-    color: #000;
-    font-family: 'PTSans-Regular';
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin: 0;
+  color: #000;
+  font-family: "PTSans-Regular";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
 }
 
 .reservation-form p {
-    color: #000;
-    font-family: 'PTSans-Regular';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.reservation-form form {
-    width: 417px;
+  color: #000;
+  font-family: "PTSans-Regular";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .form-group {
-    display: flex;
-    padding: 12px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    align-self: stretch;
-    border: 1px solid var(--gray-300, #C8C8C8);
-    background: var(--text-white, #FFF);
-    margin-bottom: 16px;
+  display: flex;
+  padding: 12px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  border: 1px solid var(--gray-300, #c8c8c8);
+  background: var(--text-white, #fff);
+  margin-bottom: 16px;
 }
 
 .form-group:hover {
-    border: 1px solid #112F21;
-    background: linear-gradient(0deg, rgba(17, 47, 33, 0.05) 0%, rgba(17, 47, 33, 0.05) 100%), #FFF;
+  border: 1px solid #112f21;
+  background: linear-gradient(
+      0deg,
+      rgba(17, 47, 33, 0.05) 0%,
+      rgba(17, 47, 33, 0.05) 100%
+    ),
+    #fff;
 }
 
 .form-group img {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .form-group input {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1 0 0;
-    color: var(--text-dark, #252525);
-    font-family: 'PTSans-Regular';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  color: var(--text-dark, #252525);
+  font-family: "PTSans-Regular";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  border: none;
 }
 
 .form-group input:hover {
-    background: linear-gradient(0deg, rgba(17, 47, 33, 0.05) 0%, rgba(17, 47, 33, 0.05) 100%), #FFF;
+  background: linear-gradient(
+      0deg,
+      rgba(17, 47, 33, 0.05) 0%,
+      rgba(17, 47, 33, 0.05) 100%
+    ),
+    #fff;
 }
 
 #payment-button {
-    display: flex;
-    padding: 12px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background: #962A1A;
-    margin: 0;
-    border-radius: 0;
-    height: 50px;
-    border: none;
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #962a1a;
+  margin: 0;
+  border-radius: 0;
+  height: 50px;
+  border: none;
 }
 
 #payment-button p {
-    color: #FFF;
-    font-family: 'PTSans-Regular';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
+  color: #fff;
+  font-family: "PTSans-Regular";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .house-cover {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .house-cover img {
-    height: 583px;
-    align-self: stretch;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(<path-to-image>), lightgray -548.848px -496.279px / 163.451% 240% no-repeat;
+  height: 583px;
+
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url(<path-to-image>),
+    lightgray -548.848px -496.279px / 163.451% 240% no-repeat;
 }
 
 .house-gallery {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .house-gallery img {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(<path-to-image>), lightgray -50.76px -68.1px / 163.451% 240% no-repeat;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url(<path-to-image>), lightgray -50.76px -68.1px / 163.451% 240% no-repeat;
 }
 
 .house-information {
-    display: flex;
-    width: 1440px;
-    padding: 64px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 64px;
-    background: #112F21;
+  display: flex;
+  padding: 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 64px;
+  background: #112f21;
 }
 
 .information {
-    display: flex;
-    align-items: flex-start;
-    gap: 64px;
-    align-self: stretch;
-    margin-left: 60px;
-    margin-right: 60px;
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+
+  margin-left: 60px;
+  margin-right: 60px;
 }
 
 .about {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    flex: 1 0 0;
-    align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 1 0 0;
 }
 
 .about h3 {
-    align-self: stretch;
-    color: #FFF;
-    font-family: 'PTSans-Regular';
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: #fff;
+  font-family: "PTSans-Regular";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .about p {
-    align-self: stretch;
-    color: #FFF;
-    font-family: 'PTSans-Regular';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%; /* 24px */
+  color: #fff;
+  font-family: "PTSans-Regular";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
 }
 
 .comfort {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    flex: 1 0 0;
-    align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 1 0 0;
 }
 
 .comfort h3 {
-    color: #FFF;
-    font-family: 'PTSans-Regular';
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: #fff;
+  font-family: "PTSans-Regular";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .about-comfort {
-    display: flex;
-    align-items: flex-start;
-    gap: 32px;
-    align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
 }
 
 .first-comfort-items {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
 }
 
 .comfort-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .comfort-item img {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
 .comfort-item h4 {
-    color: #FFF;
-    font-family: 'PTSans-Regular';
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin: 0px;
+  color: #fff;
+  font-family: "PTSans-Regular";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0px;
 }
 
 .second-comfort-items {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
 }
 
 .ui-datepicker {
-    display: none; 
-    position: absolute; 
-    width: 427px;
-    padding: 4px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid #C8C8C8;
-    background: #FFF;
-    margin-top: 60px;
+  display: none;
+  position: absolute;
+  width: 427px;
+  padding: 4px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #c8c8c8;
+  background: #fff;
+  margin-top: 60px;
 }
 
 .ui-datepicker-header {
-    display: flex;
-    padding: 16px 32px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    font-family: 'PTSans-Bold';
+  display: flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: "PTSans-Bold";
 }
-  
+
 .ui-datepicker-prev {
-    order: 1;
-    background-image: url('reservation/image/chevron-left.png');
+  order: 1;
+  background-image: url("reservation/image/chevron-left.png");
 }
-  
+
 .ui-datepicker-next {
-    order: 3;
-    background-image: url('reservation/image/chevron-right.png');
+  order: 3;
+  background-image: url("reservation/image/chevron-right.png");
 }
-  
+
 .ui-datepicker-title {
-    order: 2;
-    flex: 1;
-    text-align: center;
-    color: #000;
-    font-family: 'PTSans-Regular';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  order: 2;
+  flex: 1;
+  text-align: center;
+  color: #000;
+  font-family: "PTSans-Regular";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
-  
-.ui-datepicker-prev, .ui-datepicker-next {
-    width: 24px;
-    height: 24px;
-    background-repeat: no-repeat;
-    line-height: 600%;
-    overflow: hidden;
-    text-align: center;
-    cursor: pointer;
-    margin-right: 100px;
-    margin-left: 100px;
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  line-height: 600%;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
 }
-  
 
 .ui-datepicker-calendar {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
 thead {
-    display: flex;
-    padding: 8px 32px;
-    justify-content: center;
-    align-items: center;
-    gap: 11px;
-    align-self: stretch;
+  display: flex;
+  padding: 8px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
 }
 
 tr {
-    display: flex;
-    padding: 8px 32px;
-    justify-content: center;
-    align-items: center;
-    gap: 11px;
-    align-self: stretch;
+  display: flex;
+  padding: 8px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
 }
 
 th {
-    display: flex;
-    padding: 2px 15px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex: 1 0 0;
+  display: flex;
+  padding: 2px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
 }
 
 span {
-    color: #000;
-    font-family: 'PTSans-Regular';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 12px; /* 85.714% */
-    letter-spacing: 0.42px;
-    text-transform: uppercase;
+  color: #000;
+  font-family: "PTSans-Regular";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 12px; /* 85.714% */
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
 }
 
 tbody {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 td {
-    display: flex;
-    padding: 10px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex: 1 0 0;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
 }
 
 .ui-state-default {
-    color: #999999;
-    text-align: center;
-    font-family: 'PTSans-Regular';
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px; /* 122.222% */
+  color: #999999;
+  text-align: center;
+  font-family: "PTSans-Regular";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 122.222% */
 }
 
 .reserved-date {
-    color: #000; 
-    text-decoration: line-through; 
-    cursor: not-allowed; 
+  color: #000;
+  text-decoration: line-through;
+  cursor: not-allowed;
 }
 
 .ui-state-default:not(.reserved-date) {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a.ui-state-default {
-    color: #000;
-    text-align: center;
-    font-family: 'PTSans-Regular';
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px; /* 122.222% */
+  color: #000;
+  text-align: center;
+  font-family: "PTSans-Regular";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 122.222% */
 }
 
 a.ui-state-default:hover {
-    border-radius: 100px;
-    background: rgba(17, 47, 33, 0.10);
-    display: flex;
-    height: 42px;
-    padding: 10px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex: 1 0 0;
+  border-radius: 100px;
+  background: rgba(17, 47, 33, 0.1);
+  display: flex;
+  height: 42px;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
 }
 
 .fas-house {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
-    align-items: flex-end;
-    align-items: right;
-    font-weight: 400;
-    font-size: 25px;
-    color: black;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 500;
-    transition: font-size 0.3s;
-    margin-left: 20px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  align-items: flex-end;
+  align-items: right;
+  font-weight: 400;
+  font-size: 25px;
+  color: black;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 500;
+  transition: font-size 0.3s;
+  margin-left: 20px;
 }
 
 .fas-house:hover {
-    color:  #112F21;
-    font-size: 30px;
+  color: #112f21;
+  font-size: 30px;
 }
 
 .edit-house a {
-    text-decoration: none;
-    color: black;
-    font-size: 25px;
-    font-family: 'PTSans-Bold';
-    margin-left: 60px;
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  font-family: "PTSans-Bold";
 }
 
 .edit-reservation a {
-    text-decoration: none;
-    color: black;
-    font-size: 25px;
-    font-family: 'PTSans-Bold';
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  font-family: "PTSans-Bold";
 }
-
-
-
-

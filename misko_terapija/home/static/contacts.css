@@ -1,62 +1,55 @@
 .contacts {
-    display: flex;
-    width: 1440px;
-    padding: 64px;
-    flex-direction: column;
-    align-items: center;
-    gap: 64px;
-    background: #EAE1CD;
+  display: flex;
+  width: 1440px;
+  padding: 64px;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  background: #eae1cd;
 }
-
 .contacts-text {
-    display: flex;
-    padding: 0px 64px;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  padding: 0px 64px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
-
 .contacts-text h2 {
-    color: #865735;
-    font-size: 80px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    font-family: 'PTSans-Regular'
+  color: #865735;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-family: "PTSans-Regular";
 }
-
 .all-contacts {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
-    margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 64px;
 }
-
 .contacts-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-
 .contacts-info img {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
-
 .contacts-info a {
-    width: 32px;
-    height: 32px;
-    text-decoration: none;
-    margin-right: 32px;
+  width: 32px;
+  height: 32px;
+  text-decoration: none;
+  margin-right: 32px;
 }
-
 .contacts-info p {
-    color:black;
-    font-family: 'PTSans-Regular';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin: 0;
+  color: black;
+  font-family: "PTSans-Regular";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
 }
