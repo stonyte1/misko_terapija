@@ -19,7 +19,7 @@ Misko Terapija is a web application built with Django that allows users to reser
 2. Change into the project directory:
 
    ```shell
-   cd misko-terpija
+   cd misko-terapija
    ```
 
 3. Create a virtual environment:
