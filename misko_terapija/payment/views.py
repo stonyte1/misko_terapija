@@ -32,7 +32,7 @@ def send_email_moderator(client, reservation):
         'Nauja rezervacija',
         email_body,
         'admin@misko_terapija.com',  # Sender's email address
-        'stonyteevelina@gmail.com',  # Moderator email address
+        ['stonyteevelina@gmail.com'],  # Moderator email address
     )
     email_message.content_subtype = 'html'  # Set the content type as HTML
     email_message.send()

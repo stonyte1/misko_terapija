@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="home">
+<div class="home block">
     <div class="home-title">
         <h2>Miško terapija</h2>
         <p>Lėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvimu.</p>
@@ -12,9 +12,9 @@
         </div>
     </div>
 </div>
-<div class="search-house" id="search-house">
+<div class="search-house block" id="search-house">
     <h3>Pasirinkite namelį</h3>
-    <form method="POST" enctype="multipart/form-data" id="reservation-form">
+    <form method="POST" enctype="multipart/form-data" id="reservation-form" autocomplete="off">
         {% csrf_token %}
         <div class="form-group-filter">
             <img src="{% static 'home/image/calendar_month.png' %}">
@@ -34,12 +34,14 @@
             {% endif %}
             <div id="check-out-calendar" class="calendar-popup"></div>
         </div>
-        <button type="submit"  id="search-button" class="payment-button">
-            <p>Ieškoti</p>
-        </button>
+        <a href="/#search-house">
+            <button type="submit"  id="search-button" class="payment-button">
+                <p>Ieškoti</p>
+            </button>
+        </a>
     </form>
 </div>
-<div class="houses" id="houses-reservation">
+<div class="houses block" id="houses-reservation">
     {% if available_houses == None %}
         {% for house in houses %}
             {% if forloop.counter == 1 %}
@@ -137,18 +139,17 @@
             </div>
         {% endfor %}
     {% else %}
-        <div class="no-houses">
-            <img src="{% static 'home/image/sentiment_dissatisfied.png' %}">
-            <h4>Atsiprašome, pasirinktu laiku laisvų namelių nėra.</h4>
-            <p>Pasirinkite kitą datą ir praleiskite naktį gamtos apsuptyje.</p>
-        </div>
+    <div class="no-houses">
+        <img src="{% static 'home/image/sentiment_dissatisfied.png' %}">
+        <h4>Atsiprašome, pasirinktu laiku laisvų namelių nėra.</h4>
+        <p>Pasirinkite kitą datą ir praleiskite naktį gamtos apsuptyje.</p>
+    </div>
     {% endif %}
 </div>
-<div class="reviews">
+<div class="reviews block">
     <div class="reviews-text">
         <p>Pažiūrėkite, kodėl jums patiks mūsų erdvė</p>
     </div>
-    <div class="customer-reviews">
         <div class="review-group">
             {% for review in reviews %}
                 <div class="review-left">
@@ -160,7 +161,6 @@
                 </div>
             {% endfor %}
         </div> 
-    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
@@ -168,25 +168,25 @@
     $(document).ready(function() {
         // Function to initialize datepicker for a given input element
         function initializeDatepicker(inputElement) {
-          inputElement.datepicker({
+        inputElement.datepicker({
             showButtonPanel: false,
             dateFormat: "yy-mm-dd",
             minDate: 0,
             beforeShowDay: highlightReservedDates,
             onSvelect: function(dateText) {
-              inputElement.val(dateText);
-              inputElement.datepicker("hide");
+            inputElement.val(dateText);
+            inputElement.datepicker("hide");
             },
             dayNamesMin: ["S.", "P.", "A.", "T.", "K.", "P.", "Š."],
             monthNames: [
-              "Sausis", "Vasaris", "Kovas", "Balandis", "Gegužė", "Birželis",
-              "Liepa", "Rugpjūtis", "Rugsėjis", "Spalis", "Lapkritis", "Gruodis"
+            "Sausis", "Vasaris", "Kovas", "Balandis", "Gegužė", "Birželis",
+            "Liepa", "Rugpjūtis", "Rugsėjis", "Spalis", "Lapkritis", "Gruodis"
             ],
             monthNamesShort: [
-              "Sau", "Vas", "Kov", "Bal", "Geg", "Bir",
-              "Lie", "Rgp", "Rgs", "Spa", "Lap", "Grd"
+            "Sau", "Vas", "Kov", "Bal", "Geg", "Bir",
+            "Lie", "Rgp", "Rgs", "Spa", "Lap", "Grd"
             ]
-          });
+        });
         }
 
     // Initialize datepickers for check-in and check-out inputs

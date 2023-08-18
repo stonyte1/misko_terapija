@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="house-page">
+<div class="house-page block">
     <div class="home-arrow">
         <a href="#" onclick="goBack()">
             <img src="{% static 'reservation/image/arrow_left_alt.png' %}">
@@ -61,32 +61,32 @@
 
                     $(document).ready(function() {
                         $(".form-group").on("click", function() {
-                          $(this).toggleClass("selected");
+                        $(this).toggleClass("selected");
                         });
                     });
 
                     $(document).ready(function() {
                         // Function to initialize datepicker for a given input element
                         function initializeDatepicker(inputElement) {
-                          inputElement.datepicker({
+                        inputElement.datepicker({
                             showButtonPanel: false,
                             dateFormat: "yy-mm-dd",
                             minDate: 0,
                             beforeShowDay: highlightReservedDates,
                             onSvelect: function(dateText) {
-                              inputElement.val(dateText);
-                              inputElement.datepicker("hide");
+                            inputElement.val(dateText);
+                            inputElement.datepicker("hide");
                             },
                             dayNamesMin: ["S.", "P.", "A.", "T.", "K.", "P.", "Š."],
                             monthNames: [
-                              "Sausis", "Vasaris", "Kovas", "Balandis", "Gegužė", "Birželis",
-                              "Liepa", "Rugpjūtis", "Rugsėjis", "Spalis", "Lapkritis", "Gruodis"
+                            "Sausis", "Vasaris", "Kovas", "Balandis", "Gegužė", "Birželis",
+                            "Liepa", "Rugpjūtis", "Rugsėjis", "Spalis", "Lapkritis", "Gruodis"
                             ],
                             monthNamesShort: [
-                              "Sau", "Vas", "Kov", "Bal", "Geg", "Bir",
-                              "Lie", "Rgp", "Rgs", "Spa", "Lap", "Grd"
+                            "Sau", "Vas", "Kov", "Bal", "Geg", "Bir",
+                            "Lie", "Rgp", "Rgs", "Spa", "Lap", "Grd"
                             ]
-                          });
+                        });
                         }
 
                         $("#datepicker").on("datepickeropen", function() {
@@ -108,30 +108,30 @@
                         });
 
                         function highlightReservedDates(date) {
-                          var formattedDate = $.datepicker.formatDate("yy-mm-dd", date);
-                          if (reservedDates.indexOf(formattedDate) !== -1) {
+                        var formattedDate = $.datepicker.formatDate("yy-mm-dd", date);
+                        if (reservedDates.indexOf(formattedDate) !== -1) {
                             return [false, "reserved-date"];
-                          }
-                          return [true, ""];
+                        }
+                        return [true, ""];
                         }
                         
                         $("#reservation-form").on("submit", function(e) {
-                          var checkInDate = checkInInput.val();
-                          var checkOutDate = checkOutInput.val();
+                        var checkInDate = checkInInput.val();
+                        var checkOutDate = checkOutInput.val();
                         
-                          if (checkInDate && checkOutDate) {
+                        if (checkInDate && checkOutDate) {
                             for (var i = 0; i < reservedDates.length; i++) {
-                              var reservedDate = new Date(reservedDates[i]);
-                              var startDate = new Date(checkInDate);
-                              var endDate = new Date(checkOutDate);
+                            var reservedDate = new Date(reservedDates[i]);
+                            var startDate = new Date(checkInDate);
+                            var endDate = new Date(checkOutDate);
                         
-                              if (reservedDate >= startDate && reservedDate <= endDate) {
+                            if (reservedDate >= startDate && reservedDate <= endDate) {
                                 e.preventDefault();
                                 alert('The chosen interval includes reserved dates. Please select different dates.');
                                 break;
-                              }
                             }
-                          }
+                            }
+                        }
                         });
                     });        
                 </script>
@@ -156,7 +156,7 @@
         
     </div>
 </div>
-<div class="house-information">
+<div class="house-information block">
     <div class="information">
         <div class="about">
             <h3>Aprašymas</h3>

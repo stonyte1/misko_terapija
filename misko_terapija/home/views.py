@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from .models import House, Review
 from reservation.views import get_reserved_dates
 from collections import Counter
@@ -24,8 +25,9 @@ def reservation_search(request):
 
     if request.method == 'POST':
         available_houses = []
-
-        if check_in_date and check_out_date:
+        if check_in_date == '' or check_out_date == '':
+            available_houses = None
+        elif check_in_date and check_out_date:
             for house in houses:
                 booked_dates = get_reserved_dates(house.id)
                 is_available = True
@@ -36,7 +38,6 @@ def reservation_search(request):
 
                 if is_available:
                     available_houses.append(house)
-
 
     context = {
         'reserved_dates': reserved_dates,

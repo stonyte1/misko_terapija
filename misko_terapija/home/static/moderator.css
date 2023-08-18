@@ -1,9 +1,4 @@
 .background-block {
-  display: flex;
-  padding: 64px;
-  flex-direction: column;
-  align-items: center;
-  gap: 64px;
   background: #eae1cd;
 }
 .login {
@@ -11,7 +6,6 @@
   padding: 0px 64px;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
 }
 .login h2 {
   color: #865735;
@@ -81,11 +75,7 @@
   line-height: normal;
 }
 .logout {
-  display: flex;
   padding: 24px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
   border: 2px solid #1e5e5f;
   background: #fff;
 }

@@ -1,9 +1,4 @@
 .house-page {
-  display: flex;
-  padding: 64px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 30px;
   background: #eae1cd;
 }
 
@@ -33,28 +28,18 @@
 
 .house-detail {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  gap: 16px;
+  /* width: 100%; */
 }
-
-.house-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 30px;
-}
-
 .house-main-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
 }
 
 .house-main-info h3 {
   display: flex;
   flex-direction: column;
-
   color: #0c2218;
   font-family: "PTSans-Regular";
   font-size: 40px;
@@ -80,7 +65,6 @@
   display: flex;
   padding: 24px;
   flex-direction: column;
-  align-items: flex-start;
   gap: 16px;
   border: 2px solid #1e5e5f;
   background: #fff;
@@ -189,59 +173,32 @@
 .house-cover {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
+  gap: 16px;
 }
 
 .house-cover img {
-  height: 583px;
-
-  background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    ),
-    url(<path-to-image>),
-    lightgray -548.848px -496.279px / 163.451% 240% no-repeat;
+  width: 100%;
 }
 
 .house-gallery {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  gap: 8px;
 }
 
 .house-gallery img {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    ),
-    url(<path-to-image>), lightgray -50.76px -68.1px / 163.451% 240% no-repeat;
+  width: 15%;
 }
 
 .house-information {
-  display: flex;
-  padding: 64px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 64px;
   background: #112f21;
 }
 
 .information {
   display: flex;
-  align-items: flex-start;
   gap: 64px;
 }
 
 .about {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
   flex: 1 0 0;
 }
 
@@ -264,10 +221,6 @@
 }
 
 .comfort {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
   flex: 1 0 0;
 }
 
@@ -282,7 +235,6 @@
 
 .about-comfort {
   display: flex;
-  align-items: flex-start;
   gap: 32px;
 }
 
@@ -324,24 +276,15 @@
 
 .ui-datepicker {
   display: none;
-  position: absolute;
-  width: 427px;
-  padding: 4px;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
   border: 1px solid #c8c8c8;
   background: #fff;
-  margin-top: 60px;
+  padding: 8px;
 }
 
 .ui-datepicker-header {
   display: flex;
-  padding: 16px 32px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  padding: 10px 32px;
   font-family: "PTSans-Bold";
 }
 
@@ -369,41 +312,31 @@
 
 .ui-datepicker-prev,
 .ui-datepicker-next {
-  width: 24px;
   height: 24px;
   background-repeat: no-repeat;
   line-height: 600%;
   overflow: hidden;
-  text-align: center;
-  cursor: pointer;
 }
 
 .ui-datepicker-calendar {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
 }
 
 thead {
   display: flex;
-  padding: 8px 32px;
   justify-content: center;
-  align-items: center;
-  gap: 11px;
 }
 
 tr {
   display: flex;
-  padding: 8px 32px;
-  justify-content: center;
-  align-items: center;
-  gap: 11px;
+  padding: 4px 32px;
+  gap: 14px;
 }
 
 th {
   display: flex;
-  padding: 2px 15px;
+  padding: 10px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -412,7 +345,7 @@ th {
 span {
   color: #000;
   font-family: "PTSans-Regular";
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 12px; /* 85.714% */
@@ -423,23 +356,21 @@ span {
 tbody {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 td {
   display: flex;
-  padding: 10px;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
+  width: 17px;
+  padding: 8px 16px;
 }
 
 .ui-state-default {
   color: #999999;
   text-align: center;
   font-family: "PTSans-Regular";
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 22px; /* 122.222% */
@@ -459,7 +390,7 @@ a.ui-state-default {
   color: #000;
   text-align: center;
   font-family: "PTSans-Regular";
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 22px; /* 122.222% */
@@ -468,13 +399,7 @@ a.ui-state-default {
 a.ui-state-default:hover {
   border-radius: 100px;
   background: rgba(17, 47, 33, 0.1);
-  display: flex;
-  height: 42px;
-  padding: 10px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  padding: 4px 4px;
 }
 
 .fas-house {
