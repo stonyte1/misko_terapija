@@ -21,6 +21,7 @@ def reservation_create(request, pk):
     house = get_object_or_404(House, pk=pk)
     reserved_dates = get_reserved_dates(pk)
     images = house.images.all()
+    discount = 'TERAPIJA'
 
     check_in_date = request.GET.get('check-in')
     check_out_date = request.GET.get('check-out')
@@ -47,9 +48,11 @@ def reservation_create(request, pk):
                                 },
                             },
                             'quantity': quantity,
+
                         }
                     ],
                     mode='payment',
+                    allow_promotion_codes = True,
                     customer_creation='always',
                     success_url=settings.REDIRECT_DOMAIN + f'/payment/payment_successful?session_id={{CHECKOUT_SESSION_ID}}',
                     cancel_url=settings.REDIRECT_DOMAIN + '/payment/payment_cancelled',
@@ -57,7 +60,7 @@ def reservation_create(request, pk):
                         'house_id': house.id,
                         'date_from': reservation.date_from,
                         'date_to': reservation.date_to
-                    }
+                    }, 
                 )
                 return redirect(checkout_session.url, code=303)
             except stripe.error.StripeError as e:

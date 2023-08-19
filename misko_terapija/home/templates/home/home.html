@@ -44,29 +44,14 @@
 <div class="houses block" id="houses-reservation">
     {% if available_houses == None %}
         {% for house in houses %}
-            {% if forloop.counter == 1 %}
-            <div class="house-left">
+            <div class="house">
                 <a href="{% url 'house' house.pk %}?check-in={{ check_in_date }}&check-out={{ check_out_date }}">
-                <img src="{{ house.main_image.url }}">
-                </a>
-                <div class="house-left-info">
+                    <img src="{{ house.main_image.url }}" alt="{{ house.name }}">
                     <div class="house-text">
                         <h3> {{ house.name }}</h3>
-                        <p>Lėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvimui.</p>
-                        <div class='house-icons'>
-                            <img src="{% static 'home/image/park.png' %}">
-                            <img src="{% static 'home/image/kitchen.png' %}">
-                            <img src="{% static 'home/image/bath_outdoor.png' %}">
-                            <img src="{% static 'home/image/sound_detection_dog_barking.png' %}">
-                            <img src="{% static 'home/image/nest_remote_comfort_sensor.png' %}">
-                            <img src="{% static 'home/image/directions_car.png' %}">
-                            <img src="{% static 'home/image/volume_off.png' %}">
-                        </div>
                     </div>
-                    <div class="house-price">
-                        <p>Paros kaina:</p>
-                        <h3>{{ house.price|add:0 }} &euro;</h3>
-                    </div>
+                </a>
+                <div class="house-info">
                     <button type="submit" id="reservation-button" class="reservation-button">
                         <a href="{% url 'house' house.pk %}?check-in={{ check_in_date }}&check-out={{ check_out_date }}">
                         <p>Rezervuoti</p>
@@ -74,62 +59,17 @@
                     </button>
                 </div>
             </div>
-            {% else %}
-            <div class="house-right">
-                <div class="house-right-info">
-                        <div class="house-text">
-                            <h3> {{ house.name }}</h3>
-                            <p>Lėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvimui.</p>
-                            <div class='house-icons'>
-                                <img src="{% static 'home/image/park.png' %}">
-                                <img src="{% static 'home/image/kitchen.png' %}">
-                                <img src="{% static 'home/image/bath_outdoor.png' %}">
-                                <img src="{% static 'home/image/sound_detection_dog_barking.png' %}">
-                                <img src="{% static 'home/image/nest_remote_comfort_sensor.png' %}">
-                                <img src="{% static 'home/image/directions_car.png' %}">
-                                <img src="{% static 'home/image/volume_off.png' %}">
-                            </div>
-                        </div>
-                        <div class="house-price">
-                            <p>Paros kaina:</p>
-                            <h3>{{ house.price }} &euro;</h3>
-                        </div>
-                        <button type="submit" id="reservation-button" class="reservation-button">
-                            <a href="{% url 'house' house.pk %}?check-in={{ check_in_date }}&check-out={{ check_out_date }}">
-                            <p>Rezervuoti</p>
-                            </a>
-                        </button>
-                    </div>
-                <a href="{% url 'house' house.pk %}?check-in={{ check_in_date }}&check-out={{ check_out_date }}">
-                    <img src="{{ house.main_image.url }}">
-                </a>
-            </div>
-            {% endif %}
         {% endfor %}
     {% elif available_houses %}
         {% for house in available_houses %}
-            <div class="house-left">
+            <div class="house">
                 <a href="{% url 'house' house.pk %}?check-in={{ check_in_date }}&check-out={{ check_out_date }}">
-                <img src="{{ house.main_image.url }}">
-                </a>
-                <div class="house-left-info">
+                    <img src="{{ house.main_image.url }}">
                     <div class="house-text">
                         <h3> {{ house.name }}</h3>
-                        <p>Lėtam, jaukiam ir privačiam poilsiui miške. Kai norisi miško magiją derinti su patogiu pasibūvimui.</p>
-                        <div class='house-icons'>
-                            <img src="{% static 'home/image/park.png' %}">
-                            <img src="{% static 'home/image/kitchen.png' %}">
-                            <img src="{% static 'home/image/bath_outdoor.png' %}">
-                            <img src="{% static 'home/image/sound_detection_dog_barking.png' %}">
-                            <img src="{% static 'home/image/nest_remote_comfort_sensor.png' %}">
-                            <img src="{% static 'home/image/directions_car.png' %}">
-                            <img src="{% static 'home/image/volume_off.png' %}">
-                        </div>
                     </div>
-                    <div class="house-price">
-                        <p>Paros kaina:</p>
-                        <h3>{{ house.price }} &euro;</h3>
-                    </div>
+                </a>
+                <div class="house-info">
                     <button type="submit" id="reservation-button" class="reservation-button">
                         <a href="{% url 'house' house.pk %}?check-in={{ check_in_date }}&check-out={{ check_out_date }}">
                         <p>Rezervuoti</p>
@@ -151,7 +91,8 @@
         <p>Pažiūrėkite, kodėl jums patiks mūsų erdvė</p>
     </div>
         <div class="review-group">
-            {% for review in reviews %}
+            <iframe src='https://widgets.sociablekit.com/google-reviews/iframe/182177' frameborder='0' width='100%' height='360'></iframe>
+            {% comment %} {% for review in reviews %}
                 <div class="review-left">
                     <div class="review-left-logo">
                         <img src="{% static 'home/image/music_note.png' %}">
@@ -159,7 +100,7 @@
                     <h4>{{ review.title }}</h4>
                     <p>{{ review.content }}</p>
                 </div>
-            {% endfor %}
+            {% endfor %} {% endcomment %}
         </div> 
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

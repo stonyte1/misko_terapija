@@ -141,48 +141,38 @@ form a {
 }
 .houses {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   background: #eae1cd;
   border: none;
   gap: 32px;
 }
-.house-left {
-  display: flex;
-  gap: 30px;
-}
-.house-right {
-  display: flex;
-  gap: 30px;
-}
-.house-left a,
-.house-right a {
+.house a {
   text-decoration: none;
+  position: relative;
 }
-.house-left img,
-.house-right img {
+.house:hover .house-text h3 {
+  opacity: 1;
+}
+.house:hover img {
+  opacity: 0.5;
+}
+.house img {
   width: 100%;
+  height: 85%;
 }
-.house-left-info {
+.house-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
 }
-.house-right-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-}
 .house-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
 }
 .house-text h3 {
-  color: #112f21;
+  color: white;
+  opacity: 0;
   font-family: "PTSans-Bold";
   font-size: 40px;
   font-style: normal;
@@ -301,7 +291,10 @@ form a {
   flex-wrap: wrap;
   gap: 32px;
 }
-.review-left {
+.elfsight-app-4856226d-52ee-479d-9fa2-85f909206ca9 .capcOd {
+  background-color: #eae1cd;
+}
+/* .review-left {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -326,6 +319,6 @@ form a {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%; /* 24px */
+  line-height: 150%; 24px
   margin: 0;
-}
+} */

@@ -45,19 +45,17 @@
         <div class="directions block">
             <h4>Kaip atvykti?</h4>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2479.279935839335!2d24.748928!3d54.156995099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46de13bcdb6d3cb5%3A0x2c932439bb0a001d!2sMi%C5%A1ko%20terapija!5e1!3m2!1slt!2slt!4v1692210221071!5m2!1slt!2slt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            {% comment %} <p>Pasivaikščiojimas miške gali būti galinga priemonė atsipalaiduoti ir atgauti vidinę pusiausvyrą. Jei ieškote vietos, kur galėtumėte susijungti su gamta ir pasimėgauti tyliu ramumu, tai puikus pasirinkimas būtų miško terapijos kabina, esanti netoli Varėnos. {% endcomment %}
-                {% comment %} Ši kabina yra pilna žaliųjų miško tonų ir aplink ją sklinda tyrumo ir ramybės atmosfera. Ji pasižymi šiuolaikišku ir ekologišku dizainu, derinant gamtos elementus su patogumu. Kabina aprūpinta visais reikalingais patogumais, kad jūsų viešnagė būtų patogi ir maloni. Čia rasite jaukią miegamąją, pilnai įrengtą virtuvę ir patogią vonią, kurioje galėsite atsipalaiduoti po ilgo pasivaikščiojimo miške.</p> {% endcomment %}
         </div>
     </main>
     <footer>
         <div class="footer-content">
-            <div class="logo">
+            {% comment %} <div class="logo">
                 <a href="{% url 'home' %}">
                 <img src="{% static 'home/image/forest_footer.png' %}">
                 </a>
-            </div>
+            </div> {% endcomment %}
             <div class="info">
-                <div class="location">
+                {% comment %} <div class="location">
                     <a href="https://goo.gl/maps/hKvNTVcg1Ni4T4Ho8">
                     <img src="{% static 'home/image/pin_drop.png' %}">
                     </a>
@@ -67,7 +65,7 @@
                         <p>Varėna, 65248,</p>
                         <p>Lietuva</p>
                     </div>
-                </div>
+                </div> {% endcomment %}
                 <div class="social">
                     <div class="social-media">
                         <a href="https://www.facebook.com/miskoterapija.lt">
@@ -81,10 +79,10 @@
                         </a>
                         <p>Instagram</p>
                     </div>
-                    <div class="social-media">
+                    {% comment %} <div class="social-media">
                         <img src="{% static 'home/image/call.png' %}">
                         <p>+37066763845</p>
-                    </div>
+                    </div> {% endcomment %}
                     <div class="social-media">
                         <a href="mailto: misko.terapijai@gmail.com">
                         <img src="{% static 'home/image/mail.png' %}">
@@ -95,7 +93,7 @@
             </div>
         </div>
         <div class="rights">
-        <p> &copy; 2023 Miško terapija. Visos teisės saugomos. </p>
+            <p> &copy; 2023 Miško terapija. Visos teisės saugomos. </p>
         </div>
     </footer>    
 </body>

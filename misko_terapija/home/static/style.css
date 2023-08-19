@@ -1,38 +1,30 @@
-/* Global Styles */
 @font-face {
   font-family: "PTSans-Bold";
   src: url("/static/fonts/PTSans-Bold.ttf") format("ttf");
 }
-
 @font-face {
   font-family: "PTSans-BoldItalic";
   src: url("/static/fonts/PTSans-BoldItalic.ttf") format("ttf");
 }
-
 @font-face {
   font-family: "PTSans-Italic";
   src: url("/static/fonts/PTSans-Italic.ttf") format("ttf");
 }
-
 @font-face {
   font-family: "PTSans-Regular";
   src: url("/static/fonts/PTSans-Regular.ttf") format("ttf");
 }
-
 * {
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   font-family: "PTSans-Regular";
   background: #112f21;
   margin: 0 auto;
 }
-
 header {
   background-color: #112f21;
   position: sticky;
@@ -40,36 +32,30 @@ header {
   z-index: 2;
   width: 100%;
 }
-
 nav {
   display: flex;
   padding: 8px 64px;
   justify-content: space-between;
   align-items: center;
 }
-
 .logo {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
 .logo a {
   text-decoration: none;
 }
-
 .nav-links {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
 }
-
 .nav-links li {
   list-style: none;
   position: relative;
 }
-
 .nav-links li a {
   color: #fff;
   font-family: PT Sans;
@@ -79,7 +65,6 @@ nav {
   line-height: normal;
   text-decoration: none;
 }
-
 .nav-links li a::after {
   content: "";
   position: absolute;
@@ -91,24 +76,20 @@ nav {
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
-
 .nav-links li a:hover::after {
   transform: scaleX(1);
 }
-
 .nav-contacts {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 24px;
 }
-
 .reserve-button {
-  padding: 10px 16px;
+  padding: 16px 20px;
   background: #fffefd;
   text-decoration: none;
 }
-
 .reserve-button a {
   color: #1c1b1f;
   text-align: center;
@@ -119,7 +100,6 @@ nav {
   line-height: normal;
   text-decoration: none;
 }
-
 .number {
   color: #fff;
   font-family: PT Sans;
@@ -128,23 +108,19 @@ nav {
   font-weight: 400;
   line-height: normal;
 }
-
 main {
   padding: 0;
   margin: 0;
 }
-
 .block {
   padding: 64px;
 }
-
 .directions {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
 }
-
 .directions h4 {
   color: #eae1cd;
   font-family: "PTSans-Regular";
@@ -154,7 +130,6 @@ main {
   line-height: normal;
   margin: 0;
 }
-
 .directions p {
   display: flex;
   flex-direction: column;
@@ -166,59 +141,51 @@ main {
   line-height: 150%;
   margin: 0;
 }
-
 .directions iframe {
   width: 100%;
   height: 500px;
 }
-
 footer {
   display: flex;
-  padding: 32px 64px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
+  justify-content: space-between;
+  padding: 24px 64px;
+  /* flex-direction: column;
+  align-items: center; */
+  gap: 16px;
   background: #0a1c13;
-  width: 100%;
+  /* width: 100%; */
 }
-
-.footer-content {
+/* .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   align-self: stretch;
-}
-
-.info {
+} */
+/* .info {
   display: flex;
   align-items: flex-start;
   gap: 128px;
-}
-
-.location {
+} */
+/* .location {
   display: flex;
   align-items: flex-start;
   gap: 8px;
 }
-
 .location img {
   width: 24px;
   height: 24px;
 }
-
 .location a {
   width: 24px;
   height: 24px;
   text-decoration: none;
 }
-
 .adress {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
 }
-
 .adress p {
   color: #fff;
   font-family: "PTSans-Regular";
@@ -227,32 +194,26 @@ footer {
   font-weight: 400;
   line-height: normal;
   margin: 0;
-}
-
+} */
 .social {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 8px;
 }
-
 .social-media {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
 .social-media img {
   width: 24px;
   height: 24px;
 }
-
 .social-media a {
   width: 24px;
   height: 24px;
   text-decoration: none;
 }
-
 .social-media p {
   color: #fff;
   font-family: "PTSans-Regular";
@@ -262,14 +223,18 @@ footer {
   line-height: normal;
   margin: 0;
 }
-
 .rights {
+  display: flex;
+  align-items: end;
+}
+.rights p {
   color: #fff;
-  font-family: PT Sans;
+  font-family: "PTSans-Regular";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin: 0;
 }
 
 @media screen and (max-width: 390px) {
@@ -314,12 +279,11 @@ footer {
   .search-house form {
     flex-wrap: wrap;
   }
-  .house-left,
-  .house-right {
-    flex-wrap: wrap;
+  main .houses {
+    display: block;
   }
-  .house-right {
-    flex-direction: column-reverse;
+  .house {
+    padding: 8px;
   }
   .houses .house-text h3 {
     font-size: 32px;
@@ -343,13 +307,15 @@ footer {
     font-size: 14px;
   }
   footer {
+    flex-direction: column;
     padding: 16px 8px;
   }
   .info {
     gap: 0;
   }
   .adress p,
-  .social-media p {
+  .social-media p,
+  .rights p {
     font-size: 16px;
   }
   .footer-content {
