@@ -29,6 +29,7 @@ class House(models.Model):
     name = models.CharField(_("name"), max_length=250)
     main_image = models.ImageField(_("main_image"), upload_to='house/', blank=True, null=True)
     price = models.FloatField(_("price"), null=True, blank=True)
+    price_weekend = models.FloatField(_("price_weekend"), null=True, blank=True)
     guests = models.IntegerField(_("guests"))
     beds = models.CharField(_("beds"), max_length=50)
     content = models.TextField(_("content"), blank=True, null=True)

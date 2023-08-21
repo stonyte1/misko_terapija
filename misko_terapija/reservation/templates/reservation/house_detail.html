@@ -29,7 +29,7 @@
                 </div>
                 <form method="POST" enctype="multipart/form-data" id="reservation-form" >
                     <h3>Rezervacija</h3>
-                    <h4>Kaina nakčiai</h4>
+                    <h4>Kaina nakčiai nuo:</h4>
                     <h4>{{ house.price|add:0 }} &euro;</h4>
                     <p>Įveskite datas, kad sužinotumėte kainą</p>
                     {% csrf_token %}
@@ -184,10 +184,6 @@
                     </div>
                 </div>
                 <div class="second-comfort-items">
-                    <div class="comfort-item">
-                        <img src="{% static 'reservation/image/nest_remote_comfort_sensor.png' %}">
-                        <h4>Wi-Fi</h4>
-                    </div>
                     <div class="comfort-item">
                         <img src="{% static 'reservation/image/directions_car.png' %}">
                         <h4>Nemokama vieta automobiliui</h4>

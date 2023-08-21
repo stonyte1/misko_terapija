@@ -355,6 +355,9 @@ footer {
   .house-information .about-comfort {
     display: block;
   }
+  .house-information  .information {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 475px) {

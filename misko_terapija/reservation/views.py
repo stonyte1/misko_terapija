@@ -1,11 +1,27 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Reservation, House
 from .forms import ReservationForm
-from datetime import timedelta
+from datetime import timedelta, datetime
 import stripe
 from django.conf import settings
 
 
+
+def get_price(date_from, date_to, house):
+    price = 0
+    current_date = date_from
+    while current_date <= date_to:
+        date_str = current_date.strftime('%Y-%m-%d')
+        date = datetime.strptime(date_str, '%Y-%m-%d')
+        weekday = date.weekday()
+        if weekday == 4 or weekday == 5:
+            price += house.price_weekend
+        else:
+            price += house.price
+        current_date += timedelta(days=1)
+    return price
+
+    
 def get_reserved_dates(pk):
     reservations = Reservation.objects.filter(house_id=pk)
     reserved_dates = []
@@ -21,7 +37,6 @@ def reservation_create(request, pk):
     house = get_object_or_404(House, pk=pk)
     reserved_dates = get_reserved_dates(pk)
     images = house.images.all()
-    discount = 'TERAPIJA'
 
     check_in_date = request.GET.get('check-in')
     check_out_date = request.GET.get('check-out')
@@ -31,7 +46,7 @@ def reservation_create(request, pk):
         if form.is_valid():
             reservation = form.save(commit=False)
             reservation.house = house
-            quantity = (reservation.date_to - reservation.date_from).days
+            price = get_price(reservation.date_from, reservation.date_to, house)
 
             # Create the payment session and redirect to the payment page
             stripe.api_key = settings.STRIPE_SECRET_KEY_TEST
@@ -42,12 +57,12 @@ def reservation_create(request, pk):
                         {
                             'price_data': {
                                 'currency': 'eur',
-                                'unit_amount': int(house.price * 100),  # Convert price to cents (Stripe requires the amount in cents)
+                                'unit_amount': int(price * 100),  # Convert price to cents (Stripe requires the amount in cents)
                                 'product_data': {
                                     'name': house.name,  # Set the product name to the house name
                                 },
                             },
-                            'quantity': quantity,
+                            'quantity': 1,
 
                         }
                     ],
