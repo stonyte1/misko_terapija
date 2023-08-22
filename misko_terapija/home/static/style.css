@@ -117,7 +117,7 @@ footer {
   justify-content: space-between;
   padding: 24px 64px;
   gap: 16px;
-  background: #0a1c13;
+  background: url("home/image/footer.svg"), lightgray 50% / cover no-repeat;
 }
 .social {
   display: flex;
@@ -134,8 +134,10 @@ footer {
   height: 24px;
 }
 .social-media a {
-  width: 24px;
-  height: 24px;
+  display: flex;
+  color: white;
+  font-size: 24px;
+  gap: 16px;
   text-decoration: none;
 }
 .social-media p {
@@ -160,9 +162,6 @@ footer {
   line-height: normal;
   margin: 0;
 }
-
-@media screen and (max-width: 390px) {
-}
 @media screen and (max-width: 1024px) {
   .block {
     padding: 16px 16px;
@@ -170,11 +169,7 @@ footer {
   nav {
     gap: 16px;
   }
-  .house-detail {
-    flex-direction: column;
-  }
 }
-
 @media only screen and (max-width: 768px) {
   .block {
     padding: 16px 8px;
@@ -190,42 +185,6 @@ footer {
   }
   .nav-links {
     gap: 8px;
-  }
-  .home .home-title h2 {
-    font-size: 64px;
-  }
-  main .search-house {
-    gap: 32px;
-  }
-  main .search-house h3{
-    font-size: 32px;
-  }
-  .search-house form {
-    flex-wrap: wrap;
-  }
-  main .houses {
-    display: block;
-  }
-  .house {
-    padding: 8px;
-  }
-  .houses .house-text h3 {
-    font-size: 32px;
-  }
-  .houses .house-text p {
-    font-size: 14px;
-  }
-  .houses .house-price h3 {
-    font-size: 30px;
-  }
-  main .reviews {
-    display: block;
-  }
-  main .review-left {
-    width: 100%;
-  }
-  .reviews .reviews-text p {
-    font-size: 32px;
   }
   .directions p {
     font-size: 14px;
@@ -247,62 +206,5 @@ footer {
   }
   .rights {
     font-size: 12px;
-  }
-  .carousel__items {
-    height: 425px;
-  }
-  .ui-datepicker {
-    padding: 0;
-  }
-  .ui-datepicker .ui-datepicker-header{
-    padding: 4px;
-  }
-  .ui-datepicker-calendar,  
-  .ui-datepicker td  {
-    padding: 0;
-  }
-  .ui-datepicker th {
-    padding: 2px;
-  }
-  .ui-datepicker tr {
-    padding: 4px 16px;
-  }
-  .house-detail {
-    flex-direction: column;
-  }
-  .house-detail .house-main-info h3 {
-    font-size: 32px;
-  }
-  .comfort-item h4 {
-    font-weight: 16px;
-  }
-  .house-information .about-comfort {
-    display: block;
-  }
-  .house-information  .information {
-    display: block;
-  }
-  .all-prices .price-information {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .price-information .price-header {
-    display: block;
-  }
-  .price-information .prices {
-    display: block;
-    border: none;
-  }
-}
-
-@media only screen and (max-width: 475px) {
-  .carousel .carousel__items {
-    height: 310px;
-  }
-}
-
-@media only screen and (max-width: 355px) {
-  .carousel .carousel__items {
-    height: 250px;
   }
 }

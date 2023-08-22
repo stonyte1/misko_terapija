@@ -4,7 +4,7 @@
 <div class="house-page block">
     <div class="home-arrow">
         <a href="#" onclick="goBack()">
-            <img src="{% static 'reservation/image/arrow_left_alt.png' %}">
+            <span class="material-symbols-outlined" style="color: black; margin-top: 4px;">arrow_left_alt</span>
         </a>
         <a href="#" onclick="goBack()">
             <p>Grįžti atgal</p>
@@ -35,12 +35,12 @@
                     {% csrf_token %}
                     <input type="hidden" name="pk" value="{{ house.pk }}">
                     <div class="form-group">
-                        <img src="{% static 'home/image/calendar_month.png' %}">
+                        <span class="material-symbols-outlined" style="color: black;">calendar_month</span>
                         <input type="text" id="check-in" name="date_from" class="datepicker"  value="{{ check_in_date|default_if_none:'Atvykimas' }}">
                         <div id="check-in-calendar" class="calendar-popup"></div>
                     </div>
                     <div class="form-group">
-                        <img src="{% static 'home/image/calendar_month.png' %}">
+                        <span class="material-symbols-outlined" style="color: black;">calendar_month</span>
                         <input type="text" id="check-out" name="date_to" class="datepicker"  value="{{ check_out_date|default_if_none:'Išvykimas' }}">
                         <div id="check-out-calendar" class="calendar-popup"></div>
                     </div>
@@ -56,7 +56,7 @@
 
                 <script>
                     function goBack() {
-                        history.go(-1); // Go back one page
+                        history.go(-1); 
                     }
 
                     $(document).ready(function() {
@@ -66,7 +66,6 @@
                     });
 
                     $(document).ready(function() {
-                        // Function to initialize datepicker for a given input element
                         function initializeDatepicker(inputElement) {
                         inputElement.datepicker({
                             showButtonPanel: false,
@@ -93,10 +92,8 @@
                             $(".ui-datepicker-header").remove();
                         });
                         
-                        // Get reserved dates from Django view
                         var reservedDates = {{ reserved_dates|safe }};
                         
-                        // Initialize datepickers for check-in and check-out inputs
                         var checkInInput = $("#check-in");
                         var checkOutInput = $("#check-out");
                         
@@ -167,29 +164,29 @@
             <div class="about-comfort">
                 <div class="first-comfort-items">
                     <div class="comfort-item">
-                        <img src="{% static 'reservation/image/park.png' %}">
+                        <span class="material-symbols-outlined">forest</span>
                         <h4>Vaizdas į mišką</h4>
                     </div>
                     <div class="comfort-item">
-                        <img src="{% static 'reservation/image/kitchen.png' %}">
-                        <h4>Virtuvėlė</h4>
+                        <span class="material-symbols-outlined">outdoor_grill</span>
+                        <h4>Kepsininė</h4>
                     </div>
                     <div class="comfort-item">
-                        <img src="{% static 'reservation/image/bath_outdoor.png' %}">
-                        <h4>Sūkurinė vonia</h4>
+                        <span class="material-symbols-outlined">hot_tub</span>
+                        <h4>Kubilas</h4>
                     </div>
                     <div class="comfort-item">
-                        <img src="{% static 'reservation/image/sound_detection_dog_barking.png' %}">
+                        <span class="material-symbols-outlined">sound_detection_dog_barking</span>
                         <h4>Galima apsistoti su augintiniais</h4>
                     </div>
                 </div>
                 <div class="second-comfort-items">
                     <div class="comfort-item">
-                        <img src="{% static 'reservation/image/directions_car.png' %}">
-                        <h4>Nemokama vieta automobiliui</h4>
+                        <span class="material-symbols-outlined">local_parking</span>
+                        <h4>Stovėjimo aikštelė</h4>
                     </div>
                     <div class="comfort-item">
-                        <img src="{% static 'reservation/image/volume_off.png' %}">
+                        <span class="material-symbols-outlined">volume_off</span>
                         <h4>Rami aplinka</h4>
                     </div>
                 </div>

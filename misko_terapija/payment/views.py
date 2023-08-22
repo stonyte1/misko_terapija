@@ -21,7 +21,7 @@ def send_email_client(client, reservation):
         'admin@misko_terapija.com',  # Sender's email address
         [client.email],  # Client email address
     )
-    email_message.content_subtype = 'html'  # Set the content type as HTML
+    email_message.content_subtype = 'html'  
     email_message.send()
 
 
@@ -81,13 +81,12 @@ def payment_successful(request):
     customer = stripe.Customer.retrieve(session.customer)
 
     if settings.DEBUG:
-        client_id = random.randint(0, 999999999) # Replace with a unique client ID for testing
+        client_id = random.randint(0, 999999999) 
     else:
         client_id = request.user.id
 
     client, created = Client.objects.get_or_create(id=client_id)
 
-    # Update the client's information with the data from the payment
     client.name = customer.name
     client.email = customer.email
     client.phone_number = customer.phone

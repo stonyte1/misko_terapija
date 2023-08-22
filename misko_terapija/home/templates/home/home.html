@@ -17,7 +17,7 @@
     <form method="POST" enctype="multipart/form-data" id="reservation-form" autocomplete="off">
         {% csrf_token %}
         <div class="form-group-filter">
-            <img src="{% static 'home/image/calendar_month.png' %}">
+            <span class="material-symbols-outlined" style="color: black;">calendar_month</span>
             {% if not check_in_date %}
             <input type="text" id="check-in" name="check-in" class="datepicker" placeholder="Atvykimas">
             {% else %}
@@ -26,7 +26,7 @@
             <div id="check-in-calendar" class="calendar-popup"></div>
         </div>
         <div class="form-group-filter">
-            <img src="{% static 'home/image/calendar_month.png' %}">
+            <span class="material-symbols-outlined" style="color: black;">calendar_month</span>
             {% if not check_out_date %}
             <input type="text" id="check-out" name="check-out" class="datepicker" placeholder="Išvykimas">
             {% else %}
@@ -98,7 +98,6 @@
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
 <script>
     $(document).ready(function() {
-        // Function to initialize datepicker for a given input element
         function initializeDatepicker(inputElement) {
         inputElement.datepicker({
             showButtonPanel: false,
@@ -121,11 +120,9 @@
         });
         }
 
-    // Initialize datepickers for check-in and check-out inputs
     initializeDatepicker($("#check-in"));
     initializeDatepicker($("#check-out"));
 
-    // Get reserved dates from Django view
     var reservedDates = {{ reserved_dates|safe }};
 
     function highlightReservedDates(date) {

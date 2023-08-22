@@ -221,6 +221,19 @@
   width: 32px;
   height: 32px;
 }
+.comfort-item .material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
 .comfort-item h4 {
   color: #eae1cd;
   font-family: "PTSans-Regular";
@@ -267,6 +280,9 @@
   font-weight: 700;
   line-height: normal;
 }
+.ui-datepicker-title span {
+  color: #000;
+}
 .ui-datepicker-prev,
 .ui-datepicker-next {
   height: 24px;
@@ -294,8 +310,11 @@ th {
   align-items: center;
   gap: 10px;
 }
-span {
+th span {
   color: #000;
+}
+span {
+  color: #eae1cd;
   font-family: "PTSans-Regular";
   font-size: 16px;
   font-style: normal;
@@ -421,4 +440,37 @@ a.ui-state-default:hover {
   color: black;
   font-size: 25px;
   font-family: "PTSans-Bold";
+}
+@media screen and (max-width: 1024px) {
+  .house-detail {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .house-detail {
+    flex-direction: column;
+  }
+  .house-detail .house-main-info h3 {
+    font-size: 32px;
+  }
+  .comfort-item h4 {
+    font-weight: 16px;
+  }
+  .house-information .about-comfort {
+    display: block;
+  }
+  .house-information  .information {
+    display: block;
+  }
+  .all-prices .price-information {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .price-information .price-header {
+    display: block;
+  }
+  .price-information .prices {
+    display: block;
+    border: none;
+  }
 }

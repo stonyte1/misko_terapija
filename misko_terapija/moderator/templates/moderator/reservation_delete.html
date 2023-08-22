@@ -7,12 +7,12 @@
         {% csrf_token %}
         <input type="hidden" name="action" value="add">
         <div class="form-group-filter">
-            <img src="{% static 'home/image/calendar_month.png' %}">
+            <span class="material-symbols-outlined" style="color: black;">calendar_month</span>
             <input type="text" id="check-in" name="check-in" class="datepicker" placeholder="Atvykimas">
             <div id="check-in-calendar" class="calendar-popup"></div>
         </div>
         <div class="form-group-filter">
-            <img src="{% static 'home/image/calendar_month.png' %}">
+            <span class="material-symbols-outlined" style="color: black;">calendar_month</span>
             <input type="text" id="check-out" name="check-out" class="datepicker" placeholder="Išvykimas">
             <div id="check-out-calendar" class="calendar-popup"></div>
         </div>
@@ -37,12 +37,12 @@
             <input type="text" name="search" placeholder="Ieškoti pagal vardą" value="{{ search_query }}">
         </div>
         <div class="form-group-filter">
-            <img src="{% static 'home/image/calendar_month.png' %}">
+            <span class="material-symbols-outlined" style="color: black;">calendar_month</span>
             <input type="text" id="date-from" name="date-from" class="datepicker" placeholder="Atvykimas">
             <div id="check-in-calendar" class="calendar-popup"></div>
         </div>
         <div class="form-group-filter">
-            <img src="{% static 'home/image/calendar_month.png' %}">
+            <span class="material-symbols-outlined" style="color: black;">calendar_month</span>
             <input type="text" id="date-to" name="date-to" class="datepicker" placeholder="Išvykimas">
             <div id="check-out-calendar" class="calendar-popup"></div>
         </div>
@@ -73,7 +73,6 @@
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
 <script>
     $(document).ready(function() {
-        // Function to initialize datepicker for a given input element
         function initializeDatepicker(inputElement, highlightReserved = false) {
         inputElement.datepicker({
             showButtonPanel: false,
@@ -96,13 +95,11 @@
         });
         }
 
-    // Initialize datepickers for check-in and check-out inputs
     initializeDatepicker($("#check-in"), true);
     initializeDatepicker($("#check-out"), true);
     initializeDatepicker($("#date-from"));
     initializeDatepicker($("#date-to"));
 
-    // Get reserved dates from Django view
     var reservedDates = {{ reserved_dates|safe }};
 
     function highlightReservedDates(date) {

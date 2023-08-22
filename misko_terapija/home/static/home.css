@@ -277,7 +277,6 @@ form a {
   gap: 16px;
   background: #112f21;
 }
-
 .reviews-text p {
   color: #eae1cd;
   font-family: "PTSans-Regular";
@@ -294,31 +293,58 @@ form a {
 .elfsight-app-4856226d-52ee-479d-9fa2-85f909206ca9 .capcOd {
   background-color: #eae1cd;
 }
-/* .review-left {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: calc(50% - 32px);
+
+@media only screen and (max-width: 768px) {
+  .home .home-title h2 {
+    font-size: 64px;
+  }
+  main .search-house {
+    gap: 32px;
+  }
+  main .search-house h3{
+    font-size: 32px;
+  }
+  .search-house form {
+    flex-wrap: wrap;
+  }
+  main .houses {
+    display: block;
+  }
+  .house {
+    padding: 8px;
+  }
+  .houses .house-text h3 {
+    font-size: 32px;
+  }
+  .houses .house-text p {
+    font-size: 14px;
+  }
+  .houses .house-price h3 {
+    font-size: 30px;
+  }
+  main .reviews {
+    display: block;
+  }
+  main .review-left {
+    width: 100%;
+  }
+  .reviews .reviews-text p {
+    font-size: 32px;
+  }
+  .ui-datepicker {
+    padding: 0;
+  }
+  .ui-datepicker .ui-datepicker-header{
+    padding: 4px;
+  }
+  .ui-datepicker-calendar,  
+  .ui-datepicker td  {
+    padding: 0;
+  }
+  .ui-datepicker th {
+    padding: 2px;
+  }
+  .ui-datepicker tr {
+    padding: 4px 16px;
+  }
 }
-.review-left-logo img {
-  width: 40px;
-  height: 40px;
-}
-.review-left h4 {
-  color: #eae1cd;
-  font-family: "PTSans-Regular";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin: 0;
-}
-.review-left p {
-  color: #eae1cd;
-  font-family: "PTSans-Regular";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; 24px
-  margin: 0;
-} */

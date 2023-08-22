@@ -9,7 +9,6 @@ def get_all_reserved_date(houses):
     for house in houses:
         reserved_dates = get_reserved_dates(house.id)
         all_reserved_dates.extend(reserved_dates)
-    # Counts if dates are reserved more then one.
     all_house_reserved = [item for item, count in Counter(all_reserved_dates).items() if count > 1]
     return all_house_reserved
 
