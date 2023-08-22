@@ -24,7 +24,7 @@
             <div class="reservation-form">
                 <div class="edit-reservation">
                     {% if user.is_staff %}
-                        <a href="{% url 'reservation_delete' %}">Ištrinti rezervaciją<i class="fas-house">&#xf044;</i></a>
+                        <a href="{% url 'reservation_delete' house.pk %}">Ištrinti rezervaciją<i class="fas-house">&#xf044;</i></a>
                     {% endif %}
                 </div>
                 <form method="POST" enctype="multipart/form-data" id="reservation-form" >
@@ -194,6 +194,31 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="all-prices block">
+    <h3>Tarifai</h3>
+    <div class="price-information">
+        <div class="price-header">
+            <h4>Diena</h4>
+            <h4>Sk</h4>
+            <h4>Pr</h4>
+            <h4>An</h4>
+            <h4>Tr</h4>
+            <h4>Kt</h4>
+            <h4>Pn</h4>
+            <h4>Št</h4>
+        </div>
+        <div class="prices">
+            <h4>Kaina</h4>
+            <h4>{{ house.price|add:0 }} &euro;</h4>
+            <h4>{{ house.price|add:0 }} &euro;</h4>
+            <h4>{{ house.price|add:0 }} &euro;</h4>
+            <h4>{{ house.price|add:0 }} &euro;</h4>
+            <h4>{{ house.price|add:0 }} &euro;</h4>
+            <h4>{{ house.price_weekend|add:0 }} &euro;</h4>
+            <h4>{{ house.price_weekend|add:0 }} &euro;</h4>
         </div>
     </div>
 </div>

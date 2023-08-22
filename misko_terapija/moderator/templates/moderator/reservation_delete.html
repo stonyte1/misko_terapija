@@ -1,23 +1,130 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="background-block block">
-    <div class="delete-gallery">
-        <h2>Delete reservation</h2>
-        <div class="reservation">
-            <form method="POST">
-                {% csrf_token %}
-                <div class="gallery-item">
+<div class="search-house block" id="search-house">
+    <h3>Pridėti rezervaciją</h3>
+    <form method="POST" enctype="multipart/form-data" id="reservation-form" autocomplete="off">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="add">
+        <div class="form-group-filter">
+            <img src="{% static 'home/image/calendar_month.png' %}">
+            <input type="text" id="check-in" name="check-in" class="datepicker" placeholder="Atvykimas">
+            <div id="check-in-calendar" class="calendar-popup"></div>
+        </div>
+        <div class="form-group-filter">
+            <img src="{% static 'home/image/calendar_month.png' %}">
+            <input type="text" id="check-out" name="check-out" class="datepicker" placeholder="Išvykimas">
+            <div id="check-out-calendar" class="calendar-popup"></div>
+        </div>
+        <div class="form-group-filter">
+            <input type="text" id="name" name="name" class="datepicker" placeholder="Kliento vardas pavarde">
+        </div>
+        <div class="form-group-filter">
+            <input type="text" id="email" name="email" class="datepicker" placeholder="Kliento paštas">
+        </div>
+        <div class="form-group-filter">
+            <input type="text" id="phone-number" name="phone-number" class="datepicker" placeholder="Kliento number (optional)">
+        </div>
+        <button type="submit" id="search-button" class="payment-button">
+            <p>Pridėti</p>
+        </button>
+    </form>
+</div>
+<div class="search-house block" id="search-house">
+    <h3>Delete reservation</h3>
+    <form method="GET" enctype="multipart/form-data" id="reservation-form" autocomplete="off">
+        <div class="form-group-filter">
+            <input type="text" name="search" placeholder="Ieškoti pagal vardą" value="{{ search_query }}">
+        </div>
+        <div class="form-group-filter">
+            <img src="{% static 'home/image/calendar_month.png' %}">
+            <input type="text" id="date-from" name="date-from" class="datepicker" placeholder="Atvykimas">
+            <div id="check-in-calendar" class="calendar-popup"></div>
+        </div>
+        <div class="form-group-filter">
+            <img src="{% static 'home/image/calendar_month.png' %}">
+            <input type="text" id="date-to" name="date-to" class="datepicker" placeholder="Išvykimas">
+            <div id="check-out-calendar" class="calendar-popup"></div>
+        </div>
+        <button type="submit" id="search-button" class="payment-button">
+            <p>Ieškoti</p>
+        </button>
+    </form>
+    <form method="POST" enctype="multipart/form-data" id="reservation-form" autocomplete="off">
+        {% csrf_token %}
+        <div class="delete">
+            <input type="hidden" name="action" value="delete">
+            <div class="reservation-item">
                 {% for client in clients %}
                     <div class="reservation-date">
-                        {{ client.name }} - {{ client.reservation }} 
+                        {{ client.name }}: {{ client.reservation }} 
                         <input type="checkbox" name="client_ids" value="{{ client.id }}">
                     </div>
                 {% endfor %}
-                </div>
-                <button class="login-button" type="submit">Delete Selected</button>
-            </form>
+            </div>
+            <button type="submit" id="search-button" class="payment-button">
+                <p>Ištrinti</p>
+            </button>
         </div>
-    </div>
+    </form>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Function to initialize datepicker for a given input element
+        function initializeDatepicker(inputElement, highlightReserved = false) {
+        inputElement.datepicker({
+            showButtonPanel: false,
+            dateFormat: "yy-mm-dd",
+            minDate: 0,
+            beforeShowDay: highlightReserved ? highlightReservedDates : null,
+            onSvelect: function(dateText) {
+            inputElement.val(dateText);
+            inputElement.datepicker("hide");
+            },
+            dayNamesMin: ["S.", "P.", "A.", "T.", "K.", "P.", "Š."],
+            monthNames: [
+            "Sausis", "Vasaris", "Kovas", "Balandis", "Gegužė", "Birželis",
+            "Liepa", "Rugpjūtis", "Rugsėjis", "Spalis", "Lapkritis", "Gruodis"
+            ],
+            monthNamesShort: [
+            "Sau", "Vas", "Kov", "Bal", "Geg", "Bir",
+            "Lie", "Rgp", "Rgs", "Spa", "Lap", "Grd"
+            ]
+        });
+        }
+
+    // Initialize datepickers for check-in and check-out inputs
+    initializeDatepicker($("#check-in"), true);
+    initializeDatepicker($("#check-out"), true);
+    initializeDatepicker($("#date-from"));
+    initializeDatepicker($("#date-to"));
+
+    // Get reserved dates from Django view
+    var reservedDates = {{ reserved_dates|safe }};
+
+    function highlightReservedDates(date) {
+    var formattedDate = $.datepicker.formatDate("yy-mm-dd", date);
+    if (reservedDates.indexOf(formattedDate) !== -1) {
+        return [false, "reserved-date"];
+    }
+    return [true, ""];
+    }
+
+    $("#reservation-form").on("submit", function(e) {
+    var checkInDate = $("#check-in").val();
+    var checkOutDate = $("#check-out").val();
+
+    if (checkInDate && checkOutDate) {
+        for (var i = 0; i < reservedDates.length; i++) {
+        var reservedDate = new Date(reservedDates[i]);
+        var startDate = new Date(checkInDate);
+        var endDate = new Date(checkOutDate);
+        }
+    }
+    });
+});
+</script>
 {% endblock content %}

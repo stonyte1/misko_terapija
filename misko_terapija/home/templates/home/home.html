@@ -90,18 +90,9 @@
     <div class="reviews-text">
         <p>Pažiūrėkite, kodėl jums patiks mūsų erdvė</p>
     </div>
-        <div class="review-group">
-            <iframe src='https://widgets.sociablekit.com/google-reviews/iframe/182177' frameborder='0' width='100%' height='360'></iframe>
-            {% comment %} {% for review in reviews %}
-                <div class="review-left">
-                    <div class="review-left-logo">
-                        <img src="{% static 'home/image/music_note.png' %}">
-                    </div>
-                    <h4>{{ review.title }}</h4>
-                    <p>{{ review.content }}</p>
-                </div>
-            {% endfor %} {% endcomment %}
-        </div> 
+    <div class="review-group">
+        <iframe src='https://widgets.sociablekit.com/google-reviews/iframe/182177' frameborder='0' width='100%' height='360'></iframe>
+    </div> 
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>

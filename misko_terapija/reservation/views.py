@@ -6,7 +6,6 @@ import stripe
 from django.conf import settings
 
 
-
 def get_price(date_from, date_to, house):
     price = 0
     current_date = date_from
@@ -63,7 +62,6 @@ def reservation_create(request, pk):
                                 },
                             },
                             'quantity': 1,
-
                         }
                     ],
                     mode='payment',

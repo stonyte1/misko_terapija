@@ -1,22 +1,18 @@
 .house-page {
   background: #eae1cd;
 }
-
 .home-arrow {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
 .home-arrow a {
   text-decoration: none;
 }
-
 .home-arrow img {
   width: 32px;
   height: 32px;
 }
-
 .home-arrow p {
   color: #0c2218;
   font-family: "PTSans-Regular";
@@ -25,18 +21,15 @@
   font-weight: 400;
   line-height: normal;
 }
-
 .house-detail {
   display: flex;
   gap: 16px;
-  /* width: 100%; */
 }
 .house-main-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-
 .house-main-info h3 {
   display: flex;
   flex-direction: column;
@@ -48,11 +41,9 @@
   line-height: normal;
   margin: 0;
 }
-
 .house-main-info p {
   display: flex;
   flex-direction: column;
-
   color: #0c2218;
   font-family: "PTSans-Regular";
   font-size: 16px;
@@ -60,7 +51,6 @@
   font-weight: 400;
   line-height: normal;
 }
-
 .reservation-form {
   display: flex;
   padding: 24px;
@@ -69,7 +59,6 @@
   border: 2px solid #1e5e5f;
   background: #fff;
 }
-
 .reservation-form h3 {
   color: #000;
   font-family: "PTSans-Regular";
@@ -88,7 +77,6 @@
   line-height: normal;
   margin: 0;
 }
-
 .reservation-form p {
   color: #000;
   font-family: "PTSans-Regular";
@@ -97,19 +85,16 @@
   font-weight: 400;
   line-height: normal;
 }
-
 .form-group {
   display: flex;
   padding: 12px 16px;
   justify-content: center;
   align-items: center;
   gap: 16px;
-
   border: 1px solid var(--gray-300, #c8c8c8);
   background: var(--text-white, #fff);
   margin-bottom: 16px;
 }
-
 .form-group:hover {
   border: 1px solid #112f21;
   background: linear-gradient(
@@ -119,12 +104,10 @@
     ),
     #fff;
 }
-
 .form-group img {
   width: 24px;
   height: 24px;
 }
-
 .form-group input {
   display: flex;
   flex-direction: column;
@@ -138,7 +121,6 @@
   line-height: 150%;
   border: none;
 }
-
 .form-group input:hover {
   background: linear-gradient(
       0deg,
@@ -147,7 +129,6 @@
     ),
     #fff;
 }
-
 #payment-button {
   display: flex;
   padding: 12px 24px;
@@ -160,7 +141,6 @@
   height: 50px;
   border: none;
 }
-
 #payment-button p {
   color: #fff;
   font-family: "PTSans-Regular";
@@ -169,39 +149,31 @@
   font-weight: 400;
   line-height: normal;
 }
-
 .house-cover {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .house-cover img {
   width: 100%;
 }
-
 .house-gallery {
   display: flex;
   gap: 8px;
 }
-
 .house-gallery img {
   width: 15%;
 }
-
 .house-information {
   background: #112f21;
 }
-
 .information {
   display: flex;
   gap: 64px;
 }
-
 .about {
   flex: 1 0 0;
 }
-
 .about h3 {
   color: #eae1cd;
   font-family: "PTSans-Regular";
@@ -210,7 +182,6 @@
   font-weight: 700;
   line-height: normal;
 }
-
 .about p {
   color: #eae1cd;
   font-family: "PTSans-Regular";
@@ -219,11 +190,9 @@
   font-weight: 400;
   line-height: 150%; /* 24px */
 }
-
 .comfort {
   flex: 1 0 0;
 }
-
 .comfort h3 {
   color: #eae1cd;
   font-family: "PTSans-Regular";
@@ -232,12 +201,10 @@
   font-weight: 700;
   line-height: normal;
 }
-
 .about-comfort {
   display: flex;
   gap: 32px;
 }
-
 .first-comfort-items {
   display: flex;
   flex-direction: column;
@@ -245,18 +212,15 @@
   gap: 16px;
   flex: 1 0 0;
 }
-
 .comfort-item {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
 .comfort-item img {
   width: 32px;
   height: 32px;
 }
-
 .comfort-item h4 {
   color: #eae1cd;
   font-family: "PTSans-Regular";
@@ -266,14 +230,12 @@
   line-height: normal;
   margin: 0px;
 }
-
 .second-comfort-items {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
 }
-
 .ui-datepicker {
   display: none;
   flex-direction: column;
@@ -281,23 +243,19 @@
   background: #fff;
   padding: 8px;
 }
-
 .ui-datepicker-header {
   display: flex;
   padding: 10px 32px;
   font-family: "PTSans-Bold";
 }
-
 .ui-datepicker-prev {
   order: 1;
   background-image: url("reservation/image/chevron-left.png");
 }
-
 .ui-datepicker-next {
   order: 3;
   background-image: url("reservation/image/chevron-right.png");
 }
-
 .ui-datepicker-title {
   order: 2;
   flex: 1;
@@ -309,7 +267,6 @@
   font-weight: 700;
   line-height: normal;
 }
-
 .ui-datepicker-prev,
 .ui-datepicker-next {
   height: 24px;
@@ -317,23 +274,19 @@
   line-height: 600%;
   overflow: hidden;
 }
-
 .ui-datepicker-calendar {
   display: flex;
   flex-direction: column;
 }
-
 thead {
   display: flex;
   justify-content: center;
 }
-
 tr {
   display: flex;
   padding: 4px 32px;
   gap: 14px;
 }
-
 th {
   display: flex;
   padding: 10px;
@@ -341,7 +294,6 @@ th {
   align-items: center;
   gap: 10px;
 }
-
 span {
   color: #000;
   font-family: "PTSans-Regular";
@@ -352,20 +304,17 @@ span {
   letter-spacing: 0.42px;
   text-transform: uppercase;
 }
-
 tbody {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 td {
   display: flex;
   justify-content: center;
   width: 17px;
   padding: 8px 16px;
 }
-
 .ui-state-default {
   color: #999999;
   text-align: center;
@@ -375,17 +324,14 @@ td {
   font-weight: 400;
   line-height: 22px; /* 122.222% */
 }
-
 .reserved-date {
   color: #000;
   text-decoration: line-through;
   cursor: not-allowed;
 }
-
 .ui-state-default:not(.reserved-date) {
   text-decoration: none;
 }
-
 a.ui-state-default {
   color: #000;
   text-align: center;
@@ -393,15 +339,55 @@ a.ui-state-default {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 22px; /* 122.222% */
+  line-height: 22px;
 }
-
 a.ui-state-default:hover {
   border-radius: 100px;
   background: rgba(17, 47, 33, 0.1);
   padding: 4px 4px;
 }
-
+.all-prices {
+  background: #112f21;
+}
+.all-prices h3 {
+  color: #eae1cd;
+  font-family: "PTSans-Regular";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.price-information {
+  display: flex;
+  flex-direction: column;
+}
+.price-header {
+  display: flex;
+  justify-content: space-between;
+}
+.price-header h4 {
+  color: #eae1cd;
+  font-family: "PTSans-Regular";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+}
+.prices {
+  display: flex;
+  justify-content: space-between;
+  border-top: solid #EAE1CD;
+}
+.prices h4 {
+  color: #eae1cd;
+  font-family: "PTSans-Regular";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+}
 .fas-house {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -420,19 +406,16 @@ a.ui-state-default:hover {
   transition: font-size 0.3s;
   margin-left: 20px;
 }
-
 .fas-house:hover {
   color: #112f21;
   font-size: 30px;
 }
-
 .edit-house a {
   text-decoration: none;
   color: black;
   font-size: 25px;
   font-family: "PTSans-Bold";
 }
-
 .edit-reservation a {
   text-decoration: none;
   color: black;

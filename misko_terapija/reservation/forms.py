@@ -1,11 +1,5 @@
 from django import forms
-from .models import Reservation, Client
-
-
-class ClientForm(forms.ModelForm):
-    class Meta:
-        model = Client
-        fields = ('name', 'email', 'phone_number')
+from .models import Reservation
 
 
 class ReservationForm(forms.ModelForm):

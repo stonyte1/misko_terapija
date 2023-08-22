@@ -21,7 +21,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
-  border: 2px solid #1e5e5f;
+  border: 2px solid #112f21;
   background: #fff;
 }
 .login-form p {
@@ -31,7 +31,7 @@
   align-items: center;
   gap: 16px;
   align-self: stretch;
-  border: 1px solid #1e5e5f;
+  border: 1px solid #112f21;
   background: var(--text-white, #fff);
   margin-bottom: 16px;
 }
@@ -40,7 +40,7 @@
   flex-direction: column;
   justify-content: center;
   flex: 1 0 0;
-  color: var(--text-dark, #252525);
+  color: var(--text-dark, #112f21);
   font-family: "PTSans-Regular";
   font-size: 16px;
   font-style: normal;
@@ -49,12 +49,12 @@
   border: solid #1e5e5f;
 }
 .login-form label {
-  color: var(--text-dark, #252525);
+  color: var(--text-dark, #112f21);
   font-family: "PTSans-Regular";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%; /* 24px */
+  line-height: 150%;
 }
 .login-button {
   display: flex;
@@ -76,7 +76,7 @@
 }
 .logout {
   padding: 24px;
-  border: 2px solid #1e5e5f;
+  border: 2px solid #112f21;
   background: #fff;
 }
 .logout h3 {
@@ -113,51 +113,16 @@
   font-weight: 500;
   line-height: normal;
 }
-.delete-gallery {
-  display: flex;
-  padding: 0px 64px;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+.reservation-item {
+  padding: 12px 0px;
 }
-.gallery {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-left: 50px;
-}
-.gallery-item {
-  margin-bottom: 10px;
-  gap: 20px;
-}
-.gallery img {
-  width: 160px;
-  height: 160px;
-  background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    ),
-    url(<path-to-image>), lightgray -50.76px -68.1px / 163.451% 240% no-repeat;
-}
-.reservation {
-  display: flex;
-  padding: 12px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  align-self: stretch;
-  border: 1px solid #1e5e5f;
-  background: var(--text-white, #fff);
+.delete {
+  width: 100%;
 }
 .reservation-date {
   display: flex;
   padding: 12px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  align-self: stretch;
-  border: 1px solid #1e5e5f;
+  justify-content: space-between;
+  border: 1px solid var(--gray-300, #c8c8c8);
   background: var(--text-white, #fff);
-  margin-bottom: 16px;
 }

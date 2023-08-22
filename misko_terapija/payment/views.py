@@ -8,7 +8,6 @@ import stripe
 import time
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Client
 import random
 import requests
 from datetime import datetime

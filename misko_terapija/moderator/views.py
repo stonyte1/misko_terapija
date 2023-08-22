@@ -4,10 +4,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
 from home.models import House, Image
-from gallery.models import Gallery
-from reservation.models import Client
+from reservation.models import Client, Reservation
 from .forms import HouseForm, LoginForm
-
+from reservation.views import get_reserved_dates
 
 class HouseUpdateView(generic.UpdateView, LoginRequiredMixin):
     model = House
@@ -36,45 +35,56 @@ class HouseUpdateView(generic.UpdateView, LoginRequiredMixin):
         obj = get_object_or_404(queryset, pk=self.kwargs['pk'])
         return obj
 
-
-class GalleryUpdateView(LoginRequiredMixin, generic.View):
-    template_name = 'moderator/gallery_form.html'
-
-    def get(self, request):
-        images = Gallery.objects.all()
-        return render(request, self.template_name, {'images': images})
-
-    def post(self, request):
-        images = request.FILES.getlist('images')
-        image_ids = request.POST.getlist('image_ids')
-
-        for image_id in image_ids:
-            gallery = Gallery.objects.get(id=image_id)
-            gallery.delete()
-
-        for image in images:
-            gallery = Gallery.objects.create(photo=image)
-
-        return redirect('gallery')
-
-
-class ReservationDeleteView(LoginRequiredMixin, generic.View):
+class ReservationUpdateView(LoginRequiredMixin, generic.View):
     template_name = 'moderator/reservation_delete.html'
 
-    def get(self, request):
+    def get(self, request, pk):
+        house = get_object_or_404(House, pk=pk)
+        reserved_dates = get_reserved_dates(pk)
         clients = Client.objects.all()
-        return render(request, self.template_name, {'clients': clients})
 
-    def post(self, request):
-        clients_id = request.POST.getlist('client_ids')
+        search_query = request.GET.get('search')
+        date_from = request.GET.get('date-from')
+        date_to = request.GET.get('date-to')
 
-        for client_id in clients_id:
-            client = Client.objects.get(id=client_id)
-            reservations = client.reservation
-            reservations.delete()
-            client.delete()
+        if search_query:
+            clients = clients.filter(name__icontains=search_query)
+        if date_from and date_to:
+            clients = clients.filter(reservation__date_from__gte=date_from, reservation__date_to__lte=date_to)
 
-            return redirect('home') 
+        return render(request, self.template_name, {
+            'house': house,
+            'clients': clients,
+            'reserved_dates': reserved_dates,
+        })
+    
+    def post(self, request, pk):
+        action = request.POST.get('action')
+        if action == 'add':
+            check_in_date = request.POST.get('check-in')
+            check_out_date = request.POST.get('check-out')
+            reservation = Reservation(date_from=check_in_date, date_to=check_out_date, house_id=pk)
+            reservation.save()
+
+            client = Client(
+            name=request.POST.get('name'),
+            email=request.POST.get('email'),
+            phone_number=request.POST.get('phone-number'),
+            reservation=reservation)
+
+            client.save()
+
+        elif action == 'delete':
+            clients_id = request.POST.getlist('client_ids')
+
+            for client_id in clients_id:
+                client = Client.objects.get(id=client_id)
+                reservations = client.reservation
+                reservations.delete()
+                client.delete()
+
+        return redirect('home') 
+
 
 
 def login_view(request):
